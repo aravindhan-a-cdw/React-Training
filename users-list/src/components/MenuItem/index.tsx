@@ -1,4 +1,4 @@
-import "./style.css";
+import styles from "./style.module.css";
 
 type MenuProp = {
 	children: string;
@@ -11,7 +11,9 @@ function MenuItem(props: MenuProp) {
 	return (
 		<span
 			onClick={onSelect}
-			className={`menu-item ${selected ? "selected-item" : ""}`}
+			className={`${styles.menu_item} ${
+				selected ? styles.selected_item : ""
+			}`}
 		>
 			{children}
 		</span>

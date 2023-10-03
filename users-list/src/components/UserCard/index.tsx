@@ -1,4 +1,4 @@
-import "./style.css";
+import styles from "./style.module.css";
 
 type UserProps = {
 	data: {
@@ -7,26 +7,19 @@ type UserProps = {
 		interests: Array<string>;
 		image: string;
 	};
-	selected: boolean;
-	onClick: () => void;
 };
 
 function UserCard(props: UserProps) {
 	const {
 		data: { name, location, interests, image },
-		selected,
-		onClick,
 	} = props;
 	return (
-		<div
-			className={`user-card ${selected ? "selected" : ""}`}
-			onClick={onClick}
-		>
+		<div className={styles.user_card}>
 			<img src={image} alt="User Profile" />
-			<div className="user-content">
-				<span className="user-name">{name}</span>
-				<span className="user-location">{location}</span>
-				<ul className="interests">
+			<div className={styles.user_content}>
+				<span className={styles.user_name}>{name}</span>
+				<span className={styles.user_location}>{location}</span>
+				<ul className={styles.interests}>
 					{interests.map((interest, index) => (
 						<span key={index}>{interest}</span>
 					))}

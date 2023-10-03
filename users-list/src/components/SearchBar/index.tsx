@@ -1,14 +1,15 @@
 import search from "@src/assets/search.png";
-import "./style.css";
+import AppConstants from "@constants/AppConstants.ts";
+import styles from "./style.module.css";
 
 function SearchBar() {
 	return (
-		<div className="search-bar">
+		<div className={styles.search_bar}>
 			<img src={search} alt="A lens logo for searching" />
 			<input
-				className="search-input"
+				className={styles.search_input}
 				type="text"
-				placeholder="Search users"
+				placeholder={AppConstants.USER_SEARCH_PLACEHOLDER}
 			/>
 		</div>
 	);

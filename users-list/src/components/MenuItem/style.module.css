@@ -1,11 +1,12 @@
-.menu-item{
+.menu_item{
     color: #373C47;
     padding: 0.9rem 1rem;
     border-radius: .5rem;
     cursor: pointer;
+    font-family: 'Poppins', sans-serif;
 }
 
-.menu-item.selected-item{
+.menu_item.selected_item{
     color: #FFF;
     background-color: #839FFF;
 }

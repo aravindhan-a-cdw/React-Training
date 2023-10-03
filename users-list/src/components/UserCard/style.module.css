@@ -1,5 +1,5 @@
 
-.user-card {
+.user_card {
     display: flex;
     font-family: 'Poppins', sans-serif;
     flex: 1 1 32%;
@@ -11,32 +11,33 @@
     min-height: 170px;
 }
 
-.user-card.selected {
+.user_card:hover {
     border: 2px solid #becce6;
     box-shadow: 0px 1px 8px 0px #E2E9F9;
 }
 
-.user-card > img {
+.user_card > img {
     width: 72px;
     height: 72px;
     border-radius: 50%;
 }
 
-.user-content {
+.user_content {
     display: flex;
     flex-direction: column;
     padding-top: .5rem;
 }
 
-.user-content > .user-name {
+.user_content > .user_name {
     font-size: 1.2rem;
     line-height: 2rem;
-    font-weight: bold;
+    font-weight: 900;
     font-family: 'Merriweather', serif;
 }
 
-.user-content > .user-location {
+.user_content > .user_location {
     font-size: .85rem;
+    font-weight: 500;
 }
 
 .interests {

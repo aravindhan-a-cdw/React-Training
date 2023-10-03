@@ -1,5 +1,5 @@
 
-.search-bar {
+.search_bar {
     border: 2px solid #E2E9F9;
     border-radius: .25rem;
     height: 3rem;
@@ -8,20 +8,20 @@
     gap: 1rem;
 }
 
-.search-bar > img {
+.search_bar > img {
     height: 100%;
 }
 
-.search-input {
+.search_input {
     border: none;
     width: 14rem;
 }
 
-.search-input::placeholder {
+.search_input::placeholder {
     font-weight: 500;
 }
 
-.search-input:focus-visible {
+.search_input:focus-visible {
     border: none;
     outline: none;
 }
