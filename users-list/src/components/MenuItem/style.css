@@ -1,0 +1,11 @@
+.menu-item{
+    color: #373C47;
+    padding: 0.9rem 1rem;
+    border-radius: .5rem;
+    cursor: pointer;
+}
+
+.menu-item.selected-item{
+    color: #FFF;
+    background-color: #839FFF;
+}

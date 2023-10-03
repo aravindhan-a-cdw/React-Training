@@ -1,0 +1,33 @@
+
+.holder {
+    background-color: #E6EAF8;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.users-page {
+    /* height: 75%; */
+    width: 75%;
+    background-color: #FFF;
+    padding: 4.75rem 4.5rem;
+    border-radius: 1rem;
+}
+
+.list-header {
+    display: flex;
+    justify-content: space-between;
+    margin: 2rem 0 3.5rem 0;
+}
+
+.menu-container {
+    display: inline-flex;
+}
+
+.users-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}

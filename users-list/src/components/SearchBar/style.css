@@ -1,0 +1,27 @@
+
+.search-bar {
+    border: 2px solid #E2E9F9;
+    border-radius: .25rem;
+    height: 3rem;
+    padding: 0.75rem;
+    display: inline-flex;
+    gap: 1rem;
+}
+
+.search-bar > img {
+    height: 100%;
+}
+
+.search-input {
+    border: none;
+    width: 14rem;
+}
+
+.search-input::placeholder {
+    font-weight: 500;
+}
+
+.search-input:focus-visible {
+    border: none;
+    outline: none;
+}
