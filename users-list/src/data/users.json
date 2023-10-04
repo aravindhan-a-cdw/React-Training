@@ -38,7 +38,17 @@
 		"id": 6,
 		"name": "Annie Rice",
 		"location": "Austin, TX",
-		"interests": ["road", "mountain", "trip", "earth", "nature"],
+		"interests": [
+			"road",
+			"mountain",
+			"trip",
+			"earth",
+			"nature",
+			"clothes",
+			"gadget",
+			"speed",
+			"all"
+		],
 		"image": "profile4.jpeg"
 	}
 ]
