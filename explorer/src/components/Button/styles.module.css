@@ -1,0 +1,9 @@
+
+.btn {
+    background: none;
+    background-color: var(--primary-color);
+    border: none;
+    color: #FFF;
+    font-size: 1rem;
+    text-transform: uppercase;
+}
