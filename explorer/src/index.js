@@ -6,17 +6,25 @@ import Home from './pages/Home';
 import Details from './pages/Details';
 import {createBrowserRouter, RouterProvider} from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
+import Error from './pages/Error';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home />
-  },
-  {
-    path: "/:place",
-    element: <Details/> 
+    element: <App />,
+    errorElement: <Error />,
+    children: [
+      {
+        path: "/place/:place",
+        element: <Details/>
+      },
+      {
+        path: "",
+        element: <Home />
+      }
+    ]
   }
 ])
 root.render(

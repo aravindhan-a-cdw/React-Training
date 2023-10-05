@@ -1,7 +1,12 @@
+import { Outlet } from "react-router";
 
 function App() {
   return (
-    <div></div>
+    <div>
+      Header
+      <Outlet />
+      Footer
+    </div>
   );
 }
 
