@@ -48,3 +48,7 @@
     gap: .25rem;
 }
 
+.interests > li {
+    list-style: none;
+}
+
