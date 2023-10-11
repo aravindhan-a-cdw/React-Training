@@ -1,5 +1,4 @@
 import Card from "../../components/Card";
-import { HOME_CONSTANTS } from "../../constants/PageConstants";
 import styles from "./styles.module.scss";
 
 type CardsListProps = {

@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import Button from "../Button";
 import styles from "./styles.module.css";
 
@@ -12,6 +13,12 @@ type CardProps = {
 
 function Card(props: CardProps) {
 	const { data } = props;
+	const navigate = useNavigate();
+
+	const cardClickHandler = (city: string) => {
+		navigate(`/place/${data.city.toLowerCase()}`);
+	};
+
 	return (
 		<div className={styles.card}>
 			<img
@@ -21,7 +28,9 @@ function Card(props: CardProps) {
 			<h4>{data.place}</h4>
 			<h3>{data.city}</h3>
 			<p>{data.shortDescription}</p>
-			<Button className={styles.btn}>Read More</Button>
+			<Button onClick={cardClickHandler} className={styles.btn}>
+				Read More
+			</Button>
 		</div>
 	);
 }
