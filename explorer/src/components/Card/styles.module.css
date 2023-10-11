@@ -30,5 +30,6 @@
 }
 
 .card > .btn {
+    padding: 1rem 1.75rem;
     margin-top: auto;
 }

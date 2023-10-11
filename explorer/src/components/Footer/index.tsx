@@ -46,12 +46,6 @@ const Footer = (props: FooterProps) => {
 			<form onSubmit={handleFormSubmit}>
 				<label htmlFor="name">{FOOTER_CONSTANTS.NAME}</label>
 				<Input id="name" name="name" />
-				{/* <input
-					className={styles.input}
-					type="text"
-					id="name"
-					name="name"
-				/> */}
 				<label htmlFor="home-town">{FOOTER_CONSTANTS.HOME_TOWN}</label>
 				<Dropdown
 					options={cities}
@@ -70,13 +64,10 @@ const Footer = (props: FooterProps) => {
 				/>
 				<label htmlFor="contact">{FOOTER_CONSTANTS.CONTACT}</label>
 				<Input id="contact" name="contact" />
-				{/* <input
-					className={styles.input}
-					type="number"
-					id="contact"
-					name="contact"
-				/> */}
-				<Button className={styles.submit_btn}>
+				<Button
+					onClick={handleFormSubmit}
+					className={styles.submit_btn}
+				>
 					{FOOTER_CONSTANTS.BUTTON_TITLE}
 				</Button>
 			</form>

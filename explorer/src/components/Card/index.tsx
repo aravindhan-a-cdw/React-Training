@@ -21,9 +21,7 @@ function Card(props: CardProps) {
 			<h4>{data.place}</h4>
 			<h3>{data.city}</h3>
 			<p>{data.shortDescription}</p>
-			<Button className={styles.btn} padding="1rem 1.75rem">
-				Read More
-			</Button>
+			<Button className={styles.btn}>Read More</Button>
 		</div>
 	);
 }

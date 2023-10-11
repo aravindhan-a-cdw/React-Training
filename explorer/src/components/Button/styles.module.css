@@ -3,6 +3,7 @@
     background: none;
     background-color: var(--primary-color);
     border: none;
+    cursor: pointer;
     color: #FFF;
     font-size: 1rem;
     text-transform: uppercase;
