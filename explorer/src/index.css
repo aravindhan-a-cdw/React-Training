@@ -13,4 +13,12 @@
   font-size: 16px;
 }
 
+.primary-text {
+  color: var(--primary-color);
+}
+
+.primary-text-light {
+  color: var(--secondary-color);
+}
+
 

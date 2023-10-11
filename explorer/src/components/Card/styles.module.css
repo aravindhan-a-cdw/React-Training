@@ -6,7 +6,8 @@
 }
 
 .card > img {
-    align-self: stretch;
+    margin-bottom: 1.15rem;
+    width: 100%;
 }
 
 .card > h4 {
@@ -22,4 +23,12 @@
 
 .card > p {
     padding-bottom: 1rem;
+    color: #111111;
+    font-size: 1.2rem;
+    font-weight: 300;
+    line-height: 140%;
+}
+
+.card > .btn {
+    margin-top: auto;
 }

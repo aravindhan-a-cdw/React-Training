@@ -7,10 +7,14 @@ import Dropdown from "../../components/Dropdown";
 import { useEffect, useState } from "react";
 import Service from "../../services/apiservice";
 import styles from "./styles.module.scss";
+import CardsList from "../../layouts/CardsList";
 
 function Home() {
 	const [cities, setCities] = useState([]);
+	const [data, setData] = useState([]);
+
 	useEffect(() => {
+		Service.getAllPlaces().then((data) => setData(data));
 		Service.getAllPlaces().then((data) =>
 			setCities(data.map((details: { city: string }) => details.city))
 		);
@@ -44,6 +48,13 @@ function Home() {
 					</Button>
 				</div>
 			</Banner>
+			<div className={styles.destinations}>
+				<CardsList
+					title={HOME_CONSTANTS.DESTINATIONS.HEADING}
+					subtitle={HOME_CONSTANTS.DESTINATIONS.SUB_HEADING}
+					cards={data}
+				></CardsList>
+			</div>
 		</>
 	);
 }

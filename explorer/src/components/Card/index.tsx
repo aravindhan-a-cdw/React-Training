@@ -15,13 +15,15 @@ function Card(props: CardProps) {
 	return (
 		<div className={styles.card}>
 			<img
-				src={`/assets/${data.city.toLowerCase()}.png`}
+				src={`/images/${data.city.toLowerCase()}.png`}
 				alt={data.city}
 			/>
 			<h4>{data.place}</h4>
 			<h3>{data.city}</h3>
 			<p>{data.shortDescription}</p>
-			<Button padding="1rem 1.75rem">Read More</Button>
+			<Button className={styles.btn} padding="1rem 1.75rem">
+				Read More
+			</Button>
 		</div>
 	);
 }
