@@ -1,7 +1,21 @@
 import Button from "../../components/Button";
 import Card from "../../components/Card";
+import Nav from "../../components/Navbar";
+import Banner from "../../layouts/Banner";
+import { HOME_CONSTANTS } from "../../constants/PageConstants";
+import Dropdown from "../../components/Dropdown";
+import { useEffect, useState } from "react";
+import Service from "../../services/apiservice";
+import styles from "./styles.module.scss";
 
 function Home() {
+	const [cities, setCities] = useState([]);
+	useEffect(() => {
+		Service.getAllPlaces().then((data) =>
+			setCities(data.map((details: { city: string }) => details.city))
+		);
+	}, []);
+
 	const place = {
 		place: "Never Ending Paddy Fields and Narrorw Roads",
 		city: "Pollachi",
@@ -13,9 +27,23 @@ function Home() {
 	};
 	return (
 		<>
-			<div>Home</div>
-			{/* <Button padding="1rem 1.5rem">Read More</Button> */}
-			<Card data={place}></Card>
+			<Banner image="/images/banner.png">
+				<div className={styles.banner}>
+					<h3>{HOME_CONSTANTS.HEADER.WELCOME}</h3>
+					<h4>
+						{HOME_CONSTANTS.HEADER.SUB_HEADING_PART_1}{" "}
+						<span>{HOME_CONSTANTS.HEADER.SUB_HEADING_PART_2}</span>
+					</h4>
+					<Dropdown
+						className={styles.banner_dropdown}
+						options={cities}
+						id_name="destination"
+					></Dropdown>
+					<Button className={styles.explore_btn}>
+						{HOME_CONSTANTS.HEADER.BUTTON_TEXT}
+					</Button>
+				</div>
+			</Banner>
 		</>
 	);
 }

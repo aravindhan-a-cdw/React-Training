@@ -7,13 +7,14 @@ import Details from './pages/Details';
 import {createBrowserRouter, RouterProvider} from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
 import Error from './pages/Error';
+import PageLayout from './layouts/PageLayout';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: <PageLayout />,
     errorElement: <Error />,
     children: [
       {

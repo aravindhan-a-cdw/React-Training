@@ -1,0 +1,29 @@
+.footer_container {
+    background-color: #F7F7F7;
+}
+
+.heading {
+    font-weight: 600;
+    font-size: 2.75rem;
+    margin-bottom: .5rem;
+}
+
+.sub_heading {
+    font-size: 1.375rem;
+}
+
+form {
+    margin-top: .5rem;
+}
+
+form > label {
+    display: inline-block;
+    margin: 2.125rem 0 .75rem;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.submit_btn {
+    margin-top: 1.75rem;
+    padding: 1rem 1.25rem;
+}

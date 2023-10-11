@@ -1,0 +1,35 @@
+.banner_dropdown {
+    width: 122%;
+    background-color: white;
+    margin-bottom: 1.375rem;
+    position: relative;
+}
+
+.explore_btn {
+    padding: 1rem 2.5rem;
+}
+
+.banner {
+    padding-top: 11rem;
+
+    & h3 {
+        color: var(--secondary-color);
+        text-transform: uppercase;
+        font-size: 1.4rem;
+        margin-bottom: 3rem;
+        font-weight: 500;
+        letter-spacing: .05rem;
+    }
+
+    & h4 {
+        color: var(--primary-color);
+        font-size: 4.5rem;
+        font-weight: 300;
+        margin-bottom: 5rem;
+
+        & span {
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+    }
+}

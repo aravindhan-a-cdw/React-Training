@@ -1,9 +1,12 @@
 import { Outlet } from "react-router";
+import Nav from "./components/Navbar";
 
 function App() {
   return (
     <div>
-      Header
+      <header>
+        <Nav />
+      </header>
       <Outlet />
       Footer
     </div>
