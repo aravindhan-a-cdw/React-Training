@@ -1,10 +1,9 @@
 import { useParams, useLoaderData } from "react-router-dom";
 import Banner from "../../layouts/Banner";
 import styles from "./styles.module.scss";
-import Dropdown from "../../components/Dropdown";
-import Button from "../../components/Button";
 import CardsList from "../../layouts/CardsList";
 import { DETAIL_CONSTANTS } from "../../constants/PageConstants";
+import { useEffect } from "react";
 
 type PlaceData = {
 	place: string;
@@ -23,6 +22,11 @@ type PageData = {
 const Details = () => {
 	const { place } = useParams();
 	const data = useLoaderData() as PageData;
+
+	useEffect(() => {
+		console.log("Details callled");
+		window.scrollTo(0, 0);
+	}, [place]);
 
 	return (
 		<>
