@@ -1,6 +1,9 @@
 .footer_container {
     background-color: #F7F7F7;
-    padding: 6rem 32rem;
+
+    & .form_container {
+        padding: 6rem 32rem 2rem 32rem;
+    }
 }
 
 .heading {
@@ -27,4 +30,14 @@ form > label {
 .submit_btn {
     margin-top: 1.75rem;
     padding: 1rem 1.25rem;
+}
+
+.message {
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 2rem;
+    width: 70%;
+    margin: 1rem auto;
+    text-align: center;
+    font-size: 1.2rem;
 }

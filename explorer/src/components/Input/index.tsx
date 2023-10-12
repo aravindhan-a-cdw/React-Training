@@ -16,7 +16,7 @@ function Input(props: InputProps) {
 			className={`${styles.input} ${className}`}
 			type={type}
 			value={value}
-			onChange={onChange}
+			onChange={(event) => onChange && onChange(event.target.value)}
 			id={id}
 			name={name}
 		/>
