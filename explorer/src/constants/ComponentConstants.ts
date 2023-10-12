@@ -19,7 +19,7 @@ export const FOOTER_CONSTANTS = {
 export const NAVBAR_CONSTANTS = {
 	ROOT_URL: "/",
 	LOGO: {
-		src: "images/logo.png",
+		src: "/images/logo.png",
 		alt: "Explorer Logo",
 	},
 	NAV_LINKS: [

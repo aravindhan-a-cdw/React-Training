@@ -8,6 +8,7 @@ import {createBrowserRouter, RouterProvider} from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
 import Error from './pages/Error';
 import PageLayout from './layouts/PageLayout';
+import Service from './services/apiservice';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -19,7 +20,17 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/place/:place",
-        element: <Details/>
+        element: <Details/>,
+        loader: async ({params}) => {
+          return {
+            placeData: {
+              ...await Service.getPlaceDetails(params.place),
+              temperature: await Service.getWeather(params.place)
+            },
+            relatedPlaces: await Service.getSimilarPlaces(params.place),
+            allPlacesData: await Service.getAllPlaces()
+          };
+        }
       },
       {
         path: "",

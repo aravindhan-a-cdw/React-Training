@@ -1,5 +1,64 @@
+import { useParams, useLoaderData } from "react-router-dom";
+import Banner from "../../layouts/Banner";
+import styles from "./styles.module.scss";
+import Dropdown from "../../components/Dropdown";
+import Button from "../../components/Button";
+import CardsList from "../../layouts/CardsList";
+import { DETAIL_CONSTANTS } from "../../constants/PageConstants";
+
+type PlaceData = {
+	place: string;
+	city: string;
+	shortDescription: string;
+	fullDescription: string;
+	temperature?: number;
+};
+
+type PageData = {
+	placeData: PlaceData;
+	relatedPlaces: Array<string>;
+	allPlacesData: Array<PlaceData>;
+};
+
 const Details = () => {
-	return <div>Details Page</div>;
+	const { place } = useParams();
+	const data = useLoaderData() as PageData;
+
+	return (
+		<>
+			<Banner className={styles.banner} image={`/images/${place}.png`}>
+				<div className={styles.banner_content}>
+					<h3 className={`primary-text ${styles.title}`}>{place}</h3>
+					<div className={styles.slogan_container}>
+						<h4 className={styles.slogan}>
+							{data.placeData.place}
+						</h4>
+					</div>
+					<span className={styles.temperature}>
+						{data.placeData.temperature} &deg;{" "}
+						{DETAIL_CONSTANTS.TEMPERATURE_UNIT}
+					</span>
+				</div>
+			</Banner>
+			<main className={styles.content}>
+				<section>
+					<p>{data.placeData.fullDescription}</p>
+				</section>
+				<section className={styles.destinations}>
+					<CardsList
+						title={DETAIL_CONSTANTS.SIMILAR_DESTINATIONS.HEADING}
+						subtitle={
+							DETAIL_CONSTANTS.SIMILAR_DESTINATIONS.SUB_HEADING +
+							` ${place}`
+						}
+						cards={data.allPlacesData.filter((x) =>
+							data.relatedPlaces.includes(x.city)
+						)}
+					></CardsList>
+				</section>
+			</main>
+		</>
+	);
 };
 
 export default Details;

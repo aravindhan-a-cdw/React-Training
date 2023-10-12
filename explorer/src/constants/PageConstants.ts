@@ -12,4 +12,12 @@ const HOME_CONSTANTS = {
 	},
 };
 
-export { HOME_CONSTANTS };
+const DETAIL_CONSTANTS = {
+	TEMPERATURE_UNIT: "C",
+	SIMILAR_DESTINATIONS: {
+		HEADING: "Similar Destinations",
+		SUB_HEADING: "Because you liked",
+	},
+};
+
+export { HOME_CONSTANTS, DETAIL_CONSTANTS };
