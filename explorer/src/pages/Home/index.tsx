@@ -1,6 +1,4 @@
 import Button from "../../components/Button";
-import Card from "../../components/Card";
-import Nav from "../../components/Navbar";
 import Banner from "../../layouts/Banner";
 import { HOME_CONSTANTS } from "../../constants/PageConstants";
 import Dropdown from "../../components/Dropdown";
