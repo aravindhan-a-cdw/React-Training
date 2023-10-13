@@ -1,9 +1,15 @@
 import styles from "./styles.module.css";
+import PropTypes from "prop-types";
 
 type ButtonProps = {
 	children: string;
 	className?: string;
 	onClick?: (event: any) => void;
+};
+
+Button.propTypes = {
+	className: PropTypes.string,
+	onClick: PropTypes.func,
 };
 
 function Button(props: ButtonProps) {

@@ -3,6 +3,7 @@ import Dropdown from "../Dropdown";
 import Input from "../Input";
 import styles from "./styles.module.scss";
 import { useEffect, useState } from "react";
+import PropTypes from "prop-types";
 import Service from "../../services/apiservice";
 import { FOOTER_CONSTANTS } from "../../constants/ComponentConstants";
 
@@ -127,6 +128,10 @@ const Footer = (props: FooterProps) => {
 			)}
 		</footer>
 	);
+};
+
+Footer.propTypes = {
+	className: PropTypes.string,
 };
 
 export default Footer;

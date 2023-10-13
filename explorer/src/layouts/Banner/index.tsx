@@ -1,4 +1,5 @@
 import styles from "./styles.module.scss";
+import PropTypes from "prop-types";
 
 type BannerProps = {
 	children: any;
@@ -17,5 +18,11 @@ function Banner(props: BannerProps) {
 		</div>
 	);
 }
+
+Banner.propTypes = {
+	children: PropTypes.element.isRequired,
+	image: PropTypes.string.isRequired,
+	className: PropTypes.string,
+};
 
 export default Banner;

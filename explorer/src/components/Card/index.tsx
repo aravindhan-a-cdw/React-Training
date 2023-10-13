@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import Button from "../Button";
 import styles from "./styles.module.css";
+import PropTypes from "prop-types";
 
 type CardProps = {
 	data: {
@@ -9,6 +10,15 @@ type CardProps = {
 		shortDescription: string;
 		fullDescription: string;
 	};
+};
+
+Card.propTypes = {
+	data: PropTypes.shape({
+		place: PropTypes.string.isRequired,
+		city: PropTypes.string.isRequired,
+		shortDescription: PropTypes.string.isRequired,
+		fullDescription: PropTypes.string.isRequired,
+	}),
 };
 
 function Card(props: CardProps) {

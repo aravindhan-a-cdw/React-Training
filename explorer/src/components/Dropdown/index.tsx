@@ -1,4 +1,5 @@
 import style from "./styles.module.scss";
+import PropTypes from "prop-types";
 import { DROPDOWN_CONSTANTS } from "../../constants/ComponentConstants";
 
 type DropdownProps = {
@@ -48,6 +49,15 @@ const Dropdown = (props: DropdownProps) => {
 			{optionElements}
 		</select>
 	);
+};
+
+Dropdown.propTypes = {
+	options: PropTypes.arrayOf(PropTypes.string),
+	defaultValue: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+	borderColor: PropTypes.string,
+	onChange: PropTypes.func,
+	id_name: PropTypes.string,
+	className: PropTypes.string,
 };
 
 export default Dropdown;

@@ -1,5 +1,6 @@
 import Card from "../../components/Card";
 import styles from "./styles.module.scss";
+import PropTypes from "prop-types";
 
 type CardsListProps = {
 	title: string;
@@ -27,6 +28,19 @@ const CardsList = (props: CardsListProps) => {
 			</div>
 		</div>
 	);
+};
+
+CardsList.propTypes = {
+	title: PropTypes.string.isRequired,
+	subtitle: PropTypes.string.isRequired,
+	cards: PropTypes.arrayOf(
+		PropTypes.shape({
+			place: PropTypes.string.isRequired,
+			city: PropTypes.string.isRequired,
+			shortDescription: PropTypes.string.isRequired,
+			fullDescription: PropTypes.string.isRequired,
+		})
+	),
 };
 
 export default CardsList;
