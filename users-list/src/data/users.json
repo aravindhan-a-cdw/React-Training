@@ -1,0 +1,54 @@
+[
+	{
+		"id": 1,
+		"name": "Lelah Nichols",
+		"location": "Troy, MI",
+		"interests": ["clothes", "stem"],
+		"image": "profile6.png"
+	},
+	{
+		"id": 2,
+		"name": "Jesus Weiss",
+		"location": "Fort Worth, TX",
+		"interests": ["headset", "gadget", "speed", "winter"],
+		"image": "profile2.jpeg"
+	},
+	{
+		"id": 3,
+		"name": "Annie Rice",
+		"location": "Austin, TX",
+		"interests": ["road", "mountain", "trip", "earth", "nature"],
+		"image": "profile4.jpeg"
+	},
+	{
+		"id": 4,
+		"name": "Lelah Nichols",
+		"location": "Troy, MI",
+		"interests": ["clothes", "stem"],
+		"image": "profile6.png"
+	},
+	{
+		"id": 5,
+		"name": "Jesus Weiss",
+		"location": "Fort Worth, TX",
+		"interests": ["headset", "gadget", "speed", "winter"],
+		"image": "profile2.jpeg"
+	},
+	{
+		"id": 6,
+		"name": "Annie Rice",
+		"location": "Austin, TX",
+		"interests": [
+			"road",
+			"mountain",
+			"trip",
+			"earth",
+			"nature",
+			"clothes",
+			"gadget",
+			"speed",
+			"all"
+		],
+		"image": "profile4.jpeg"
+	}
+]
