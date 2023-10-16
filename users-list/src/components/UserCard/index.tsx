@@ -17,7 +17,11 @@ function UserCard(props: UserProps) {
 	const MAX_BADGES = 6;
 	const interestBadges = interests
 		.slice(0, MAX_BADGES)
-		.map((interest, index) => <Badge key={index}>{interest}</Badge>);
+		.map((interest, index) => (
+			<li>
+				<Badge key={index}>{interest}</Badge>
+			</li>
+		));
 	if (interests.length > MAX_BADGES)
 		interestBadges.push(<Badge key={MAX_BADGES}>...</Badge>);
 	return (
