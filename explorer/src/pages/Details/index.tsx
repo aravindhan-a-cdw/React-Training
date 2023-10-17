@@ -28,6 +28,10 @@ const Details = () => {
 		window.scrollTo(0, 0);
 	}, [place]);
 
+	const descriptions = data.placeData.fullDescription
+		.split("\\n")
+		.map((content) => <p>{content}</p>);
+
 	return (
 		<>
 			<Banner className={styles.banner} image={`/images/${place}.png`}>
@@ -45,9 +49,7 @@ const Details = () => {
 				</div>
 			</Banner>
 			<main className={styles.content}>
-				<section>
-					<p>{data.placeData.fullDescription}</p>
-				</section>
+				<section>{descriptions}</section>
 				<section className={styles.destinations}>
 					<CardsList
 						title={DETAIL_CONSTANTS.SIMILAR_DESTINATIONS.HEADING}
