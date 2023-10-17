@@ -4,7 +4,7 @@ import Input from "../Input";
 import styles from "./styles.module.scss";
 import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
-import Service from "../../services/apiservice";
+import Service from "../../services/apiService";
 import { FOOTER_CONSTANTS } from "../../constants/ComponentConstants";
 
 type FooterProps = {

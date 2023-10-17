@@ -7,7 +7,7 @@ import {createBrowserRouter, RouterProvider} from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
 import Error from './pages/Error';
 import PageLayout from './layouts/PageLayout';
-import Service from './services/apiservice';
+import Service from './services/apiService';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
