@@ -4,6 +4,15 @@
   box-sizing: border-box;
 }
 
+:root {
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+}
+
 img {
-  height: 100%;
+  width: 100%;
+}
+
+body {
+  position: relative;
 }

@@ -1,5 +1,6 @@
 import styles from "./styles.module.scss";
 import NavItem from "../NavItem";
+import { Link } from "react-router-dom";
 
 type HeaderProps = {
 	children?: any;
@@ -11,7 +12,9 @@ const Header = (props: HeaderProps) => {
 	return (
 		<nav className={`${styles.navbar} ${className}`}>
 			<div className={styles.nav_container}>
-				<span className={styles.logo}>SITBACK</span>
+				<span className={styles.logo}>
+					<Link to="/">SITBACK</Link>
+				</span>
 				<ul>
 					<NavItem>Couches</NavItem>
 					<NavItem>Chairs</NavItem>

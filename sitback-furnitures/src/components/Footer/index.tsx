@@ -1,3 +1,6 @@
+import styles from "./styles.module.scss";
+import { FOOTER_CONSTANTS } from "../../constants/ComponentConstants";
+
 type HeaderProps = {
 	children?: any;
 	className?: string;
@@ -5,7 +8,11 @@ type HeaderProps = {
 
 const Footer = (props: HeaderProps) => {
 	const { className } = props;
-	return <div className={`btn ${className}`}>Footer</div>;
+	return (
+		<footer className={`${styles.footer} ${className}`}>
+			{FOOTER_CONSTANTS.COPYRIGHT}
+		</footer>
+	);
 };
 
 export default Footer;
