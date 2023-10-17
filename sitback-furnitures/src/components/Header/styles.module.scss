@@ -1,0 +1,39 @@
+
+.navbar {
+    box-shadow: 0px 3px 5px #d1d1d1;
+    padding: 1.2rem 2.75rem;
+    position: sticky;
+    top: 0;
+    
+    .nav_container {
+        align-items: center;
+        justify-content: space-between;
+        display: flex;
+    }
+
+    & ul {
+        list-style: none;
+        display: flex;
+        gap: 4rem;
+    }
+
+    & .logo {
+        font-weight: 500;
+        font-size: 1.2rem;
+    }
+
+    & .user {
+        font-size: .8rem;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+        .dropdown {
+            border-bottom: 4px solid #000000;
+            border-left: 4px solid rgba(0, 0, 0, 0);
+            border-right: 4px solid rgba(0, 0, 0, 0);
+            transform: rotate(180deg);
+        }
+    }
+}
