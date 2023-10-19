@@ -7,7 +7,7 @@ import {createBrowserRouter, RouterProvider} from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
 import Error from './pages/Error';
 import PageLayout from './layouts/PageLayout';
-import Service from './services/apiService';
+import Service from './services/placesService';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -40,7 +40,7 @@ const router = createBrowserRouter([
 ])
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <RouterProvider fallbackElement={<p>Loading</p>} router={router} />
   </React.StrictMode>
 );
 

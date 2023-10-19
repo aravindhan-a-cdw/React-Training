@@ -3,7 +3,7 @@ import Banner from "../../layouts/Banner";
 import { HOME_CONSTANTS } from "../../constants/PageConstants";
 import Dropdown from "../../components/Dropdown";
 import { useEffect, useState } from "react";
-import Service from "../../services/apiService";
+import Service from "../../services/placesService";
 import styles from "./styles.module.scss";
 import CardsList from "../../layouts/CardsList";
 import { useNavigate } from "react-router-dom";
