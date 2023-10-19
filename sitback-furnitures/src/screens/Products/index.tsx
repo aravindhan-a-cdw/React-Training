@@ -4,6 +4,8 @@ import styles from "./styles.module.scss";
 import ProductItem from "../../components/ProductItem";
 import CardsContainer from "../../containers/CardsContainer";
 import Spinner from "../../components/Spinner";
+import { useState } from "react";
+import SideBar from "../../components/SideBar";
 
 export const loader = async (category: string | undefined) => {
 	if (category === undefined) throw Error("Category is not defined!");
@@ -21,19 +23,32 @@ type ProductData = {
 };
 
 const Products = () => {
+	// Navigation and page data
 	const data = useLoaderData() as Array<ProductData>;
 	const { state } = useNavigation();
 
+	// States
+	const [showSideBar, setShowSideBar] = useState(false);
+
+	const clickHandler = () => {
+		setShowSideBar(true);
+	};
+
 	const productItems = data.map((data) => (
-		<ProductItem key={data.id} data={data} />
+		<ProductItem clickHandler={clickHandler} key={data.id} data={data} />
 	));
 
 	return state === "loading" ? (
 		<Spinner />
 	) : (
-		<CardsContainer className={styles.products_container}>
-			{productItems}
-		</CardsContainer>
+		<div className={styles.container}>
+			<div className={styles.products_layout}>
+				<CardsContainer className={styles.products_container}>
+					{productItems}
+				</CardsContainer>
+			</div>
+			{showSideBar ? <SideBar></SideBar> : ""}
+		</div>
 	);
 };
 

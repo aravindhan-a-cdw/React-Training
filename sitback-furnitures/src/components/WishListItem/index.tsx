@@ -1,18 +1,17 @@
-import QuantityBar from "../Quantity";
+import Button from "../Button";
 import styles from "./styles.module.scss";
 
-type CartItemProps = {
+type WishListItemProps = {
 	data: {
 		id: number;
 		name: string;
 		price: number;
-		quantity: number;
 		photo: string;
 	};
 	className?: string;
 };
 
-const CartItem = (props: CartItemProps) => {
+const WishListItem = (props: WishListItemProps) => {
 	const { className, data } = props;
 	return (
 		<div className={`${styles.cart_item} ${className}`}>
@@ -21,9 +20,9 @@ const CartItem = (props: CartItemProps) => {
 				<span>{data.name}</span>
 				<span>&#8377; {data.price}</span>
 			</div>
-			<QuantityBar quantity={data.quantity} />
+			<Button className={styles.add_to_cart_btn}>Add to Cart</Button>
 		</div>
 	);
 };
 
-export default CartItem;
+export default WishListItem;

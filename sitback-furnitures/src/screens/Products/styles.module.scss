@@ -1,4 +1,17 @@
+
+.products_layout, .container{
+    display: flex;
+}
+
+.products_layout {
+    flex-grow: 1;
+    flex-basis: 75%;
+    position: sticky;
+    top: 0;
+}
+
 .products_container {
+    flex: 1 0 75%;
     flex-wrap: wrap;
     gap: 2.5rem;
     padding: 2.5rem;

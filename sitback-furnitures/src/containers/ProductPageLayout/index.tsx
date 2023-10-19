@@ -1,10 +1,11 @@
 import { Outlet } from "react-router-dom";
 import Header from "../../components/Header";
+import styles from "./styles.module.scss";
 
 const ProductPageLayout = () => {
 	return (
 		<div>
-			<header>
+			<header className={styles.sticky_header}>
 				<Header></Header>
 			</header>
 			<main>

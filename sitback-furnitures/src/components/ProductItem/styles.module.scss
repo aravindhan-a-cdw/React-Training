@@ -1,5 +1,5 @@
 .product_item {
-    flex: 0 1 23.25rem;
+    flex: 0 1 23.6rem;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -14,7 +14,7 @@
     & .basic_info {
         display: flex;
         justify-content: space-between;
-        font-weight: 500;
+        font-weight: 600;
         font-size: .95rem;
     }
 
@@ -27,7 +27,7 @@
         display: flex;
         color: #008800;
         font-size: .8rem;
-        font-weight: 500;
+        font-weight: 600;
         text-transform: uppercase;
         align-items: center;
         gap: .25rem;
