@@ -1,5 +1,6 @@
 import Button from "../Button";
 import styles from "./styles.module.scss";
+import { useNavigate } from "react-router-dom";
 
 type CategoryCardProps = {
 	className?: string;
@@ -13,12 +14,16 @@ type CategoryCardProps = {
 
 const CategoryCard = (props: CategoryCardProps) => {
 	const { className = "", categoryData } = props;
+	const navigate = useNavigate();
+
+	const clickHandler = () => navigate("/products/" + categoryData.id);
+
 	return (
 		<div className={`${className} ${styles.card}`}>
 			<img src={categoryData.photo} alt={categoryData.category} />
 			<h3>{categoryData.category}</h3>
 			<p>{categoryData.description}</p>
-			<Button>Shop Now</Button>
+			<Button clickHandler={clickHandler}>Shop Now</Button>
 		</div>
 	);
 };

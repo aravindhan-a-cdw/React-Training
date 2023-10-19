@@ -2,9 +2,9 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Spinner from "./components/Spinner";
 import "./App.css";
 import PageLayout from "./containers/PageLayout";
-import Home, { loader } from "./screens/Home";
+import Home, { loader as homeLoader } from "./screens/Home";
 import ProductPageLayout from "./containers/ProductPageLayout";
-import Products from "./screens/Products";
+import Products, { loader as productLoader } from "./screens/Products";
 import Order from "./screens/Order";
 
 function App() {
@@ -16,7 +16,7 @@ function App() {
 				{
 					path: "/",
 					element: <Home />,
-					loader: () => loader(),
+					loader: () => homeLoader(),
 				},
 				{
 					path: "orders",
@@ -27,7 +27,13 @@ function App() {
 		{
 			path: "products",
 			element: <ProductPageLayout />,
-			children: [{ path: ":category", element: <Products /> }],
+			children: [
+				{
+					path: ":category",
+					element: <Products />,
+					loader: ({ params }) => productLoader(params.category),
+				},
+			],
 		},
 	]);
 	return (
