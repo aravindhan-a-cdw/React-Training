@@ -2,6 +2,11 @@ import style from "./styles.module.scss";
 import PropTypes from "prop-types";
 import { DROPDOWN_CONSTANTS } from "../../constants/ComponentConstants";
 
+/*
+	@author Aravindhan A
+	@description Dropdown Component - Used to render dropdown menu
+*/
+
 type DropdownProps = {
 	options: Array<string>;
 	defaultValue?: any;
@@ -9,16 +14,17 @@ type DropdownProps = {
 	onChange?: (value: string) => void;
 	id_name?: string;
 	className?: string;
+	error?: boolean;
 };
 
 const Dropdown = (props: DropdownProps) => {
 	const {
 		options = [],
 		defaultValue = "",
-		borderColor = "#000",
 		onChange = null,
 		id_name = "",
 		className = "",
+		error = false,
 	} = props;
 	const optionElements = Array.from(options).map((value, index) => {
 		return (
@@ -36,8 +42,9 @@ const Dropdown = (props: DropdownProps) => {
 
 	return (
 		<select
-			className={`${style.select} ${className}`}
-			style={{ borderColor: borderColor }}
+			className={`${style.select} ${className} ${
+				error ? style.error : ""
+			}`}
 			defaultValue={defaultValue}
 			onChange={onValueChange}
 			id={id_name}

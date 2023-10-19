@@ -8,18 +8,36 @@ type InputProps = {
 	onChange?: (arg: any) => void;
 	id?: string;
 	name?: string;
+	error?: boolean;
+	ref?: React.MutableRefObject<HTMLInputElement>;
+	min_length?: number;
+	max_length?: number;
 };
 
 function Input(props: InputProps) {
-	const { className, type = "text", value, onChange, id, name } = props;
+	const {
+		className,
+		type = "text",
+		value,
+		onChange,
+		id,
+		name,
+		error = false,
+		ref,
+		...others
+	} = props;
 	return (
 		<input
-			className={`${styles.input} ${className}`}
+			className={`${styles.input} ${className} ${
+				error ? styles.error : ""
+			}`}
 			type={type}
 			value={value}
 			onChange={(event) => onChange && onChange(event.target.value)}
 			id={id}
 			name={name}
+			ref={ref}
+			{...others}
 		/>
 	);
 }

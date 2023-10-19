@@ -17,11 +17,18 @@ const Footer = (props: FooterProps) => {
 	const [cities, setCities] = useState([]);
 	const [showMessage, setShowMessage] = useState(false);
 	const [destinationCities, setDestinationCities] = useState(cities);
+
 	const [formState, setFormState] = useState({
 		name: "",
 		contact: "",
 		destination: "",
 		homeTown: "",
+	});
+	const [errorState, setErrorState] = useState({
+		name: false,
+		contact: false,
+		destination: false,
+		homeTown: false,
 	});
 	const [messageState, setMessageState] = useState(formState);
 
@@ -39,15 +46,63 @@ const Footer = (props: FooterProps) => {
 
 	const handleFormSubmit = (event: { preventDefault: () => void }) => {
 		event.preventDefault();
+		setErrorState({
+			name: false,
+			contact: false,
+			destination: false,
+			homeTown: false,
+		});
+
 		if (
 			formState.name === "" ||
 			formState.contact === "" ||
 			formState.homeTown === "" ||
 			formState.destination === ""
 		) {
+			if (formState.name.trim() === "") {
+				setErrorState((state) => {
+					return {
+						...state,
+						name: true,
+					};
+				});
+			}
+			if (formState.contact === "" || formState.contact.length !== 10) {
+				setErrorState((state) => {
+					return {
+						...state,
+						contact: true,
+					};
+				});
+			}
+			if (formState.homeTown === "") {
+				setErrorState((state) => {
+					return {
+						...state,
+						homeTown: true,
+					};
+				});
+			}
+			if (
+				formState.destination === "" ||
+				formState.homeTown === formState.destination
+			) {
+				setErrorState((state) => {
+					return {
+						...state,
+						destination: true,
+					};
+				});
+			}
 			return setShowMessage(false);
 		}
-		setMessageState(formState);
+		setMessageState({
+			...formState,
+			name:
+				formState.name.length > 50
+					? formState.name.substring(0, 50) + "..."
+					: formState.name,
+		});
 		setShowMessage(true);
 		return false;
 	};
@@ -72,6 +127,7 @@ const Footer = (props: FooterProps) => {
 								return { ...existing, name: value };
 							})
 						}
+						error={errorState.name}
 					/>
 					<label htmlFor="home-town">
 						{FOOTER_CONSTANTS.HOME_TOWN}
@@ -83,14 +139,17 @@ const Footer = (props: FooterProps) => {
 								return { ...existing, homeTown: value };
 							})
 						}
+						defaultValue={formState.homeTown}
 						borderColor="#979797"
 						id_name="home-town"
+						error={errorState.homeTown}
 					/>
 					<label htmlFor="destination">
 						{FOOTER_CONSTANTS.DESTINATION}
 					</label>
 					<Dropdown
 						options={destinationCities}
+						defaultValue={formState.destination}
 						onChange={(value) =>
 							setFormState((existing) => {
 								return { ...existing, destination: value };
@@ -98,9 +157,11 @@ const Footer = (props: FooterProps) => {
 						}
 						borderColor="#979797"
 						id_name="destination"
+						error={errorState.destination}
 					/>
 					<label htmlFor="contact">{FOOTER_CONSTANTS.CONTACT}</label>
 					<Input
+						type="number"
 						id="contact"
 						name="contact"
 						onChange={(value) =>
@@ -108,6 +169,9 @@ const Footer = (props: FooterProps) => {
 								return { ...existing, contact: value };
 							})
 						}
+						error={errorState.contact}
+						max_length={10}
+						min_length={10}
 					/>
 					<Button
 						onClick={handleFormSubmit}

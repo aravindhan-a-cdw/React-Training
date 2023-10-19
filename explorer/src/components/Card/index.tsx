@@ -3,6 +3,11 @@ import Button from "../Button";
 import styles from "./styles.module.scss";
 import PropTypes from "prop-types";
 
+/*
+	@author Aravindhan A
+	@description Card Component - To show details of a place
+*/
+
 type CardProps = {
 	data: {
 		place: string;
