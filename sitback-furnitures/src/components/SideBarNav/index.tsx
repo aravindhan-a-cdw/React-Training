@@ -3,6 +3,7 @@ import styles from "./styles.module.scss";
 import CartItem from "../CartItem";
 import CardsContainer from "../../containers/CardsContainer";
 import WishListItem from "../WishListItem";
+import PlaceOrder from "../PlaceOrder";
 
 const SideBarNav = () => {
 	const [section, setSection] = useState("cart");
@@ -49,6 +50,8 @@ const SideBarNav = () => {
 			<CardsContainer className={styles.cards_container}>
 				{cartItems}
 			</CardsContainer>
+
+			<PlaceOrder></PlaceOrder>
 		</div>
 	);
 };
