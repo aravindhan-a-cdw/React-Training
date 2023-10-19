@@ -1,6 +1,6 @@
 import { BASE_URL } from "../constants/ServiceConstants";
 
-const Services = {
+const productServices = {
 	getAllCategories: async () => {
 		const url = BASE_URL + "/categories";
 		const response = await fetch(url);
@@ -9,11 +9,11 @@ const Services = {
 	getProductsByCategory: async (category: string) => {
 		const url =
 			BASE_URL +
-			"/products" +
+			"/products?" +
 			new URLSearchParams({ category: category });
 		const response = await fetch(url);
 		return await response.json();
 	},
 };
 
-export default Services;
+export default productServices;
