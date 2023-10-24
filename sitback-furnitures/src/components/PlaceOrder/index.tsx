@@ -2,14 +2,24 @@ import { useNavigate } from "react-router-dom";
 import Button from "../Button";
 import styles from "./style.module.scss";
 
-const PlaceOrder = () => {
+type PlaceOrderProps = {
+	cartItems: Array<any>;
+};
+
+const PlaceOrder = (props: PlaceOrderProps) => {
+	const { cartItems } = props;
 	const navigate = useNavigate();
+	const total = cartItems.reduce((prevValue, cartItem, idx) => {
+		console.log(cartItem, prevValue, "value");
+		return prevValue + cartItem.price * cartItem.quantity;
+	}, 0);
+	console.log(total, "Total");
 
 	return (
 		<div className={styles.place_order_tag}>
 			<div className={styles.order_total}>
 				<span className={styles.total_amount}>Total Amount</span>
-				<span>&#8377; {123456}</span>
+				<span>&#8377; {total}</span>
 			</div>
 			<Button clickHandler={() => navigate("/orders")}>
 				Place Order

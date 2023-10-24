@@ -1,4 +1,9 @@
 import styles from "./styles.module.scss";
+import CartItem from "../CartItem";
+import CardsContainer from "../../containers/CardsContainer";
+import WishListItem from "../WishListItem";
+import PlaceOrder from "../PlaceOrder";
+import { useState } from "react";
 
 type SideBarNavProps = {
 	section: string;
@@ -7,6 +12,7 @@ type SideBarNavProps = {
 
 const SideBarNav = (props: SideBarNavProps) => {
 	const { section, changeHandler } = props;
+	// const [section, changeHandler] = useState("cart");
 
 	return (
 		<div className={styles.sidebar_nav}>

@@ -1,7 +1,7 @@
 import { useLoaderData } from "react-router";
 import { HOME_CONSTANTS } from "../../constants/ComponentConstants";
 import styles from "./styles.module.scss";
-import Services from "../../services/Services";
+import Services from "../../services/productServices";
 import CategoryCard from "../../components/CategoryCard";
 import CardsContainer from "../../containers/CardsContainer";
 import { useNavigation } from "react-router-dom";

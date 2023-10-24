@@ -1,5 +1,5 @@
 import { useNavigation, useLoaderData } from "react-router";
-import Services from "../../services/Services";
+import Services from "../../services/productServices";
 import styles from "./styles.module.scss";
 import ProductItem from "../../components/ProductItem";
 import CardsContainer from "../../containers/CardsContainer";
@@ -28,28 +28,34 @@ const Products = () => {
 	const { state } = useNavigation();
 
 	// States
-	const [showSideBar, setShowSideBar] = useState(false);
 	const [cart, setCart] = useState(() =>
 		JSON.parse(localStorage.getItem("cart") || "[]")
 	);
 	const [wishlist, setWishlist] = useState<Array<number>>(() =>
 		JSON.parse(localStorage.getItem("wishlist") || "[]")
 	);
+	const [showSideBar, setShowSideBar] = useState(
+		cart.length !== 0 || wishlist.length !== 0
+	);
 
-	const [sidebarSection, setSidebarSection] = useState("cart");
+	const [sidebarSection, setSidebarSection] = useState(
+		cart.length === 0
+			? "wishlist"
+			: wishlist.length === 0
+			? "cart"
+			: "wishlist"
+	);
 
 	const cartHandler = (id: number, count: number) => {
 		setShowSideBar(true);
 		setSidebarSection("cart");
 		setCart((state: Array<any>) => {
-			console.log(state, "state");
-			const existingIndex = state.findIndex(
-				(item) => item[id] !== undefined
-			);
-			console.log(existingIndex, "existingIndex");
-			if (existingIndex === -1) return [...state, { [id]: count }];
+			const existingIndex = state.findIndex((item) => item["id"] === id);
+			if (existingIndex === -1)
+				return [...state, { id: id, count: count }];
 			const newState = [...state];
-			newState[existingIndex][id] += count;
+			newState[existingIndex]["count"] =
+				newState[existingIndex]["count"] + count;
 			return newState;
 		});
 	};
