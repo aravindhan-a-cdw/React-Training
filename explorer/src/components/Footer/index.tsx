@@ -186,7 +186,6 @@ const Footer = (props: FooterProps) => {
 					</Button>
 				</form>
 			</div>
-
 			{showMessage && (
 				<div className={styles.message}>
 					Thank you <b>{messageState.name}</b> for expressing your

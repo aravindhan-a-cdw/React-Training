@@ -1,7 +1,7 @@
 .cards_container {
     display: flex;
     flex-wrap: wrap;
-    gap: 2rem;
+    gap: 6rem 2rem;
 }
 
 .cards_container > * {
@@ -10,7 +10,7 @@
 
 .title {
     font-size: 3rem;
-    font-weight: 400;
+    font-weight: 500;
 }
 
 .slogan {

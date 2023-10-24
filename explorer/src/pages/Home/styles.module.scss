@@ -6,7 +6,8 @@
 }
 
 .explore_btn {
-    padding: 1rem 2.5rem;
+    font-weight: 400;
+    padding: .75rem 2.5rem;
 }
 
 .banner {
@@ -16,7 +17,7 @@
         color: var(--secondary-color);
         text-transform: uppercase;
         font-size: 1.4rem;
-        margin-bottom: 3rem;
+        margin-bottom: 2rem;
         font-weight: 500;
         letter-spacing: .05rem;
     }
@@ -35,5 +36,5 @@
 }
 
 .destinations {
-    margin: 7rem 7.25rem;
+    margin: 6rem 7.25rem;
 }
