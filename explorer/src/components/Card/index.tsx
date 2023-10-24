@@ -6,6 +6,7 @@ import PropTypes from "prop-types";
 /*
 	@author Aravindhan A
 	@description Card Component - To show details of a place
+	Place data must be passed as props in data arg.
 */
 
 type CardProps = {

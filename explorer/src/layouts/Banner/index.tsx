@@ -1,6 +1,11 @@
 import styles from "./styles.module.scss";
 import PropTypes from "prop-types";
 
+/*
+	@author Aravindhan A
+	@description Banner Layout Component - This renders the Banner part which is in the home page and in details page
+*/
+
 type BannerProps = {
 	children: any;
 	image: string;

@@ -1,3 +1,8 @@
+/*
+	@author Aravindhan A
+	@description AppConstants - This file contains the constants that are not specific to a page but are common to the application
+*/
+
 const API_BASE_URL = "https://nijin-server.vercel.app/api/explorer";
 
 const AppConstants = {

@@ -2,6 +2,12 @@ import Card from "../../components/Card";
 import styles from "./styles.module.scss";
 import PropTypes from "prop-types";
 
+/*
+	@author Aravindhan A
+	@description CardsList Component - This renders the List of Cards and this component acts as a flex container.
+	We can pass a title, subtitle and list of cards to cards argument.
+*/
+
 type CardsListProps = {
 	title: string;
 	subtitle: string;

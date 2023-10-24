@@ -1,3 +1,8 @@
+/*
+	@author Aravindhan A
+	@description Page Constants - This file contains the constants that are specific to a page in the application
+*/
+
 const HOME_CONSTANTS = {
 	HEADER: {
 		WELCOME: "Welcome to Explorer",

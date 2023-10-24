@@ -3,6 +3,11 @@ import { useNavigate, useRouteError } from "react-router-dom";
 import styles from "./styles.module.scss";
 import { ERROR_CONSTANTS } from "../../constants/PageConstants";
 
+/*
+	@author Aravindhan A
+	@description Error Page Component - This component is rendered when user navigates to unknow page.
+*/
+
 function Error() {
 	const [time, setTime] = useState(ERROR_CONSTANTS.TIME);
 	const navigate = useNavigate();

@@ -1,6 +1,11 @@
 import styles from "./styles.module.scss";
 import PropTypes from "prop-types";
 
+/*
+	@author Aravindhan A
+	@description Input Component - This will render the Input menu
+*/
+
 type InputProps = {
 	className?: string;
 	type?: string;

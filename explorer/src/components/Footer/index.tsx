@@ -7,6 +7,11 @@ import PropTypes from "prop-types";
 import Service from "../../services/placesService";
 import { FOOTER_CONSTANTS } from "../../constants/ComponentConstants";
 
+/*
+	@author Aravindhan A
+	@description Footer Component - This contains the user form.
+*/
+
 type FooterProps = {
 	className?: string;
 };

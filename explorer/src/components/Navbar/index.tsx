@@ -1,6 +1,12 @@
 import style from "./styles.module.scss";
 import { NAVBAR_CONSTANTS } from "../../constants/ComponentConstants";
 
+/*
+	@author Aravindhan A
+	@description Navbar Component - This component renders the navbar with navlinks.
+	The navlinks are generated using the NAV_LINKS constant in the constants file.
+*/
+
 const Nav = () => {
 	return (
 		<nav className={style.nav}>

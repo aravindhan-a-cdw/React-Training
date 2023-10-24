@@ -1,3 +1,8 @@
+/*
+	@author Aravindhan A
+	@description Component Constants - This file contains constants of each component
+*/
+
 export const CARD_CONSTANTS = {
 	BUTTON_READ_MORE: "Read More",
 };
