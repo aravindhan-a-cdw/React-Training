@@ -1,0 +1,46 @@
+.footer_container {
+    background-color: #F7F7F7;
+    padding-bottom: 4rem;
+    
+    
+    & .form_container {
+        padding: 4rem 32rem 2rem 32rem;
+    }
+}
+
+.heading {
+    font-weight: 500;
+    font-size: 3rem;
+    margin-bottom: .5rem;
+}
+
+.sub_heading {
+    font-size: 1.375rem;
+    font-weight: 400;
+}
+
+form {
+    margin-top: .5rem;
+}
+
+form > label {
+    display: inline-block;
+    margin: 2.125rem 0 .75rem;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.submit_btn {
+    margin-top: 1.75rem;
+    padding: .75rem 1.5rem;
+}
+
+.message {
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 2rem;
+    width: 70%;
+    margin: 1rem auto;
+    text-align: center;
+    font-size: 1.2rem;
+}

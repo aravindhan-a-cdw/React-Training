@@ -1,0 +1,25 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: #7A1655;
+  --secondary-color: #9A4F7E;
+  --text-dark: #111;
+  /* font-family: 'Roboto', sans-serif; */
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 16px;
+}
+
+.primary-text {
+  color: var(--primary-color);
+}
+
+.primary-text-light {
+  color: var(--secondary-color);
+}
+
+

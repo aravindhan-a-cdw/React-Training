@@ -1,0 +1,21 @@
+.input {
+    display: block;
+    width: 100%;
+    background: none;
+    border: 1px solid #979797;
+    padding: 0 2rem;
+    height: 4.5rem;
+    font-size: 1.1rem;
+
+    &.error {
+        border: 1px solid red;
+    }
+}
+
+.input[type=number]::-webkit-inner-spin-button, 
+.input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
+}

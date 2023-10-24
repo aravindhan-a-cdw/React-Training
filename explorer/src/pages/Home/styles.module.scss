@@ -1,0 +1,42 @@
+.banner_dropdown {
+    width: 122%;
+    background-color: white;
+    margin-bottom: 1.375rem;
+    position: relative;
+}
+
+.explore_btn {
+    font-weight: 400;
+    padding: .75rem 2.5rem;
+    font-size: 1.2rem;
+    letter-spacing: .05rem;
+}
+
+.banner {
+    padding-top: 11rem;
+
+    & h3 {
+        color: var(--secondary-color);
+        text-transform: uppercase;
+        font-size: 1.4rem;
+        margin-bottom: 2rem;
+        font-weight: 500;
+        letter-spacing: .05rem;
+    }
+
+    & h4 {
+        color: var(--primary-color);
+        font-size: 4.5rem;
+        font-weight: 300;
+        margin-bottom: 5rem;
+
+        & span {
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+    }
+}
+
+.destinations {
+    margin: 6rem 7.25rem;
+}

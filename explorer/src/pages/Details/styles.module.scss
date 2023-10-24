@@ -1,0 +1,60 @@
+.banner {
+    display: flex;
+    margin-left: 6.5rem;
+    margin-bottom: 7rem;
+    height: 47.5rem;
+}
+
+
+.slogan_container {
+    background-color: var(--primary-color);
+    color: #fff;
+    position: relative;
+    width: 180%;
+    padding: 4.5rem 4.5rem;
+    margin-bottom: 2rem;
+
+    & .slogan {
+        font-size: 3.5rem;
+        line-height: 140%;
+    }
+}
+
+.temperature {
+    font-size: 3.5rem;
+    position: relative;
+
+    & span {
+        font-weight: 300;
+        font-size: 2rem;
+        position: absolute;
+    }
+}
+
+.content {
+    margin: 0 6.5rem 6rem 6.5rem;
+
+    & > section {
+        margin-bottom: 6.5rem;
+    }
+    & > section > p {
+        font-size: 2.25rem;
+        font-weight: 400;
+        letter-spacing: .1rem;
+        line-height: 140%;
+        font-family: 'IBM Plex Sans', sans-serif;
+        text-align: justify;
+        margin-bottom: 3rem;
+    }
+}
+
+
+.title {
+    text-transform: capitalize;
+    font-weight: 400;
+    font-size: 5rem;
+    letter-spacing: .1rem;
+    margin-top: 14rem;
+    margin-bottom: 1rem;
+    font-family: 'IBM Plex Sans', sans-serif;
+}
