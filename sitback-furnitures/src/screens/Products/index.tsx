@@ -39,11 +39,7 @@ const Products = () => {
 	);
 
 	const [sidebarSection, setSidebarSection] = useState(
-		cart.length === 0
-			? "wishlist"
-			: wishlist.length === 0
-			? "cart"
-			: "wishlist"
+		cart.length !== 0 ? "cart" : wishlist.length === 0 ? "cart" : "wishlist"
 	);
 
 	const cartHandler = (id: number, count: number) => {
