@@ -1,8 +1,14 @@
 .sidebar {
     flex: 0 1 25%;
-    width: 100%;
+    // width: 100%;
+    height: 100vh;
     background-color: #F7F7F7;
     padding: 2.5rem 3rem;
     position: sticky;
     top: 4.25rem;
+}
+
+.cards_container {
+    flex-direction: column;
+    gap: 2rem;
 }

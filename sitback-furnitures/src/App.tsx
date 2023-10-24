@@ -21,6 +21,7 @@ function App() {
 				{
 					path: "orders",
 					element: <Order />,
+					loader: () => homeLoader(),
 				},
 			],
 		},

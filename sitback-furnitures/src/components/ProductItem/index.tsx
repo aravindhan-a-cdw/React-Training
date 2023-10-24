@@ -15,11 +15,17 @@ type ProductData = {
 type ProductItemProps = {
 	data: ProductData;
 	className?: string;
-	clickHandler?: () => void;
+	addToCartHandler?: (id: number, count: number) => void;
+	addToWishlistHandler?: (id: number) => void;
 };
 
 const ProductItem = (props: ProductItemProps) => {
-	const { className = "", data, clickHandler } = props;
+	const {
+		className = "",
+		data,
+		addToCartHandler,
+		addToWishlistHandler,
+	} = props;
 	return (
 		<div className={`${className} ${styles.product_item}`}>
 			<img src={data.photo} alt={data.name} />
@@ -36,10 +42,21 @@ const ProductItem = (props: ProductItemProps) => {
 				<span>{data.guarantee} years guarantee</span>
 			</div>
 			<div className={styles.buttons}>
-				<Button type="light" clickHandler={clickHandler}>
+				<Button
+					type="light"
+					clickHandler={() =>
+						addToWishlistHandler && addToWishlistHandler(data.id)
+					}
+				>
 					Add to Wishlist
 				</Button>
-				<Button clickHandler={clickHandler}>Add to Cart</Button>
+				<Button
+					clickHandler={() =>
+						addToCartHandler && addToCartHandler(data.id, 1)
+					}
+				>
+					Add to Cart
+				</Button>
 			</div>
 		</div>
 	);

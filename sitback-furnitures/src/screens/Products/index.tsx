@@ -4,7 +4,7 @@ import styles from "./styles.module.scss";
 import ProductItem from "../../components/ProductItem";
 import CardsContainer from "../../containers/CardsContainer";
 import Spinner from "../../components/Spinner";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SideBar from "../../components/SideBar";
 
 export const loader = async (category: string | undefined) => {
@@ -29,13 +29,56 @@ const Products = () => {
 
 	// States
 	const [showSideBar, setShowSideBar] = useState(false);
+	const [cart, setCart] = useState(() =>
+		JSON.parse(localStorage.getItem("cart") || "[]")
+	);
+	const [wishlist, setWishlist] = useState<Array<number>>(() =>
+		JSON.parse(localStorage.getItem("wishlist") || "[]")
+	);
 
-	const clickHandler = () => {
+	const [sidebarSection, setSidebarSection] = useState("cart");
+
+	const cartHandler = (id: number, count: number) => {
 		setShowSideBar(true);
+		setSidebarSection("cart");
+		setCart((state: Array<any>) => {
+			console.log(state, "state");
+			const existingIndex = state.findIndex(
+				(item) => item[id] !== undefined
+			);
+			console.log(existingIndex, "existingIndex");
+			if (existingIndex === -1) return [...state, { [id]: count }];
+			const newState = [...state];
+			newState[existingIndex][id] += count;
+			return newState;
+		});
+	};
+
+	useEffect(() => {
+		localStorage.setItem("cart", JSON.stringify(cart));
+		console.log(cart, "Cart");
+	}, [cart]);
+
+	useEffect(() => {
+		localStorage.setItem("wishlist", JSON.stringify(wishlist));
+	}, [wishlist]);
+
+	const wishlistHandler = (id: number) => {
+		setShowSideBar(true);
+		setSidebarSection("wishlist");
+		setWishlist((state: Array<number>) => {
+			if (state.includes(id)) return state;
+			return [...state, id];
+		});
 	};
 
 	const productItems = data.map((data) => (
-		<ProductItem clickHandler={clickHandler} key={data.id} data={data} />
+		<ProductItem
+			addToCartHandler={cartHandler}
+			addToWishlistHandler={wishlistHandler}
+			key={data.id}
+			data={data}
+		/>
 	));
 
 	return state === "loading" ? (
@@ -47,7 +90,16 @@ const Products = () => {
 					{productItems}
 				</CardsContainer>
 			</div>
-			{showSideBar ? <SideBar></SideBar> : ""}
+			{showSideBar ? (
+				<SideBar
+					cartData={cart}
+					wishlistData={wishlist}
+					section={sidebarSection}
+					sectionChangeHandler={setSidebarSection}
+				></SideBar>
+			) : (
+				""
+			)}
 		</div>
 	);
 };
