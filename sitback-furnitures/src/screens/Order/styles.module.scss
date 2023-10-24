@@ -1,0 +1,18 @@
+.orders_container {
+    background-color: #F7F7F7;
+    padding: 3.75rem 9.5rem;
+
+    & > h3 {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin-bottom: .5rem;
+    }
+
+    & > p {
+        margin-bottom: 1.5rem;
+    }
+
+    & .orders_cards{
+        gap: 2.5rem;
+    }
+}
