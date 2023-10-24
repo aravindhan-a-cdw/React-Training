@@ -21,10 +21,13 @@
 }
 
 .temperature {
-    font-size: 3.25rem;
+    font-size: 3.5rem;
+    position: relative;
 
     & span {
-        font-weight: 100;
+        font-weight: 300;
+        font-size: 2rem;
+        position: absolute;
     }
 }
 
@@ -39,7 +42,7 @@
         font-weight: 400;
         letter-spacing: .1rem;
         line-height: 140%;
-        font-family: 'IBM Plex Sans Condensed', sans-serif;
+        font-family: 'IBM Plex Sans', sans-serif;
         text-align: justify;
         margin-bottom: 3rem;
     }
@@ -53,5 +56,5 @@
     letter-spacing: .1rem;
     margin-top: 14rem;
     margin-bottom: 1rem;
-    font-family: 'IBM Plex Sans Condensed', sans-serif;
+    font-family: 'IBM Plex Sans', sans-serif;
 }

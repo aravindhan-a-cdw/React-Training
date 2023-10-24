@@ -43,8 +43,8 @@ const Details = () => {
 						</h4>
 					</div>
 					<span className={styles.temperature}>
-						{data.placeData.temperature} <span>&deg;</span>
-						{DETAIL_CONSTANTS.TEMPERATURE_UNIT}
+						{data.placeData.temperature}
+						<span>&deg;</span> {DETAIL_CONSTANTS.TEMPERATURE_UNIT}
 					</span>
 				</div>
 			</Banner>
