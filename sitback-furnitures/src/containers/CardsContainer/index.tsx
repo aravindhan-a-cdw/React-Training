@@ -6,7 +6,7 @@ type CardsContainerProps = {
 };
 
 const CardsContainer = (props: CardsContainerProps) => {
-	const { className, children } = props;
+	const { className = "", children } = props;
 	return (
 		<div className={`${className} ${styles.cards_container}`}>
 			{children}
