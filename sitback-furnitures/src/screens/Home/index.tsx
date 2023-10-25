@@ -2,7 +2,7 @@ import { useLoaderData } from "react-router";
 import Services from "../../services/productServices";
 import { useNavigation } from "react-router-dom";
 import Spinner from "../../components/Spinner";
-import CategoriesDisplay from "../../components/CategoriesList";
+import CategoriesList from "../../components/CategoriesList";
 
 type CategoryData = {
 	id: string;
@@ -24,7 +24,7 @@ const Home = () => {
 			{state === "loading" ? (
 				<Spinner />
 			) : (
-				<CategoriesDisplay categories={data} />
+				<CategoriesList categories={data} />
 			)}
 		</main>
 	);

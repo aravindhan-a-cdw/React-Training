@@ -9,6 +9,15 @@
         font-size: 1.9rem;
         font-weight: 400;
         padding: .5rem 0;
+        // Prevent overflow of text horizontally
+        max-width: 25rem;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        // Following prevents overflow of text vertically
+        display: -webkit-box;
+        -webkit-line-clamp: 1; /* number of lines to show */
+        line-clamp: 2; 
+        -webkit-box-orient: vertical;
     }
 
     p {
@@ -17,5 +26,7 @@
         line-height: 180%;
         color: #4E4E4E;
         margin-bottom: .75rem;
+        max-height: 13rem;
+        overflow-y: scroll;
     }
 }
