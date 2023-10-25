@@ -1,3 +1,8 @@
+/*
+	@author Aravindhan A
+	@description This File contains the constants of components
+*/
+
 const FOOTER_CONSTANTS = {
 	COPYRIGHT: "COPYRIGHTS 2023",
 };

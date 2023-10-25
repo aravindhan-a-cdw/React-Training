@@ -3,6 +3,11 @@ import CardsContainer from "../../containers/CardsContainer";
 import CategoryCard from "../CategoryCard";
 import styles from "./styles.module.scss";
 
+/*
+	@author Aravindhan A
+	@description This component renders list of categories in the home page.
+*/
+
 type CategoryData = {
 	id: string;
 	category: string;

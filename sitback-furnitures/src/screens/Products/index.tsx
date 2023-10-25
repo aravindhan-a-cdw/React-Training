@@ -7,6 +7,11 @@ import Spinner from "../../components/Spinner";
 import { useEffect, useState } from "react";
 import SideBar from "../../components/SideBar";
 
+/*
+	@author Aravindhan A
+	@description This renders the Products page which is displays many products for users to add to cart or to wishlist and place order.
+*/
+
 export const loader = async (category: string | undefined) => {
 	if (category === undefined) throw Error("Category is not defined!");
 	return await Services.getProductsByCategory(category);

@@ -1,5 +1,11 @@
 import styles from "./styles.module.scss";
 
+/*
+	@author Aravindhan A
+	@description This is a component which is displayed in the orders page. 
+	This displays the image, quantity and description of order item
+*/
+
 type OrderData = {
 	description: string;
 	id: number;

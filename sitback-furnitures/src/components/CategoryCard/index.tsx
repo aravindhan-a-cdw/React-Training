@@ -2,6 +2,11 @@ import Button from "../Button";
 import styles from "./styles.module.scss";
 import { useNavigate } from "react-router-dom";
 
+/*
+	@author Aravindhan A
+	@description This component renders a Card containing category and its information
+*/
+
 type CategoryCardProps = {
 	className?: string;
 	categoryData: {

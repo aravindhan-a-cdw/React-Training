@@ -1,5 +1,10 @@
 import styles from "./styles.module.scss";
 
+/*
+	@author Aravindhan A
+	@description This component is used to modify the quantity of product in cart
+*/
+
 type QuantityBarProps = {
 	quantity: number;
 	productId: number;

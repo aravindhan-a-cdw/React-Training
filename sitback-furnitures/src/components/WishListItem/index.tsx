@@ -2,6 +2,11 @@ import MiniProductItem from "../../containers/MiniProductItem";
 import Button from "../Button";
 import styles from "./styles.module.scss";
 
+/*
+	@author Aravindhan A
+	@description This is a component that represents a single wishlist item in the sidebar.
+*/
+
 type WishListItemProps = {
 	data: {
 		id: number;

@@ -2,6 +2,11 @@ import styles from "./styles.module.scss";
 import guarantee from "../../assets/guarantee.png";
 import Button from "../Button";
 
+/*
+	@author Aravindhan A
+	@description This component is used to render a single product item in the products page.
+*/
+
 type ProductData = {
 	description: string;
 	guarantee: number;
@@ -27,13 +32,6 @@ const ProductItem = (props: ProductItemProps) => {
 		addToWishlistHandler,
 	} = props;
 
-	console.log(
-		Number(data.price).toLocaleString("en-IN", {
-			maximumFractionDigits: 2,
-			style: "currency",
-			currency: "INR",
-		})
-	);
 	return (
 		<div className={`${className} ${styles.product_item}`}>
 			<img

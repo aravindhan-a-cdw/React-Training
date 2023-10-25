@@ -2,6 +2,11 @@ import { useNavigate } from "react-router-dom";
 import Button from "../Button";
 import styles from "./style.module.scss";
 
+/*
+	@author Aravindhan A
+	@description This component renders the badge to place order in the products page side bar.
+*/
+
 type PlaceOrderProps = {
 	cartItems: Array<any>;
 };

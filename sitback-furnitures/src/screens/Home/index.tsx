@@ -4,6 +4,11 @@ import { useNavigation } from "react-router-dom";
 import Spinner from "../../components/Spinner";
 import CategoriesList from "../../components/CategoriesList";
 
+/*
+	@author Aravindhan A
+	@description This renders the home page of the application
+*/
+
 type CategoryData = {
 	id: string;
 	category: string;

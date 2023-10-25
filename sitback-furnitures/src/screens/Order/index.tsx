@@ -6,6 +6,11 @@ import CardsContainer from "../../containers/CardsContainer";
 import { useEffect, useState } from "react";
 import { allProductsDataLoader } from "../../utils/dataLoader";
 
+/*
+	@author Aravindhan A
+	@description This renders the Orders page of the application.
+*/
+
 type CategoryData = {
 	id: string;
 	category: string;

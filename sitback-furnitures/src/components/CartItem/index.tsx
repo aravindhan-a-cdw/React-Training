@@ -1,5 +1,5 @@
 import MiniProductItem from "../../containers/MiniProductItem";
-import QuantityBar from "../Quantity";
+import QuantityBar from "../QuantityBar";
 
 /*
 	@author Aravindhan A

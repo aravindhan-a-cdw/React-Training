@@ -1,5 +1,11 @@
 import styles from "./styles.module.scss";
 
+/*
+	@author Aravindhan A
+	@description This component is a resuable part of both cart item and wishlist item.
+	It renders the image, name and price of the product item.
+*/
+
 type MiniProductItemProps = {
 	productData: {
 		id: number;

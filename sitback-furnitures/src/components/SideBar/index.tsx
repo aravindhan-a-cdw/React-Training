@@ -7,6 +7,12 @@ import WishListItem from "../WishListItem";
 import { allProductsDataLoader } from "../../utils/dataLoader";
 import { useEffect, useState } from "react";
 
+/*
+	@author Aravindhan A
+	@description This component renders the Sidebar in the products page.
+	It displays the Cart and Wishlist
+*/
+
 type SideBarProps = {
 	cartData: Array<{ [key: string]: number }>;
 	wishlistData: Array<number>;
