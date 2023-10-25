@@ -9,10 +9,12 @@ type WishListItemProps = {
 		photo: string;
 	};
 	className?: string;
+	cartHandler: (id: number, count: number) => void;
+	wishlistHandler: (id: number, remove: boolean) => void;
 };
 
 const WishListItem = (props: WishListItemProps) => {
-	const { className, data } = props;
+	const { className, data, cartHandler, wishlistHandler } = props;
 	return (
 		<div className={`${styles.cart_item} ${className}`}>
 			<img src={data.photo} alt={data.name} />
@@ -20,7 +22,15 @@ const WishListItem = (props: WishListItemProps) => {
 				<span>{data.name}</span>
 				<span>&#8377; {data.price}</span>
 			</div>
-			<Button className={styles.add_to_cart_btn}>Add to Cart</Button>
+			<Button
+				clickHandler={() => {
+					cartHandler(data.id, 1);
+					wishlistHandler(data.id, true);
+				}}
+				className={styles.add_to_cart_btn}
+			>
+				Add to Cart
+			</Button>
 		</div>
 	);
 };

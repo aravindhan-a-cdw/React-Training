@@ -52,6 +52,11 @@ const Products = () => {
 			const newState = [...state];
 			newState[existingIndex]["count"] =
 				newState[existingIndex]["count"] + count;
+			if (newState[existingIndex]["count"] === 0) {
+				return newState
+					.slice(0, existingIndex)
+					.concat(newState.slice(existingIndex + 1));
+			}
 			return newState;
 		});
 	};
@@ -65,13 +70,27 @@ const Products = () => {
 		localStorage.setItem("wishlist", JSON.stringify(wishlist));
 	}, [wishlist]);
 
-	const wishlistHandler = (id: number) => {
+	const wishlistHandler = (id: number, remove: boolean = false) => {
 		setShowSideBar(true);
-		setSidebarSection("wishlist");
-		setWishlist((state: Array<number>) => {
-			if (state.includes(id)) return state;
-			return [...state, id];
-		});
+		if (remove) {
+			setWishlist((state: Array<number>) => {
+				const index = state.findIndex(
+					(wishlistItemId) => wishlistItemId === id
+				);
+				if (index !== -1) {
+					state.splice(index, 1);
+					return [...state];
+				}
+				return state;
+			});
+			setSidebarSection("cart");
+		} else {
+			setSidebarSection("wishlist");
+			setWishlist((state: Array<number>) => {
+				if (state.includes(id)) return state;
+				return [...state, id];
+			});
+		}
 	};
 
 	const productItems = data.map((data) => (
@@ -94,6 +113,8 @@ const Products = () => {
 			</div>
 			{showSideBar ? (
 				<SideBar
+					cartHandler={cartHandler}
+					wishlistHandler={wishlistHandler}
 					cartData={cart}
 					wishlistData={wishlist}
 					section={sidebarSection}

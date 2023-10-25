@@ -12,10 +12,19 @@ type SideBarProps = {
 	wishlistData: Array<number>;
 	section: string;
 	sectionChangeHandler: (arg: string) => void;
+	cartHandler: (id: number, count: number) => void;
+	wishlistHandler: (id: number, remove: boolean) => void;
 };
 
 const SideBar = (props: SideBarProps) => {
-	const { section, sectionChangeHandler, cartData, wishlistData } = props;
+	const {
+		section,
+		sectionChangeHandler,
+		cartData,
+		wishlistData,
+		cartHandler,
+		wishlistHandler,
+	} = props;
 	const [allProducts, setAllProducts] = useState<Array<any>>([]);
 
 	console.log("allProducts", allProducts);
@@ -47,11 +56,20 @@ const SideBar = (props: SideBarProps) => {
 	const cardItems = (() => {
 		if (section === "cart") {
 			return cartProducts.map((data) => (
-				<CartItem data={data} key={data.id}></CartItem>
+				<CartItem
+					cartHandler={cartHandler}
+					data={data}
+					key={data.id}
+				></CartItem>
 			));
 		} else {
 			return wishlistProducts.map((data) => (
-				<WishListItem data={data} key={data.id}></WishListItem>
+				<WishListItem
+					cartHandler={cartHandler}
+					wishlistHandler={wishlistHandler}
+					data={data}
+					key={data.id}
+				></WishListItem>
 			));
 		}
 	})();

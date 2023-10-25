@@ -10,10 +10,11 @@ type CartItemProps = {
 		photo: string;
 	};
 	className?: string;
+	cartHandler: (id: number, count: number) => void;
 };
 
 const CartItem = (props: CartItemProps) => {
-	const { className, data } = props;
+	const { className, data, cartHandler } = props;
 	return (
 		<div className={`${styles.cart_item} ${className}`}>
 			<img src={data.photo} alt={data.name} />
@@ -21,7 +22,11 @@ const CartItem = (props: CartItemProps) => {
 				<span>{data.name}</span>
 				<span>&#8377; {data.price}</span>
 			</div>
-			<QuantityBar quantity={data.quantity} />
+			<QuantityBar
+				cartHandler={cartHandler}
+				productId={data.id}
+				quantity={data.quantity}
+			/>
 		</div>
 	);
 };
