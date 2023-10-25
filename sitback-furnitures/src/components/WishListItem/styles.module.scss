@@ -23,6 +23,10 @@
     font-size: .8rem;
     gap: .25rem;
     padding-left: .5rem;
+
+    & .price {
+        font-size: .75rem;
+    }
 }
 
 .add_to_cart_btn {
