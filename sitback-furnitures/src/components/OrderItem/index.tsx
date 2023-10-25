@@ -6,6 +6,7 @@ type OrderData = {
 	name: string;
 	photo: string;
 	price: number;
+	quantity: number;
 };
 
 type OrderItemProps = {
@@ -22,7 +23,7 @@ const OrderItem = (props: OrderItemProps) => {
 				<span>{data.name}</span>
 				<span>&#8377; {data.price}</span>
 			</div>
-			<p className={styles.quantity}>Quantity: {}</p>
+			<p className={styles.quantity}>Quantity: {data.quantity}</p>
 			<p className={styles.product_description}>{data.description}</p>
 		</div>
 	);

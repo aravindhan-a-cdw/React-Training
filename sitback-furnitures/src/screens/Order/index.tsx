@@ -3,6 +3,8 @@ import styles from "./styles.module.scss";
 import CategoriesDisplay from "../../components/CategoriesDisplay";
 import OrderItem from "../../components/OrderItem";
 import CardsContainer from "../../containers/CardsContainer";
+import { useEffect, useState } from "react";
+import { allProductsDataLoader } from "../../utils/dataLoader";
 
 type CategoryData = {
 	id: string;
@@ -13,6 +15,18 @@ type CategoryData = {
 
 const Order = () => {
 	const data = useLoaderData() as Array<CategoryData>;
+
+	const [allProducts, setAllProducts] = useState<Array<any>>([]);
+	const [order, setOrder] = useState<Array<any>>([]);
+
+	useEffect(() => {
+		allProductsDataLoader().then((data: any) => {
+			setAllProducts(data);
+		});
+		const orderData = localStorage.getItem("order") || "[]";
+		setOrder(JSON.parse(orderData));
+	}, []);
+
 	const orders = [
 		{
 			id: 1,
@@ -31,7 +45,17 @@ const Order = () => {
 			quantity: 2,
 		},
 	];
-	const orderItems = orders.map((data) => <OrderItem data={data} />);
+
+	const ordersData = order.map((orderItem) => {
+		const productData = allProducts.find(
+			(data) => data.id === orderItem.id
+		);
+		return {
+			...productData,
+			quantity: orderItem.count,
+		};
+	});
+	const orderItems = ordersData.map((data) => <OrderItem data={data} />);
 	return (
 		<>
 			<div className={styles.orders_container}>

@@ -27,8 +27,6 @@ const SideBar = (props: SideBarProps) => {
 	} = props;
 	const [allProducts, setAllProducts] = useState<Array<any>>([]);
 
-	console.log("allProducts", allProducts);
-
 	useEffect(() => {
 		allProductsDataLoader().then((data: any) => {
 			console.log("data", data);

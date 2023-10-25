@@ -13,7 +13,13 @@ const PlaceOrder = (props: PlaceOrderProps) => {
 		console.log(cartItem, prevValue, "value");
 		return prevValue + cartItem.price * cartItem.quantity;
 	}, 0);
-	console.log(total, "Total");
+
+	const placeOrderHandler = () => {
+		const cartData = localStorage.getItem("cart") || "[]";
+		localStorage.setItem("order", cartData);
+		localStorage.setItem("cart", "[]");
+		navigate("/orders");
+	};
 
 	return (
 		<div className={styles.place_order_tag}>
@@ -21,9 +27,7 @@ const PlaceOrder = (props: PlaceOrderProps) => {
 				<span className={styles.total_amount}>Total Amount</span>
 				<span>&#8377; {total}</span>
 			</div>
-			<Button clickHandler={() => navigate("/orders")}>
-				Place Order
-			</Button>
+			<Button clickHandler={placeOrderHandler}>Place Order</Button>
 		</div>
 	);
 };
