@@ -13,11 +13,6 @@
     }
     
     & .orders_cards{
-
-        & > div {
-            // flex: 0 0 22.88%;
-            flex-basis: 31%;
-        }
         flex-wrap: wrap;
         gap: 2.5rem;
     }

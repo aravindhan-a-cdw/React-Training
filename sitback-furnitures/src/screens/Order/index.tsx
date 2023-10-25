@@ -27,25 +27,6 @@ const Order = () => {
 		setOrder(JSON.parse(orderData));
 	}, []);
 
-	const orders = [
-		{
-			id: 1,
-			name: "3 Seater Yellow Sofa Set",
-			description: "Hello",
-			price: 1234,
-			photo: "https://images.unsplash.com/photo-1577451949326-1e44d745f758?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjF9&auto=format&fit=crop&w=1950&q=80",
-			quantity: 5,
-		},
-		{
-			id: 2,
-			name: "2 Seater Sofa",
-			description: "Hello",
-			price: 12999,
-			photo: "https://images.unsplash.com/photo-1558211583-d26f610c1eb1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1895&q=80",
-			quantity: 2,
-		},
-	];
-
 	const ordersData = order.map((orderItem) => {
 		const productData = allProducts.find(
 			(data) => data.id === orderItem.id
@@ -55,7 +36,9 @@ const Order = () => {
 			quantity: orderItem.count,
 		};
 	});
-	const orderItems = ordersData.map((data) => <OrderItem data={data} />);
+	const orderItems = ordersData.map((data) => (
+		<OrderItem key={data.id} data={data} />
+	));
 	return (
 		<>
 			<div className={styles.orders_container}>

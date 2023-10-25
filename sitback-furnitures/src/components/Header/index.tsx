@@ -1,6 +1,12 @@
 import styles from "./styles.module.scss";
 import NavItem from "../NavItem";
 import { Link } from "react-router-dom";
+import { HEADER_CONSTANTS } from "../../constants/ComponentConstants";
+
+/*
+	@author Aravindhan A
+	@description This is the Header part of the application. This contains the navlinks and user dropdown
+*/
 
 type HeaderProps = {
 	children?: any;
@@ -9,19 +15,20 @@ type HeaderProps = {
 
 const Header = (props: HeaderProps) => {
 	const { className = "" } = props;
+
+	const categories = HEADER_CONSTANTS.CATEGORIES.map((category, index) => (
+		<NavItem key={index}>{category}</NavItem>
+	));
+
 	return (
 		<nav className={`${styles.navbar} ${className}`}>
 			<div className={styles.nav_container}>
 				<span className={styles.logo}>
-					<Link to="/">SITBACK</Link>
+					<Link to="/">{HEADER_CONSTANTS.APP_NAME}</Link>
 				</span>
-				<ul>
-					<NavItem>Couches</NavItem>
-					<NavItem>Chairs</NavItem>
-					<NavItem>Dining</NavItem>
-				</ul>
+				<ul>{categories}</ul>
 				<span className={styles.user}>
-					Nijin Vinodan
+					{HEADER_CONSTANTS.USER_NAME}
 					<span className={styles.dropdown}></span>
 				</span>
 			</div>

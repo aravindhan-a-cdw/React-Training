@@ -7,4 +7,10 @@ const HOME_CONSTANTS = {
 	TAG_LINE_2: "Come, Choose from millions of products",
 };
 
-export { FOOTER_CONSTANTS, HOME_CONSTANTS };
+const HEADER_CONSTANTS = {
+	APP_NAME: "SITBACK",
+	USER_NAME: "Nijin Vinodan",
+	CATEGORIES: ["Couches", "Chairs", "Dining"],
+};
+
+export { FOOTER_CONSTANTS, HOME_CONSTANTS, HEADER_CONSTANTS };

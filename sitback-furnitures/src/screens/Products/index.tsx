@@ -49,13 +49,18 @@ const Products = () => {
 			const existingIndex = state.findIndex((item) => item["id"] === id);
 			if (existingIndex === -1)
 				return [...state, { id: id, count: count }];
-			const newState = [...state];
+			let newState = [...state];
 			newState[existingIndex]["count"] =
 				newState[existingIndex]["count"] + count;
 			if (newState[existingIndex]["count"] === 0) {
-				return newState
+				newState = newState
 					.slice(0, existingIndex)
 					.concat(newState.slice(existingIndex + 1));
+				if (newState.length === 0) {
+					if (wishlist.length === 0) setShowSideBar(false);
+					else setSidebarSection("wishlist");
+				}
+				return newState;
 			}
 			return newState;
 		});
@@ -79,6 +84,9 @@ const Products = () => {
 				);
 				if (index !== -1) {
 					state.splice(index, 1);
+					if (state.length === 0) {
+						setSidebarSection("cart");
+					}
 					return [...state];
 				}
 				return state;

@@ -25,7 +25,13 @@ const PlaceOrder = (props: PlaceOrderProps) => {
 		<div className={styles.place_order_tag}>
 			<div className={styles.order_total}>
 				<span className={styles.total_amount}>Total Amount</span>
-				<span>&#8377; {total}</span>
+				<span>
+					&#8377;{" "}
+					{Number(total).toLocaleString("en-IN", {
+						maximumFractionDigits: 2,
+						currency: "INR",
+					})}
+				</span>
 			</div>
 			<Button clickHandler={placeOrderHandler}>Place Order</Button>
 		</div>

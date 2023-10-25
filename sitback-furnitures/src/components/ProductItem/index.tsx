@@ -26,6 +26,14 @@ const ProductItem = (props: ProductItemProps) => {
 		addToCartHandler,
 		addToWishlistHandler,
 	} = props;
+
+	console.log(
+		Number(data.price).toLocaleString("en-IN", {
+			maximumFractionDigits: 2,
+			style: "currency",
+			currency: "INR",
+		})
+	);
 	return (
 		<div className={`${className} ${styles.product_item}`}>
 			<img
@@ -38,7 +46,13 @@ const ProductItem = (props: ProductItemProps) => {
 			/>
 			<div className={styles.basic_info}>
 				<span>{data.name}</span>
-				<span>&#8377; {data.price}</span>
+				<span>
+					&#8377;{" "}
+					{Number(data.price).toLocaleString("en-IN", {
+						maximumFractionDigits: 2,
+						currency: "INR",
+					})}
+				</span>
 			</div>
 			<p className={styles.product_description}>{data.description}</p>
 			<div className={styles.guarantee}>
@@ -46,7 +60,10 @@ const ProductItem = (props: ProductItemProps) => {
 					src={guarantee}
 					alt="An shield with tick denoting guaranteed"
 				/>
-				<span>{data.guarantee} years guarantee</span>
+				<span>
+					{data.guarantee} year{data.guarantee > 1 ? "s" : ""}{" "}
+					guarantee
+				</span>
 			</div>
 			<div className={styles.buttons}>
 				<Button

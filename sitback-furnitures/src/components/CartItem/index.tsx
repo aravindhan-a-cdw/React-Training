@@ -1,6 +1,5 @@
 import MiniProductItem from "../../containers/MiniProductItem";
 import QuantityBar from "../Quantity";
-import styles from "./styles.module.scss";
 
 /*
 	@author Aravindhan A
