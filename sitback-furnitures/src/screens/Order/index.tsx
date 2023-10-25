@@ -1,6 +1,6 @@
 import { useLoaderData } from "react-router-dom";
 import styles from "./styles.module.scss";
-import CategoriesDisplay from "../../components/CategoriesDisplay";
+import CategoriesDisplay from "../../components/CategoriesList";
 import OrderItem from "../../components/OrderItem";
 import CardsContainer from "../../containers/CardsContainer";
 import { useEffect, useState } from "react";

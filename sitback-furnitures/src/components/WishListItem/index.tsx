@@ -1,3 +1,4 @@
+import MiniProductItem from "../../containers/MiniProductItem";
 import Button from "../Button";
 import styles from "./styles.module.scss";
 
@@ -14,14 +15,9 @@ type WishListItemProps = {
 };
 
 const WishListItem = (props: WishListItemProps) => {
-	const { className, data, cartHandler, wishlistHandler } = props;
+	const { className = "", data, cartHandler, wishlistHandler } = props;
 	return (
-		<div className={`${styles.cart_item} ${className}`}>
-			<img src={data.photo} alt={data.name} />
-			<div className={styles.basic_info}>
-				<span>{data.name}</span>
-				<span>&#8377; {data.price}</span>
-			</div>
+		<MiniProductItem productData={data} className={className}>
 			<Button
 				clickHandler={() => {
 					cartHandler(data.id, 1);
@@ -31,7 +27,7 @@ const WishListItem = (props: WishListItemProps) => {
 			>
 				Add to Cart
 			</Button>
-		</div>
+		</MiniProductItem>
 	);
 };
 

@@ -1,5 +1,10 @@
 import styles from "./styles.module.scss";
 
+/*
+	@author Aravindhan A
+	@description This renders the button element
+*/
+
 type ButtonProps = {
 	children: any;
 	type?: "dark" | "light";

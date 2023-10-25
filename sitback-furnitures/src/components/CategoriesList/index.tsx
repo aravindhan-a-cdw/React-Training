@@ -10,11 +10,11 @@ type CategoryData = {
 	description: string;
 };
 
-type CategoriesDisplayProps = {
+type CategoriesListProps = {
 	categories: Array<CategoryData>;
 };
 
-const CategoriesDisplay = (props: CategoriesDisplayProps) => {
+const CategoriesList = (props: CategoriesListProps) => {
 	const { categories: categoriesData } = props;
 
 	const categories = categoriesData.map((data) => (
@@ -33,4 +33,4 @@ const CategoriesDisplay = (props: CategoriesDisplayProps) => {
 	);
 };
 
-export default CategoriesDisplay;
+export default CategoriesList;

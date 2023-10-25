@@ -1,5 +1,11 @@
+import MiniProductItem from "../../containers/MiniProductItem";
 import QuantityBar from "../Quantity";
 import styles from "./styles.module.scss";
+
+/*
+	@author Aravindhan A
+	@description This component represents a single item in cart which displays the product image and its data.
+*/
 
 type CartItemProps = {
 	data: {
@@ -14,20 +20,15 @@ type CartItemProps = {
 };
 
 const CartItem = (props: CartItemProps) => {
-	const { className, data, cartHandler } = props;
+	const { className = "", data, cartHandler } = props;
 	return (
-		<div className={`${styles.cart_item} ${className}`}>
-			<img src={data.photo} alt={data.name} />
-			<div className={styles.basic_info}>
-				<span>{data.name}</span>
-				<span>&#8377; {data.price}</span>
-			</div>
+		<MiniProductItem productData={data} className={className}>
 			<QuantityBar
 				cartHandler={cartHandler}
 				productId={data.id}
 				quantity={data.quantity}
 			/>
-		</div>
+		</MiniProductItem>
 	);
 };
 

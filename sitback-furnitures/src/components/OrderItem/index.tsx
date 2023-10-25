@@ -18,7 +18,14 @@ const OrderItem = (props: OrderItemProps) => {
 	const { className = "", data } = props;
 	return (
 		<div className={`${className} ${styles.order_item}`}>
-			<img src={data.photo} alt={data.name} />
+			<img
+				src={data.photo}
+				alt={data.name}
+				onError={({ currentTarget }) => {
+					currentTarget.onerror = null;
+					currentTarget.src = "/spacejoy.jpg";
+				}}
+			/>
 			<div className={styles.basic_info}>
 				<span>{data.name}</span>
 				<span>&#8377; {data.price}</span>

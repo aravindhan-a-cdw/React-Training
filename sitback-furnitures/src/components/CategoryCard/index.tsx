@@ -20,7 +20,14 @@ const CategoryCard = (props: CategoryCardProps) => {
 
 	return (
 		<div className={`${className} ${styles.card}`}>
-			<img src={categoryData.photo} alt={categoryData.category} />
+			<img
+				src={categoryData.photo}
+				alt={categoryData.category}
+				onError={({ currentTarget }) => {
+					currentTarget.onerror = null;
+					currentTarget.src = "/spacejoy.jpg";
+				}}
+			/>
 			<h3>{categoryData.category}</h3>
 			<p>{categoryData.description}</p>
 			<Button clickHandler={clickHandler}>Shop Now</Button>
