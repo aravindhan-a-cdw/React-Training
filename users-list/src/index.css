@@ -1,0 +1,23 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+:root {
+  --primary-text: #373C47;
+  --seconday-text: #87A0CE;
+  --background-color: #E2E9F9;
+  font-family: 'Merriweather', serif;
+  /* font-family: 'Roboto', sans-serif; */
+  font-size: 16px;
+  height: 100%;
+  width: 100%;
+}
+
+
+#root, body {
+  height: 100%;
+  width: 100%;
+}

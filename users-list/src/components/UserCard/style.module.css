@@ -1,0 +1,54 @@
+
+.user_card {
+    display: flex;
+    font-family: 'Poppins', sans-serif;
+    flex: 1 1 32%;
+    background-color: #FBFCFF;
+    gap: 1rem;
+    padding: 2rem;
+    border: 2px solid transparent;
+    border-radius: 1rem;
+    min-height: 236px;
+    cursor: pointer;
+}
+
+.user_card:hover {
+    border: 2px solid #becce6;
+    box-shadow: 0px 1px 8px 0px #E2E9F9;
+}
+
+.user_card > img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+}
+
+.user_content {
+    display: flex;
+    flex-direction: column;
+    padding-top: .5rem;
+}
+
+.user_content > .user_name {
+    font-size: 1.2rem;
+    line-height: 2rem;
+    font-weight: 900;
+    font-family: 'Merriweather', serif;
+}
+
+.user_content > .user_location {
+    font-size: .85rem;
+    font-weight: 500;
+}
+
+.interests {
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: .5rem;
+    gap: .25rem;
+}
+
+.interests > li {
+    list-style: none;
+}
+
