@@ -1,0 +1,15 @@
+
+.input {
+    background: none;
+    border: none;
+    border-bottom: 1px solid #423834;
+    padding-bottom: .25rem;
+    font-size: 1rem;
+    color: #fff;
+
+    &:focus-visible {
+        border: none;
+        outline: none;
+        border-bottom: 1px solid #fff;
+    }
+}
