@@ -14,11 +14,14 @@ type PlaceOrderProps = {
 const PlaceOrder = (props: PlaceOrderProps) => {
 	const { cartItems } = props;
 	const navigate = useNavigate();
+
+	// Calculates total value of the cart
 	const total = cartItems.reduce((prevValue, cartItem, idx) => {
 		console.log(cartItem, prevValue, "value");
 		return prevValue + cartItem.price * cartItem.quantity;
 	}, 0);
 
+	// Handler to move cart items to orders and switch to orders page
 	const placeOrderHandler = () => {
 		const cartData = localStorage.getItem("cart") || "[]";
 		localStorage.setItem("order", cartData);
@@ -27,9 +30,9 @@ const PlaceOrder = (props: PlaceOrderProps) => {
 	};
 
 	return (
-		<div className={styles.place_order_tag}>
-			<div className={styles.order_total}>
-				<span className={styles.total_amount}>Total Amount</span>
+		<div className={styles.placeOrderTag}>
+			<div className={styles.orderTotal}>
+				<span className={styles.totalAmount}>Total Amount</span>
 				<span>
 					&#8377;{" "}
 					{Number(total).toLocaleString("en-IN", {

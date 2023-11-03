@@ -1,9 +1,9 @@
-.order_item {
+.orderItem {
     flex: 0 0 23.5rem;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    gap: .75rem;
+    gap: .25rem;
     
     & > img {
         height: 13rem;
@@ -12,14 +12,14 @@
         border-top-left-radius: 0;
     }
 
-    & .basic_info {
+    & .basicInfo {
         display: flex;
         justify-content: space-between;
         font-weight: 600;
         font-size: .95rem;
     }
 
-    & .product_description {
+    & .productDescription {
         color: #4E4E4E;
         font-size: .7rem;
     }

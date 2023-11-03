@@ -34,11 +34,13 @@ const SideBar = (props: SideBarProps) => {
 	const [allProducts, setAllProducts] = useState<Array<any>>([]);
 
 	useEffect(() => {
+		// This is used to set all the products data after fetching
 		allProductsDataLoader().then((data: any) => {
 			setAllProducts(data);
 		});
 	}, []);
 
+	// Filter data of products that are present in cart.
 	const cartProducts = cartData.map((cartItem) => {
 		const productData = allProducts.find((data) => data.id === cartItem.id);
 		return {
@@ -47,6 +49,7 @@ const SideBar = (props: SideBarProps) => {
 		};
 	});
 
+	// Filter data of products that are in the wishlist
 	const wishlistProducts = wishlistData.map((wishlistItem) => {
 		const productData = allProducts.find(
 			(data) => data.id === wishlistItem
@@ -87,7 +90,7 @@ const SideBar = (props: SideBarProps) => {
 			/>
 			{allProducts.length !== 0 ? (
 				<>
-					<CardsContainer className={styles.cards_container}>
+					<CardsContainer className={styles.cardsContainer}>
 						{cardItems.length === 0
 							? "No items have been added!"
 							: cardItems}

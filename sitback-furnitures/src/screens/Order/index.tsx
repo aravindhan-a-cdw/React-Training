@@ -5,6 +5,7 @@ import OrderItem from "../../components/OrderItem";
 import CardsContainer from "../../containers/CardsContainer";
 import { useEffect, useState } from "react";
 import { allProductsDataLoader } from "../../utils/dataLoader";
+import { ORDER_PAGE_CONSTANTS } from "../../constants/PageConstants";
 
 /*
 	@author Aravindhan A
@@ -25,6 +26,7 @@ const Order = () => {
 	const [order, setOrder] = useState<Array<any>>([]);
 
 	useEffect(() => {
+		// Loading all products data and order data from localStorage
 		allProductsDataLoader().then((data: any) => {
 			setAllProducts(data);
 		});
@@ -32,6 +34,7 @@ const Order = () => {
 		setOrder(JSON.parse(orderData));
 	}, []);
 
+	// Render order items
 	const ordersData = order.map((orderItem) => {
 		const productData = allProducts.find(
 			(data) => data.id === orderItem.id
@@ -46,13 +49,10 @@ const Order = () => {
 	));
 	return (
 		<>
-			<div className={styles.orders_container}>
-				<h3>Order Confirmation</h3>
-				<p>
-					Thank you for shopping with us. The items will be delivered
-					within 7 days.
-				</p>
-				<CardsContainer className={styles.orders_cards}>
+			<div className={styles.ordersContainer}>
+				<h3>{ORDER_PAGE_CONSTANTS.PAGE_TITLE}</h3>
+				<p>{ORDER_PAGE_CONSTANTS.DESCRIPTION}</p>
+				<CardsContainer className={styles.ordersCards}>
 					{orderItems}
 				</CardsContainer>
 			</div>

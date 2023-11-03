@@ -24,7 +24,7 @@ type OrderItemProps = {
 const OrderItem = (props: OrderItemProps) => {
 	const { className = "", data } = props;
 	return (
-		<div className={`${className} ${styles.order_item}`}>
+		<div className={`${className} ${styles.orderItem}`}>
 			<img
 				src={data.photo}
 				alt={data.name}
@@ -33,7 +33,7 @@ const OrderItem = (props: OrderItemProps) => {
 					currentTarget.src = altImage;
 				}}
 			/>
-			<div className={styles.basic_info}>
+			<div className={styles.basicInfo}>
 				<span>{data.name}</span>
 				<span>
 					&#8377;{" "}
@@ -44,7 +44,7 @@ const OrderItem = (props: OrderItemProps) => {
 				</span>
 			</div>
 			<p className={styles.quantity}>Quantity : {data.quantity}</p>
-			<p className={styles.product_description}>{data.description}</p>
+			<p className={styles.productDescription}>{data.description}</p>
 		</div>
 	);
 };

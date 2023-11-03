@@ -1,4 +1,4 @@
-.product_item {
+.productItem {
     flex: 0 1 23.6rem;
     display: flex;
     flex-direction: column;
@@ -13,7 +13,7 @@
         margin-bottom: .5rem;
     }
 
-    & .basic_info {
+    & .basicInfo {
         display: flex;
         justify-content: space-between;
         font-weight: 500;
@@ -31,7 +31,7 @@
         }
     }
 
-    & .product_description {
+    & .productDescription {
         color: #4E4E4E;
         font-size: .7rem;
         line-height: 180%;

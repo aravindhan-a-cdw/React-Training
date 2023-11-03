@@ -22,6 +22,7 @@ const CategoryCard = (props: CategoryCardProps) => {
 	const { className = "", categoryData } = props;
 	const navigate = useNavigate();
 
+	// Handler to switch to products section
 	const clickHandler = () => navigate("/products/" + categoryData.id);
 
 	return (

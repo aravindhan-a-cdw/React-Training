@@ -15,7 +15,7 @@ const QuantityBar = (props: QuantityBarProps) => {
 	const { quantity, productId, cartHandler } = props;
 
 	return (
-		<div className={styles.quantity_container}>
+		<div className={styles.quantityContainer}>
 			<span
 				onClick={() => cartHandler(productId, -1)}
 				className={styles.btn}

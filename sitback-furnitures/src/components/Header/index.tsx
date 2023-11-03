@@ -16,13 +16,14 @@ type HeaderProps = {
 const Header = (props: HeaderProps) => {
 	const { className = "" } = props;
 
+	// Render list of NavLinks
 	const categories = HEADER_CONSTANTS.CATEGORIES.map((category, index) => (
 		<NavItem key={index}>{category}</NavItem>
 	));
 
 	return (
 		<nav className={`${styles.navbar} ${className}`}>
-			<div className={styles.nav_container}>
+			<div className={styles.navContainer}>
 				<span className={styles.logo}>
 					<Link to="/">{HEADER_CONSTANTS.APP_NAME}</Link>
 				</span>

@@ -28,7 +28,7 @@ const WishListItem = (props: WishListItemProps) => {
 					cartHandler(data.id, 1);
 					wishlistHandler(data.id, true);
 				}}
-				className={styles.add_to_cart_btn}
+				className={styles.addToCartBtn}
 			>
 				Add to Cart
 			</Button>

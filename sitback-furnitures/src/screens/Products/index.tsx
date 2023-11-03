@@ -33,12 +33,15 @@ const Products = () => {
 	const { state } = useNavigation();
 
 	// States
+	// Cart state which uses localStorage
 	const [cart, setCart] = useState(() =>
 		JSON.parse(localStorage.getItem("cart") || "[]")
 	);
+	// Wishlist state which uses localStorage
 	const [wishlist, setWishlist] = useState<Array<number>>(() =>
 		JSON.parse(localStorage.getItem("wishlist") || "[]")
 	);
+
 	const [showSideBar, setShowSideBar] = useState(
 		cart.length !== 0 || wishlist.length !== 0
 	);
@@ -47,6 +50,7 @@ const Products = () => {
 		cart.length !== 0 ? "cart" : wishlist.length === 0 ? "cart" : "wishlist"
 	);
 
+	// Cart handler to increase, decrease quantity along with showing and hiding of SideBar
 	const cartHandler = (id: number, count: number) => {
 		setShowSideBar(true);
 		setSidebarSection("cart");
@@ -72,14 +76,17 @@ const Products = () => {
 	};
 
 	useEffect(() => {
+		// This is used to load cart data from localStorage
 		localStorage.setItem("cart", JSON.stringify(cart));
 		console.log(cart, "Cart");
 	}, [cart]);
 
 	useEffect(() => {
+		// This is used to load wishlist data from localStorage
 		localStorage.setItem("wishlist", JSON.stringify(wishlist));
 	}, [wishlist]);
 
+	// Wishlist handler to add or remove product and show Sidebar section
 	const wishlistHandler = (id: number, remove: boolean = false) => {
 		setShowSideBar(true);
 		if (remove) {
@@ -119,8 +126,8 @@ const Products = () => {
 		<Spinner />
 	) : (
 		<div className={styles.container}>
-			<div className={styles.products_layout}>
-				<CardsContainer className={styles.products_container}>
+			<div className={styles.productsLayout}>
+				<CardsContainer className={styles.productsContainer}>
 					{productItems}
 				</CardsContainer>
 			</div>

@@ -34,7 +34,7 @@ const ProductItem = (props: ProductItemProps) => {
 	} = props;
 
 	return (
-		<div className={`${className} ${styles.product_item}`}>
+		<div className={`${className} ${styles.productItem}`}>
 			<img
 				src={data.photo}
 				alt={data.name}
@@ -43,7 +43,7 @@ const ProductItem = (props: ProductItemProps) => {
 					currentTarget.src = altImage;
 				}}
 			/>
-			<div className={styles.basic_info}>
+			<div className={styles.basicInfo}>
 				<span>{data.name}</span>
 				<span>
 					&#8377;{" "}
@@ -53,7 +53,7 @@ const ProductItem = (props: ProductItemProps) => {
 					})}
 				</span>
 			</div>
-			<p className={styles.product_description}>{data.description}</p>
+			<p className={styles.productDescription}>{data.description}</p>
 			<div className={styles.guarantee}>
 				<img
 					src={guarantee}

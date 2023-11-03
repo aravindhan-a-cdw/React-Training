@@ -14,7 +14,7 @@ const SideBarNav = (props: SideBarNavProps) => {
 	const { section, changeHandler } = props;
 
 	return (
-		<div className={styles.sidebar_nav}>
+		<div className={styles.sidebarNav}>
 			<ul>
 				<li
 					onClick={() => changeHandler("cart")}
