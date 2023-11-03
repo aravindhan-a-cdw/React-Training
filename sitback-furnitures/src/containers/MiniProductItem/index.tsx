@@ -1,4 +1,5 @@
 import styles from "./styles.module.scss";
+import altImage from "../../assets/spacejoy.jpg";
 
 /*
 	@author Aravindhan A
@@ -26,7 +27,7 @@ const MiniProductItem = (props: MiniProductItemProps) => {
 				alt={productData.name}
 				onError={({ currentTarget }) => {
 					currentTarget.onerror = null;
-					currentTarget.src = "/spacejoy.jpg";
+					currentTarget.src = altImage;
 				}}
 			/>
 			<div className={styles.basic_info}>

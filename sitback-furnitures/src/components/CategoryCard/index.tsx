@@ -1,6 +1,7 @@
 import Button from "../Button";
 import styles from "./styles.module.scss";
 import { useNavigate } from "react-router-dom";
+import altImage from "../../assets/spacejoy.jpg";
 
 /*
 	@author Aravindhan A
@@ -30,7 +31,7 @@ const CategoryCard = (props: CategoryCardProps) => {
 				alt={categoryData.category}
 				onError={({ currentTarget }) => {
 					currentTarget.onerror = null;
-					currentTarget.src = "/spacejoy.jpg";
+					currentTarget.src = altImage;
 				}}
 			/>
 			<h3>{categoryData.category}</h3>

@@ -1,4 +1,5 @@
 import styles from "./styles.module.scss";
+import altImage from "../../assets/spacejoy.jpg";
 
 /*
 	@author Aravindhan A
@@ -29,7 +30,7 @@ const OrderItem = (props: OrderItemProps) => {
 				alt={data.name}
 				onError={({ currentTarget }) => {
 					currentTarget.onerror = null;
-					currentTarget.src = "/spacejoy.jpg";
+					currentTarget.src = altImage;
 				}}
 			/>
 			<div className={styles.basic_info}>

@@ -1,6 +1,7 @@
 import styles from "./styles.module.scss";
 import guarantee from "../../assets/guarantee.png";
 import Button from "../Button";
+import altImage from "../../assets/spacejoy.jpg";
 
 /*
 	@author Aravindhan A
@@ -39,7 +40,7 @@ const ProductItem = (props: ProductItemProps) => {
 				alt={data.name}
 				onError={({ currentTarget }) => {
 					currentTarget.onerror = null;
-					currentTarget.src = "/spacejoy.jpg";
+					currentTarget.src = altImage;
 				}}
 			/>
 			<div className={styles.basic_info}>

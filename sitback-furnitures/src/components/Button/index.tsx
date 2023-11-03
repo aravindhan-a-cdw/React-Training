@@ -6,7 +6,7 @@ import styles from "./styles.module.scss";
 */
 
 type ButtonProps = {
-	children: any;
+	children: string | HTMLElement;
 	type?: "dark" | "light";
 	className?: string;
 	clickHandler?: () => void;
