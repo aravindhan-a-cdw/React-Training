@@ -35,7 +35,6 @@ const SideBar = (props: SideBarProps) => {
 
 	useEffect(() => {
 		allProductsDataLoader().then((data: any) => {
-			console.log("data", data);
 			setAllProducts(data);
 		});
 	}, []);

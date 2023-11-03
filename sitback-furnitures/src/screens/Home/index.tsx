@@ -2,7 +2,7 @@ import { useLoaderData } from "react-router";
 import Services from "../../services/productServices";
 import { useNavigation } from "react-router-dom";
 import Spinner from "../../components/Spinner";
-import CategoriesList from "../../components/CategoriesList";
+import CategoriesList from "../../containers/CategoriesList";
 
 /*
 	@author Aravindhan A

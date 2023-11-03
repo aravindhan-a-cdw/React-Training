@@ -1,6 +1,6 @@
 import { HOME_CONSTANTS } from "../../constants/ComponentConstants";
-import CardsContainer from "../../containers/CardsContainer";
-import CategoryCard from "../CategoryCard";
+import CardsContainer from "../CardsContainer";
+import CategoryCard from "../../components/CategoryCard";
 import styles from "./styles.module.scss";
 
 /*

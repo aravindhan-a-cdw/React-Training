@@ -5,6 +5,7 @@ import Home, { loader as homeLoader } from "./screens/Home";
 import ProductPageLayout from "./containers/ProductPageLayout";
 import Products, { loader as productLoader } from "./screens/Products";
 import Order from "./screens/Order";
+import ErrorPage from "./screens/ErrorPage";
 
 /*
 	@author Aravindhan A
@@ -16,6 +17,7 @@ function App() {
 		{
 			path: "/",
 			element: <PageLayout />,
+			errorElement: <ErrorPage />,
 			children: [
 				{
 					path: "/",
@@ -32,6 +34,7 @@ function App() {
 		{
 			path: "products",
 			element: <ProductPageLayout />,
+			errorElement: <ErrorPage />,
 			children: [
 				{
 					path: ":category",
