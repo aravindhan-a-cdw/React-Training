@@ -1,10 +1,11 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Layout from "./containers/Layout";
-import Home from "./screens/Home";
+import Home, { loader as homeLoader } from "./screens/Home";
 import AllMovies from "./screens/AllMovies";
 import NowShowing from "./screens/NowShowing";
 import Login, { loginAction } from "./screens/Login";
 import AuthContextProvider from "./stores/AuthContext";
+import Logout from "./screens/Logout";
 
 function App() {
 	const router = createBrowserRouter([
@@ -15,6 +16,7 @@ function App() {
 				{
 					index: true,
 					element: <Home />,
+					loader: homeLoader,
 				},
 				{
 					path: "all-movies",
@@ -31,6 +33,7 @@ function App() {
 				},
 				{
 					path: "logout",
+					element: <Logout />,
 				},
 			],
 		},

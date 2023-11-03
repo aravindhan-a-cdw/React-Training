@@ -1,6 +1,6 @@
 import Button from "../../components/Button";
 import styles from "./styles.module.scss";
-import image from "./sindel-background.png";
+import image from "../../assets/sindel-background.png";
 import Input from "../../components/Input";
 import { LOGIN_CONSTANTS } from "../../constants/pageConstants";
 import { Form, Navigate, json, useActionData } from "react-router-dom";

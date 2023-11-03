@@ -24,5 +24,10 @@
 
     .user_section {
         font-size: 1.5rem;
+
+        .username {
+            max-width: 20px;
+            text-overflow: ellipsis;
+        }
     }
 }

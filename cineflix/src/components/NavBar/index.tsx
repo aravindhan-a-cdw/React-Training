@@ -41,12 +41,14 @@ const NavBar = () => {
 					</div>
 					<div className={styles.user_section}>
 						{contextData.authData.isAuthenticated ? (
-							<p>
-								Hi {contextData.authData.username} |{" "}
+							<>
+								<span className={styles.username}>
+									Hi {contextData.authData.username} |{" "}
+								</span>
 								<NavItem to="/logout">Logout</NavItem>
-							</p>
+							</>
 						) : (
-							<p>Login</p>
+							<NavItem to="/login">Login</NavItem>
 						)}
 					</div>
 				</>

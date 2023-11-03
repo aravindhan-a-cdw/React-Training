@@ -11,10 +11,14 @@ type AuthContextData = {
 	dispatch: React.Dispatch<{ type: string; payload: AuthDataType }>;
 };
 
+const usernameLocal = localStorage.getItem("username");
+
 const initialState = {
-	isAuthenticated: false,
-	username: null,
+	isAuthenticated: usernameLocal !== null,
+	username: usernameLocal ? JSON.parse(usernameLocal) : null,
 };
+
+console.log(initialState);
 
 const authReducer = (
 	state: any,
