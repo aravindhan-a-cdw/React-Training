@@ -1,13 +1,21 @@
 import styles from "./styles.module.scss";
 import { NOW_SHOWING_CONSTANTS } from "../../constants/pageConstants";
 import playBtn from "../../assets/play-button.svg";
-import { useEffect, useRef } from "react";
+import { useContext, useEffect, useRef } from "react";
+import { AuthContext } from "../../stores/AuthContext";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const NowShowing = () => {
+	const {
+		authData: { isAuthenticated },
+	} = useContext(AuthContext);
+	const navigate = useNavigate();
+
 	const videoRef = useRef<HTMLVideoElement>(null);
 	const playBtnRef = useRef<HTMLImageElement>(null);
 
 	useEffect(() => {
+		if (videoRef.current === null || playBtnRef.current === null) return;
 		videoRef.current!.onplay = () => {
 			playBtnRef.current!.style.display = "none";
 		};
@@ -23,8 +31,11 @@ const NowShowing = () => {
 		playBtnRef.current!.onclick = () => {
 			videoRef.current!.play();
 		};
-	});
+	}, []);
 
+	if (!isAuthenticated) {
+		return <Navigate to={"/login"} />;
+	}
 	return (
 		<div className={styles.container}>
 			<h3>{NOW_SHOWING_CONSTANTS.PAGE_TITLE}</h3>

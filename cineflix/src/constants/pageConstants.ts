@@ -14,6 +14,9 @@ const HOME_CONSTANTS = {
 
 	TEASER_TITLE: "Short Teasers",
 
+	AD_IN: "Advertisement in",
+	VIDEO_RESUME_IN: "Video Resumes in",
+
 	LANGUAGE: {
 		TITLE: "View in Other Languages",
 		AVAILABLE: ["E", "ह", "த", "മ", "తె"],
@@ -29,6 +32,8 @@ const NOW_SHOWING_CONSTANTS = {
 
 const ALL_MOVIES_CONSTANTS = {
 	PAGE_TITLE: "All Movies",
+	AD_IN: "Advertisement in",
+	RESUME_IN: "Resume in",
 };
 
 export {

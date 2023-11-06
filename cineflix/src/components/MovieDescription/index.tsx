@@ -1,9 +1,23 @@
 import styles from "./styles.module.scss";
 import thumbsUp from "../../assets/thumbs-up.png";
 import fallback from "../../assets/fallbackImage.png";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, FC } from "react";
+import withAdvertisement from "../withAdvertisement";
+import { counterFormater } from "../../utils/numberUtils";
+import { ALL_MOVIES_CONSTANTS } from "../../constants/pageConstants";
 
-type MovieData = {
+type HOCProps = {
+	adImage: number;
+	isAdCountDown: boolean;
+	counter: number;
+	showAd: boolean;
+	adCompleted: boolean;
+	pauseHandler: (arg0: boolean) => void;
+	resetAd: () => void;
+	startAd: () => void;
+};
+
+type MovieDescriptionProps = {
 	data: {
 		id: number;
 		movie: string;
@@ -13,55 +27,45 @@ type MovieData = {
 		actors: Array<string>;
 	};
 	onLikeHandler: () => void;
+	hocProps: HOCProps;
 };
 
-const MovieDescription = (props: MovieData) => {
-	const { data, onLikeHandler } = props;
+const MovieDescription: FC<MovieDescriptionProps> = (props) => {
+	const {
+		data,
+		onLikeHandler,
+		hocProps: {
+			adImage,
+			isAdCountDown,
+			counter,
+			showAd,
+			adCompleted,
+			resetAd,
+			startAd,
+		},
+	} = props;
 
-	const [adImage] = useState(Math.ceil(Math.random() * 2));
+	useEffect(() => {
+		resetAd();
+	}, [data.id]);
+
+	useEffect(() => {
+		if (!adCompleted) startAd();
+	}, [startAd, adCompleted]);
 
 	const adRef = useRef<HTMLDivElement>(null);
 	const contentRef = useRef<HTMLDivElement>(null);
 
-	const [counter, setCounter] = useState(15);
-	const [isAdCountDown, setIsAdCountDown] = useState(true);
-	const [showAd, setShowAd] = useState(false);
-	const [adCompleted, setAdCompleted] = useState(false);
-
 	useEffect(() => {
-		if (!adCompleted) {
-			const timerInterval = setInterval(() => {
-				setCounter((state) => state - 1);
-			}, 1000);
-
-			if (counter === 0 && isAdCountDown === true) {
-				setShowAd(true);
-				setCounter(5);
-				setIsAdCountDown(false);
-				adRef.current!.style.display = "block";
-				contentRef.current!.style.display = "none";
-			}
-
-			if (counter === 0 && showAd === true) {
-				setAdCompleted(true);
-				setShowAd(false);
-				adRef.current!.style.display = "none";
-				contentRef.current!.style.display = "flex";
-			}
-
-			return () => {
-				clearInterval(timerInterval);
-			};
+		if (showAd) {
+			adRef.current!.style.display = "block";
+			contentRef.current!.style.display = "none";
 		}
-	}, [counter, adCompleted, showAd, isAdCountDown]);
-
-	useEffect(() => {
-		if (isAdCountDown || adCompleted) {
-			setIsAdCountDown(true);
-			setAdCompleted(false);
-			setCounter(15);
+		if (adCompleted) {
+			adRef.current!.style.display = "none";
+			contentRef.current!.style.display = "flex";
 		}
-	}, [props]);
+	}, [showAd, adCompleted]);
 
 	const actorsList = data.actors.map((actor, index) => (
 		<li key={index}>{actor}</li>
@@ -102,18 +106,20 @@ const MovieDescription = (props: MovieData) => {
 					<ul>{actorsList}</ul>
 				</div>
 			</div>
-			{!adCompleted && isAdCountDown && (
+			{counter ? (
 				<span className={styles.adMessage}>
-					Advertisement in 00:{counter < 10 ? "0" + counter : counter}
+					{isAdCountDown
+						? ALL_MOVIES_CONSTANTS.AD_IN
+						: ALL_MOVIES_CONSTANTS.RESUME_IN}{" "}
+					{counterFormater(counter)}
 				</span>
-			)}
-			{showAd && (
-				<span className={styles.adMessage}>
-					Resume in 00:{counter < 10 ? "0" + counter : counter}
-				</span>
+			) : (
+				""
 			)}
 		</div>
 	);
 };
 
-export default MovieDescription;
+export default withAdvertisement({ adTime: 15, resumeTime: 5 })(
+	MovieDescription
+);
