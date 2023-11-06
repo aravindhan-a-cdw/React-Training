@@ -2,6 +2,10 @@
     margin-top: 1rem;
     width: 40rem;
 
+    .adContainer {
+        display: none;
+    }
+
     .movieDetails {
         display: flex;
         flex-direction: column;
@@ -60,5 +64,13 @@
             font-weight: 300;
             margin-bottom: .5rem;
         }
+    }
+
+    .adMessage {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: rgb(67, 153, 239);
+        display: block;
+        margin-top: 1rem;
     }
 }
