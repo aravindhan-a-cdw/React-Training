@@ -40,15 +40,15 @@ const Home = () => {
 
 	console.log(data);
 	return (
-		<div className={styles.home_container}>
-			<div className={styles.image_container}>
+		<div className={styles.homeContainer}>
+			<div className={styles.imageContainer}>
 				<img
-					className={styles.banner_image}
+					className={styles.bannerImage}
 					src={image}
 					alt="Sindel Movie poster"
 				/>
 			</div>
-			<div className={styles.lottery_section}>
+			<div className={styles.lotterySection}>
 				{message ? (
 					<p>{message}</p>
 				) : (
@@ -67,7 +67,7 @@ const Home = () => {
 				)}
 			</div>
 			<main>
-				<div className={styles.trailers_section}>
+				<div className={styles.trailersSection}>
 					<h4>{HOME_CONSTANTS.TRAILER_TITLE}</h4>
 					{!authData.isAuthenticated && (
 						<p>
@@ -79,15 +79,15 @@ const Home = () => {
 					)}
 					<Trailer className={styles.trailer} />
 				</div>
-				<div className={styles.teasers_section}>
+				<div className={styles.teasersSection}>
 					<h4>{HOME_CONSTANTS.TEASER_TITLE}</h4>
-					<div className={styles.teasers_container}>
+					<div className={styles.teasersContainer}>
 						{data.map((data) => (
 							<Teaser key={data.id} data={data} />
 						))}
 					</div>
 				</div>
-				<div className={styles.other_language_section}>
+				<div className={styles.otherLanguageSection}>
 					<h4>{HOME_CONSTANTS.LANGUAGE.TITLE}</h4>
 					<ul>
 						{HOME_CONSTANTS.LANGUAGE.AVAILABLE.map((lang) => (

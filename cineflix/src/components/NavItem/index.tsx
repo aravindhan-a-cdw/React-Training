@@ -11,7 +11,7 @@ type NavItemProps = {
 const NavItem = (props: NavItemProps) => {
 	const { children, className = "", to } = props;
 	return (
-		<li className={`${styles.nav_item} ${className}`}>
+		<li className={`${styles.navItem} ${className}`}>
 			<NavLink to={to}>
 				{({ isActive }) => (
 					<span className={isActive ? styles.active : ""}>

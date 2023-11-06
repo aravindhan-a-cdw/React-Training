@@ -1,7 +1,7 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Layout from "./containers/Layout";
 import Home, { loader as homeLoader } from "./screens/Home";
-import AllMovies from "./screens/AllMovies";
+import AllMovies, { loader as allMoviesLoader } from "./screens/AllMovies";
 import NowShowing from "./screens/NowShowing";
 import Login, { loginAction } from "./screens/Login";
 import AuthContextProvider from "./stores/AuthContext";
@@ -21,6 +21,7 @@ function App() {
 				{
 					path: "all-movies",
 					element: <AllMovies />,
+					loader: allMoviesLoader,
 				},
 				{
 					path: "now-showing",

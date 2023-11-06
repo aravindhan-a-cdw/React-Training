@@ -15,8 +15,8 @@ const Trailer = (props: TrailerProps) => {
 		navigate("/now-showing");
 	};
 	return (
-		<div className={`${styles.trailer_container} ${className}`}>
-			<div className={styles.image_container}></div>
+		<div className={`${styles.trailerContainer} ${className}`}>
+			<div className={styles.imageContainer}></div>
 			<div className={styles.content}>
 				<h5>{TRAILER_CONSTANTS.TITLE}</h5>
 				<p>{TRAILER_CONSTANTS.DESCRIPTION}</p>

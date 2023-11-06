@@ -7,7 +7,7 @@ type ButtonProps = {
 };
 
 const Button = (props: ButtonProps) => {
-	const { children, className = "", onClick } = props;
+	const { children, className = "", onClick = () => {} } = props;
 	return (
 		<button className={`${styles.button} ${className}`} onClick={onClick}>
 			{children}

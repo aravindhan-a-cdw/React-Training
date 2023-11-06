@@ -1,8 +1,9 @@
 
-.trailer_container {
+.trailerContainer {
     display: flex;
     gap: 2rem;
-    .image_container {
+    
+    .imageContainer {
         height: 25rem;
         flex-basis: 25rem;
         background: url('../../assets/sindel-background.png') no-repeat center center/cover;

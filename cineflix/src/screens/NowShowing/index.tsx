@@ -29,7 +29,7 @@ const NowShowing = () => {
 		<div className={styles.container}>
 			<h3>{NOW_SHOWING_CONSTANTS.PAGE_TITLE}</h3>
 			<h4>{NOW_SHOWING_CONSTANTS.MOVIE_TITLE}</h4>
-			<div className={styles.movie_container}>
+			<div className={styles.movieContainer}>
 				<img ref={playBtnRef} src={playBtn} alt="Play button" />
 				<video
 					ref={videoRef}

@@ -13,7 +13,8 @@ const movieServices = {
 			throw Error("Error while fetching data");
 		}
 		const result = (await response.json()) as Array<any>;
-		return result.slice(0, pageNumber * 6);
+		console.log(result);
+		return result.slice(Math.max((pageNumber - 1) * 6), pageNumber * 6);
 	},
 	// This service return all the teasers
 	teaserService: async () => {

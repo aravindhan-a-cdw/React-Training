@@ -39,7 +39,7 @@ const NavBar = () => {
 							})}
 						</ul>
 					</div>
-					<div className={styles.user_section}>
+					<div className={styles.userSection}>
 						{contextData.authData.isAuthenticated ? (
 							<>
 								<span className={styles.username}>

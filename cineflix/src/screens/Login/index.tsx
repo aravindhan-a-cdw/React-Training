@@ -35,16 +35,16 @@ const Login = () => {
 	}
 
 	return (
-		<div className={styles.page_container}>
+		<div className={styles.pageContainer}>
 			<img src={image} alt="Sindel" />
-			<div className={styles.login_form_container}>
+			<div className={styles.loginFormContainer}>
 				<Form method="post">
 					<h3>{LOGIN_CONSTANTS.TITLE}</h3>
 					<p>{LOGIN_CONSTANTS.DESCRIPTION}</p>
 					<div>
 						<label htmlFor="email">Email</label>
 						<Input
-							className={`${styles.form_input} ${
+							className={`${styles.formInput} ${
 								actionData && actionData.email
 									? styles.error
 									: ""
@@ -54,7 +54,7 @@ const Login = () => {
 							name="email"
 						/>
 						{actionData && actionData.email ? (
-							<p className={styles.error_message}>
+							<p className={styles.errorMessage}>
 								{actionData.email}
 							</p>
 						) : (
@@ -63,7 +63,7 @@ const Login = () => {
 
 						<label htmlFor="password">Password</label>
 						<Input
-							className={`${styles.form_input} ${
+							className={`${styles.formInput} ${
 								actionData && actionData.password
 									? styles.error
 									: ""
@@ -73,21 +73,21 @@ const Login = () => {
 							name="password"
 						/>
 						{actionData && actionData.password ? (
-							<p className={styles.error_message}>
+							<p className={styles.errorMessage}>
 								{actionData.password}
 							</p>
 						) : (
 							""
 						)}
 						{actionData && actionData.message ? (
-							<p className={styles.error_message}>
+							<p className={styles.errorMessage}>
 								{actionData.message}
 							</p>
 						) : (
 							""
 						)}
 					</div>
-					<Button className={styles.login_btn}>Login</Button>
+					<Button className={styles.loginBtn}>Login</Button>
 				</Form>
 			</div>
 		</div>

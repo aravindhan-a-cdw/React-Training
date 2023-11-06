@@ -1,5 +1,6 @@
 import styles from "./style.module.css";
 import playBtn from "../../assets/play-button.svg";
+import fallback from "../../assets/fallbackImage.png";
 import { useEffect, useRef, useState } from "react";
 
 type TeaserProps = {
@@ -22,7 +23,6 @@ const Teaser = (props: TeaserProps) => {
 	const [adCountDown, setAdCountDown] = useState(false);
 	const [showAd, setShowAd] = useState(false);
 	const [adShown, setAdShown] = useState(false);
-	// const [adTime, setAdTime] = useState(2);
 
 	const [adImage] = useState(Math.ceil(Math.random() * 2));
 
@@ -53,22 +53,6 @@ const Teaser = (props: TeaserProps) => {
 				clearInterval(timerInterval);
 			};
 		}
-
-		// if (adCountDown) {
-		// 	const interval = setInterval(() => {
-		// 		setTimer((state) => state - 1);
-		// 	}, 1000);
-		// 	if (timer === 0) {
-		// 		videoRef.current?.pause();
-		// 		playBtnRef.current!.style.display = "block";
-		// 		setShowAd(true);
-		// 		setAdCountDown(false);
-		// 	}
-
-		// 	return () => {
-		// 		clearInterval(interval);
-		// 	};
-		// }
 	}, [timer, adShown, showAd, adCountDown, videoPlaying]);
 
 	const playBtnClickHandler = () => {
@@ -88,19 +72,22 @@ const Teaser = (props: TeaserProps) => {
 
 	return (
 		<div className={styles.teaser}>
-			<div ref={adRef} className={styles.ad_container}>
+			<div ref={adRef} className={styles.adContainer}>
 				<img
+					onError={(event) => {
+						event.currentTarget.src = fallback;
+					}}
 					className={styles.advertisement}
 					src={`/advertisements/small-promos/AdvertisementSmall${adImage}.png`}
 					alt="Ad Poster"
 				/>
 			</div>
-			<div ref={videoContainerRef} className={styles.video_container}>
+			<div ref={videoContainerRef} className={styles.videoContainer}>
 				<img
 					ref={playBtnRef}
 					onClick={playBtnClickHandler}
 					src={playBtn}
-					className={`${styles.playBtn}`}
+					className={styles.playBtn}
 					alt="Play button"
 				/>
 				<video
@@ -109,18 +96,14 @@ const Teaser = (props: TeaserProps) => {
 					src={data.videoSrc + "#t=2.5"}
 				></video>
 			</div>
-			{/* <video controls>
-				<source type="video/mp4" src={data.videoSrc} />
-			</video> */}
-			{/* <iframe src={data.url} title={data.title}></iframe> */}
-			<h5 className={styles.video_title}>{data.title}</h5>
+			<h5 className={styles.videoTitle}>{data.title}</h5>
 			{adCountDown && !adShown && (
-				<span className={styles.ad_message}>
+				<span className={styles.adMessage}>
 					Advertisement in 00:0{timer}
 				</span>
 			)}
 			{showAd && (
-				<span className={styles.ad_message}>
+				<span className={styles.adMessage}>
 					Video Resumes in 00:0{timer}
 				</span>
 			)}

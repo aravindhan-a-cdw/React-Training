@@ -1,5 +1,5 @@
 
-.ad_container {
+.adContainer {
     display: none;
     height: 20rem;
 }
@@ -15,7 +15,7 @@
     font-size: 1.5rem;
 
 
-    .video_container {
+    .videoContainer {
         position: relative;
 
         .hidden {
@@ -43,12 +43,12 @@
         position: relative;
     }
 
-    .video_title {
+    .videoTitle {
         font-size: 1.5rem;
         font-weight: 400;
     }
 
-    .ad_message {
+    .adMessage {
         font-size: 1rem;
         font-weight: 600;
         color: rgb(67, 153, 239);
