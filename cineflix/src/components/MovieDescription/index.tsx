@@ -120,6 +120,6 @@ const MovieDescription: FC<MovieDescriptionProps> = (props) => {
 	);
 };
 
-export default withAdvertisement({ adTime: 15, resumeTime: 5 })(
+export default withAdvertisement({ adWaitTime: 15, adTime: 5 })(
 	MovieDescription
 );

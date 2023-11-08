@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useState } from "react";
 
 type AdTimeProps = {
+	adWaitTime: number;
 	adTime: number;
-	resumeTime: number;
 };
 
 const withAdvertisement =
@@ -10,7 +10,7 @@ const withAdvertisement =
 	<P extends {}>(
 		WrappedComponent: React.ComponentType<P>
 	): React.FC<Omit<P, "hocProps">> => {
-		const { adTime, resumeTime } = props;
+		const { adWaitTime, adTime } = props;
 
 		return (props: Omit<P, "hocProps">) => {
 			const [counter, setCounter] = useState(0);
@@ -25,7 +25,7 @@ const withAdvertisement =
 				if (!showAd) {
 					setIsAdCountDown(true);
 					setAdCompleted(false);
-					setCounter(adTime);
+					setCounter(adWaitTime);
 				}
 			}, [showAd]);
 
@@ -33,7 +33,7 @@ const withAdvertisement =
 				if (started) return;
 				setStarted(true);
 				setIsAdCountDown(true);
-				setCounter(adTime);
+				setCounter(adWaitTime);
 				setPauseAd(false);
 			}, [started]);
 
@@ -58,7 +58,7 @@ const withAdvertisement =
 
 					if (counter === 0 && isAdCountDown === true) {
 						setShowAd(true);
-						setCounter(resumeTime);
+						setCounter(adTime);
 						setIsAdCountDown(false);
 					}
 

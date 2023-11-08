@@ -38,7 +38,6 @@ const Home = () => {
 		}
 	};
 
-	console.log(data);
 	return (
 		<div className={styles.homeContainer}>
 			<div className={styles.imageContainer}>
@@ -82,17 +81,19 @@ const Home = () => {
 				<div className={styles.teasersSection}>
 					<h4>{HOME_CONSTANTS.TEASER_TITLE}</h4>
 					<div className={styles.teasersContainer}>
-						{data.map((data) => (
-							<Teaser key={data.id} data={data} />
+						{data.map((data, index) => (
+							<Teaser key={index} data={data} />
 						))}
 					</div>
 				</div>
 				<div className={styles.otherLanguageSection}>
 					<h4>{HOME_CONSTANTS.LANGUAGE.TITLE}</h4>
 					<ul>
-						{HOME_CONSTANTS.LANGUAGE.AVAILABLE.map((lang) => (
-							<li>{lang}</li>
-						))}
+						{HOME_CONSTANTS.LANGUAGE.AVAILABLE.map(
+							(lang, index) => (
+								<li key={index}>{lang}</li>
+							)
+						)}
 					</ul>
 				</div>
 			</main>

@@ -95,7 +95,6 @@ const Login = () => {
 };
 
 export const loginAction = async ({ params, request }: any) => {
-	console.log(params, request);
 	const formData = await request.formData();
 	const email = formData.get("email");
 	let hasError = false;
@@ -125,7 +124,6 @@ export const loginAction = async ({ params, request }: any) => {
 			{ status: 401 }
 		);
 	}
-	console.log(response);
 	return response;
 };
 

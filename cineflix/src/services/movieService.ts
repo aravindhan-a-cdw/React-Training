@@ -1,3 +1,4 @@
+import { json } from "react-router-dom";
 import { MOVIES_URL, TEASERS_URL } from "../constants/serviceConstants";
 
 /*
@@ -10,17 +11,23 @@ const movieServices = {
 	movieService: async (pageNumber: number) => {
 		const response = await fetch(MOVIES_URL);
 		if (response.status !== 200) {
-			throw Error("Error while fetching data");
+			throw json(
+				{ error: "Some text" },
+				{ status: 500, statusText: "Couldn't fetch movies!" }
+			);
+			// throw new ErrorResponseImpl(status: 500,statusText:"Error while fetching data", data: "");
 		}
 		const result = (await response.json()) as Array<any>;
-		console.log(result);
 		return result.slice(Math.max((pageNumber - 1) * 6), pageNumber * 6);
 	},
 	// This service return all the teasers
 	teaserService: async () => {
 		const response = await fetch(TEASERS_URL);
 		if (response.status !== 200) {
-			throw Error("Error while fetching data");
+			throw json(
+				{},
+				{ status: 500, statusText: "Couldn't fetch teasers data!" }
+			);
 		}
 		return await response.json();
 	},

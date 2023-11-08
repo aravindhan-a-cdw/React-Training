@@ -6,12 +6,12 @@
         font-size: 1.5rem;
         font-weight: 600;
         color: #4B8FE2;
-        margin-bottom: 1.5rem;
+        margin-bottom: 2rem;
     }
 
     h4 {
         font-size: 3rem;
-        font-weight: 300;
+        font-weight: 400;
         margin-bottom: 1rem;
     }
 
@@ -32,11 +32,13 @@
             height: 41rem;
             width: 100%;
             margin-bottom: 1rem;
+            object-fit: cover;
         }
     }
 
 
     p{
-        font-size: 1.4rem;
+        font-size: 1.6rem;
+        line-height: 160%;
     }
 }

@@ -24,9 +24,19 @@
 
     .userSection {
         font-size: 1.5rem;
+        font-weight: 300;
+        
+        a{
+            font-weight: 300;
+        }
+
+        .logout{
+            text-transform: capitalize;
+        }
 
         .username {
-            max-width: 20px;
+            width: 8rem;
+            overflow: hidden;
             text-overflow: ellipsis;
         }
     }

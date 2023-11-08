@@ -10,7 +10,7 @@ const Logout = () => {
 			type: "LOGOUT",
 			payload: { username: null, isAuthenticated: false },
 		});
-	});
+	}, [dispatch]);
 
 	return <Navigate to={"/"} />;
 };

@@ -6,12 +6,14 @@ import NowShowing from "./screens/NowShowing";
 import Login, { loginAction } from "./screens/Login";
 import AuthContextProvider from "./stores/AuthContext";
 import Logout from "./screens/Logout";
+import ErrorPage from "./screens/ErrorPage";
 
 function App() {
 	const router = createBrowserRouter([
 		{
 			path: "/",
 			element: <Layout />,
+			errorElement: <ErrorPage />,
 			children: [
 				{
 					index: true,

@@ -26,9 +26,7 @@ const AllMovies = () => {
 	const [showLoadMore, setShowLoadMore] = useState(true);
 
 	const likeHandler = useCallback(function (index: number) {
-		console.log("Inside Handler");
 		setMovies((state) => {
-			console.log("Inside setMovies");
 			const newState = [...state];
 			newState[index].likes = Number(newState[index].likes) + 1;
 			return newState;
@@ -48,7 +46,6 @@ const AllMovies = () => {
 		const moreMovies = await movieServices.movieService(
 			movies.length / 6 + 1
 		);
-		console.log("More Movies", moreMovies);
 		if (moreMovies.length < 6) {
 			setShowLoadMore(false);
 		}
@@ -62,7 +59,9 @@ const AllMovies = () => {
 				<div className={styles.moviesContainer}>
 					<div className={styles.moviesList}>{MoviesList}</div>
 					<Button
-						className={showLoadMore ? "" : styles.hidden}
+						className={`${styles.loadMoreBtn} ${
+							showLoadMore ? "" : styles.hidden
+						}`}
 						onClick={loadMoreHandler}
 					>
 						Load More

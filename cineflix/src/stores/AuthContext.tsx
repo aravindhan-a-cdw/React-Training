@@ -18,8 +18,6 @@ const initialState = {
 	username: usernameLocal ? JSON.parse(usernameLocal) : null,
 };
 
-console.log(initialState);
-
 const authReducer = (
 	state: any,
 	action: { type: string; payload: AuthDataType }

@@ -114,4 +114,4 @@ const Teaser: React.FC<TeaserProps> = (props: TeaserProps) => {
 	);
 };
 
-export default withAdvertisement({ adTime: 5, resumeTime: 6 })(Teaser);
+export default withAdvertisement({ adWaitTime: 5, adTime: 2 })(Teaser);
