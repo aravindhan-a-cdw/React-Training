@@ -1,5 +1,10 @@
 import styles from "./styles.module.scss";
 
+/*
+	@author Aravindhan A
+	@description This component renders the button with gradient background
+*/
+
 type ButtonProps = {
 	children: string;
 	className?: string;

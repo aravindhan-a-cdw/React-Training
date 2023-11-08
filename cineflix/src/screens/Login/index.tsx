@@ -8,6 +8,11 @@ import authServices from "../../services/authService";
 import { useContext, useEffect } from "react";
 import { AuthContext } from "../../stores/AuthContext";
 
+/*
+	@author Aravindhan A
+	@description This component renders the Login page of the application
+*/
+
 const Login = () => {
 	const actionData = useActionData() as {
 		email: "";
@@ -113,7 +118,7 @@ export const loginAction = async ({ params, request }: any) => {
 		errors.password = "Password must be > 6 characters";
 	}
 
-	// return data if we have errors
+	// return errors if we have errors
 	if (hasError) {
 		return errors;
 	}
@@ -125,11 +130,6 @@ export const loginAction = async ({ params, request }: any) => {
 		);
 	}
 	return response;
-};
-
-export const logoutAction = (dispatch: any) => {
-	dispatch({ type: "LOGOUT" });
-	return { success: true };
 };
 
 export default Login;

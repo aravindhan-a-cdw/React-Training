@@ -3,18 +3,23 @@ import { NOW_SHOWING_CONSTANTS } from "../../constants/pageConstants";
 import playBtn from "../../assets/play-button.svg";
 import { useContext, useEffect, useRef } from "react";
 import { AuthContext } from "../../stores/AuthContext";
-import { Navigate, useNavigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
+
+/*
+	@author Aravindhan A
+	@description This component renders the Now showing page of the application
+*/
 
 const NowShowing = () => {
 	const {
 		authData: { isAuthenticated },
 	} = useContext(AuthContext);
-	const navigate = useNavigate();
 
 	const videoRef = useRef<HTMLVideoElement>(null);
 	const playBtnRef = useRef<HTMLImageElement>(null);
 
 	useEffect(() => {
+		// This is used to set handlers on the video and playbutton
 		if (videoRef.current === null || playBtnRef.current === null) return;
 		videoRef.current!.onplay = () => {
 			playBtnRef.current!.style.display = "none";
@@ -34,6 +39,7 @@ const NowShowing = () => {
 	}, []);
 
 	if (!isAuthenticated) {
+		// Redirect to login page if user is not authenticated
 		return <Navigate to={"/login"} />;
 	}
 	return (

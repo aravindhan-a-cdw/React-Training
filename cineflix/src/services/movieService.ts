@@ -15,7 +15,6 @@ const movieServices = {
 				{ error: "Some text" },
 				{ status: 500, statusText: "Couldn't fetch movies!" }
 			);
-			// throw new ErrorResponseImpl(status: 500,statusText:"Error while fetching data", data: "");
 		}
 		const result = (await response.json()) as Array<any>;
 		return result.slice(Math.max((pageNumber - 1) * 6), pageNumber * 6);

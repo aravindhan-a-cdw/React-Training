@@ -2,6 +2,11 @@ import { ReactNode } from "react";
 import styles from "./styles.module.scss";
 import { NavLink } from "react-router-dom";
 
+/*
+	@author Aravindhan A
+	@description This component renders a single navigation link
+*/
+
 type NavItemProps = {
 	children: ReactNode;
 	to: string;

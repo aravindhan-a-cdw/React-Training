@@ -1,6 +1,11 @@
 import { ErrorResponse, useRouteError } from "react-router";
 import styles from "./styles.module.scss";
 
+/*
+	@author Aravindhan A
+	@description This component renders the error page
+*/
+
 const Error = () => {
 	const error = useRouteError() as ErrorResponse;
 	console.log(error);

@@ -1,7 +1,11 @@
 import styles from "./styles.module.scss";
 import thumbsUp from "../../assets/thumbs-up.png";
 import fallback from "../../assets/fallbackImage.png";
-import React from "react";
+
+/*
+	@author Aravindhan A
+	@description This component renders the short details of a single movie
+*/
 
 type MovieProps = {
 	id: number;

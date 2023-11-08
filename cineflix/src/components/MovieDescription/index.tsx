@@ -6,6 +6,11 @@ import withAdvertisement from "../withAdvertisement";
 import { counterFormater } from "../../utils/numberUtils";
 import { ALL_MOVIES_CONSTANTS } from "../../constants/pageConstants";
 
+/*
+	@author Aravindhan A
+	@description This component renders detailed poster view of a movie and shows advertisement after some interval.
+*/
+
 type HOCProps = {
 	adImage: number;
 	isAdCountDown: boolean;
@@ -46,10 +51,13 @@ const MovieDescription: FC<MovieDescriptionProps> = (props) => {
 	} = props;
 
 	useEffect(() => {
+		// This resets ad if the selected movie changes.
 		resetAd();
+		// It depends on id alone since if likes change, it may also trigger a reset.
 	}, [data.id]);
 
 	useEffect(() => {
+		// This starts ad if it is not in completed state.
 		if (!adCompleted) startAd();
 	}, [startAd, adCompleted]);
 
@@ -57,6 +65,7 @@ const MovieDescription: FC<MovieDescriptionProps> = (props) => {
 	const contentRef = useRef<HTMLDivElement>(null);
 
 	useEffect(() => {
+		// Toggle ad and content
 		if (showAd) {
 			adRef.current!.style.display = "block";
 			contentRef.current!.style.display = "none";

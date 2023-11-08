@@ -1,6 +1,11 @@
 import React from "react";
 import { ReactNode, createContext, useReducer } from "react";
 
+/*
+	@author Aravindhan A
+	@description This is Authentication Context which stores auth details of user in localstorage and shares it with context
+*/
+
 type AuthDataType = {
 	isAuthenticated: boolean;
 	username: string | null;

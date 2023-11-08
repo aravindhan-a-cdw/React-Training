@@ -6,6 +6,11 @@ import withAdvertisement from "../withAdvertisement";
 import { HOME_CONSTANTS } from "../../constants/pageConstants";
 import { counterFormater } from "../../utils/numberUtils";
 
+/*
+	@author Aravindhan A
+	@description This component renders a single teaser video along with showing of advertisement.
+*/
+
 type HOCProps = {
 	adImage: number;
 	isAdCountDown: boolean;
@@ -46,6 +51,7 @@ const Teaser: React.FC<TeaserProps> = (props: TeaserProps) => {
 	const videoContainerRef = useRef<HTMLDivElement>(null);
 
 	useEffect(() => {
+		// Toggle video and ad when ad needs to be shown
 		if (showAd) {
 			videoRef.current?.pause();
 			adRef.current!.style.display = "block";
@@ -59,6 +65,7 @@ const Teaser: React.FC<TeaserProps> = (props: TeaserProps) => {
 	}, [showAd, adCompleted]);
 
 	const playBtnClickHandler = () => {
+		// Handler to play video and to hide the play button.
 		if (videoRef.current?.paused) {
 			startAd();
 			pauseHandler(false);
@@ -68,6 +75,7 @@ const Teaser: React.FC<TeaserProps> = (props: TeaserProps) => {
 	};
 
 	const videoPauseHandler = () => {
+		// Handler to pause the video and show the play button
 		videoRef.current!.pause();
 		pauseHandler(true);
 		playBtnRef.current!.style.display = "block";

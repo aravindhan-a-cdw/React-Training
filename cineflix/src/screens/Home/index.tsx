@@ -8,6 +8,11 @@ import { HOME_CONSTANTS } from "../../constants/pageConstants";
 import movieServices from "../../services/movieService";
 import Teaser from "../../components/Teaser";
 
+/*
+	@author Aravindhan A
+	@description This component renders the Home page of the application
+*/
+
 type TeaserData = {
 	id: number;
 	title: string;
@@ -22,6 +27,7 @@ const Home = () => {
 	const inputRef = useRef<HTMLInputElement>(null);
 
 	const lotterySubmit = (event: FormEvent) => {
+		// This function handles the form event of lottery section
 		event.preventDefault();
 		const value = inputRef.current?.value || "";
 		let regex = new RegExp("^[0-9]{10}$");

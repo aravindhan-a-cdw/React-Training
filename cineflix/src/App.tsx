@@ -8,6 +8,11 @@ import AuthContextProvider from "./stores/AuthContext";
 import Logout from "./screens/Logout";
 import ErrorPage from "./screens/ErrorPage";
 
+/*
+	@author Aravindhan A
+	@description This is the App component which has the router and AuthContext setup to the whole application
+*/
+
 function App() {
 	const router = createBrowserRouter([
 		{

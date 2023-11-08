@@ -8,6 +8,11 @@ import Button from "../../components/Button";
 import movieServices from "../../services/movieService";
 import MovieDescription from "../../components/MovieDescription";
 
+/*
+	@author Aravindhan A
+	@description This component renders the all movies page
+*/
+
 type MovieData = {
 	id: number;
 	movie: string;
@@ -26,6 +31,7 @@ const AllMovies = () => {
 	const [showLoadMore, setShowLoadMore] = useState(true);
 
 	const likeHandler = useCallback(function (index: number) {
+		// This handler increases the likes of a movie
 		setMovies((state) => {
 			const newState = [...state];
 			newState[index].likes = Number(newState[index].likes) + 1;
@@ -43,6 +49,7 @@ const AllMovies = () => {
 	));
 
 	const loadMoreHandler = async () => {
+		// This handler loads more movies into the state
 		const moreMovies = await movieServices.movieService(
 			movies.length / 6 + 1
 		);
@@ -79,6 +86,7 @@ const AllMovies = () => {
 };
 
 const loader = async () => {
+	// This function gets movies from the api service.
 	const data = await services.movieService(1);
 	return data;
 };

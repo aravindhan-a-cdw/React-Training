@@ -1,5 +1,10 @@
 import { useCallback, useEffect, useState } from "react";
 
+/*
+	@author Aravindhan A
+	@description This is a HOC to have common logic for showing of advertisements.
+*/
+
 type AdTimeProps = {
 	adWaitTime: number;
 	adTime: number;
@@ -30,6 +35,7 @@ const withAdvertisement =
 			}, [showAd]);
 
 			const startAd = useCallback(() => {
+				// This is a handler to start ad only when the timer hasn't started.
 				if (started) return;
 				setStarted(true);
 				setIsAdCountDown(true);
@@ -49,6 +55,7 @@ const withAdvertisement =
 			};
 
 			useEffect(() => {
+				// This controls the timer and shows ad when timer ends.
 				if (pauseAd || started === false) return;
 
 				if (!adCompleted) {

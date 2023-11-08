@@ -6,6 +6,11 @@ import NavItem from "../NavItem";
 import { Link, useLocation } from "react-router-dom";
 import { NAVBAR_CONSTANTS } from "../../constants/componentConstants";
 
+/*
+	@author Aravindhan A
+	@description This component renders the navigation bar containing logo and other user navigatables.
+*/
+
 const NavBar = () => {
 	const contextData = useContext(AuthContext);
 	const location = useLocation();
@@ -15,7 +20,7 @@ const NavBar = () => {
 			<Link to="/">
 				<img src={logo} alt="Logo of CineFlix" />
 			</Link>
-
+			{/* Only show nav links when not in login page */}
 			{location.pathname !== "/login" ? (
 				<>
 					<div className={styles.links}>
