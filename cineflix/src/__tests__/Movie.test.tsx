@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import Movie from "../components/Movie";
 
-test("Input renders successfully", () => {
+test("Movie Component renders successfully", () => {
 	const movieData = {
 		link: "https://images.pexels.com/photos/3131971/pexels-photo-3131971.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
 		movie: "Drishyam",
@@ -13,7 +13,7 @@ test("Input renders successfully", () => {
 	};
 	render(<Movie {...movieData} />);
 
-	const movieTitle = screen.getByText("Drishyam");
+	const movieTitle = screen.getByText(movieData.movie);
 	expect(movieTitle).toBeInTheDocument();
 
 	const likes = screen.getByText(`${movieData.likes} Likes`);

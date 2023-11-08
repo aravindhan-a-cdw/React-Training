@@ -20,6 +20,7 @@ const Input = (props: InputProps) => {
 			type={type}
 			name={name}
 			id={id}
+			data-testid="input"
 		/>
 	);
 };
