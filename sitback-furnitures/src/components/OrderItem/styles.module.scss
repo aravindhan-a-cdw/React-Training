@@ -1,0 +1,35 @@
+.orderItem {
+    flex: 0 0 23.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: .25rem;
+    
+    & > img {
+        height: 13rem;
+        object-fit: cover;
+        border-radius: .5rem;
+        border-top-left-radius: 0;
+    }
+
+    & .basicInfo {
+        display: flex;
+        justify-content: space-between;
+        font-weight: 600;
+        font-size: .95rem;
+    }
+
+    & .productDescription {
+        color: #4E4E4E;
+        font-size: .7rem;
+    }
+
+    & .quantity {
+        font-size: .75rem;
+    }
+
+    & .buttons {
+        display: flex;
+        justify-content: flex-end;
+    }
+}

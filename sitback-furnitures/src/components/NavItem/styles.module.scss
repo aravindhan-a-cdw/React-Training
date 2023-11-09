@@ -1,0 +1,17 @@
+.link {
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: .9rem;
+
+    & a{
+        color: #000;
+        text-decoration: none;
+        & span {
+            padding-bottom: 1.1rem;
+        }
+    }
+}
+
+.active {
+    border-bottom: .5rem solid black;
+}
