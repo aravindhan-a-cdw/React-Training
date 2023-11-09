@@ -7,7 +7,7 @@ import styles from "./styles.module.scss";
 */
 
 type ButtonProps = {
-	children: string | ReactNode;
+	children: ReactNode;
 	type?: "dark" | "light";
 	className?: string;
 	clickHandler?: () => void;

@@ -1,3 +1,4 @@
+import { json } from "react-router-dom";
 import { BASE_URL } from "../constants/ServiceConstants";
 
 /*
@@ -11,9 +12,17 @@ const productServices = {
 		try {
 			const url = BASE_URL + "/categories";
 			const response = await fetch(url);
+			if (response.status !== 200)
+				throw json(
+					{ error: "Couldn't fetch categories!" },
+					{ status: response.status }
+				);
 			return await response.json();
 		} catch (error) {
-			throw new Error("Couldn't fetch categories!");
+			throw json(
+				{ error: "Couldn't fetch or parse categories!" },
+				{ status: 500 }
+			);
 		}
 	},
 	// Get all products of a particular category
@@ -24,9 +33,17 @@ const productServices = {
 				"/products?" +
 				new URLSearchParams({ category: category });
 			const response = await fetch(url);
+			if (response.status !== 200)
+				throw json(
+					{ error: `Couldn't get products of category ${category}` },
+					{ status: response.status }
+				);
 			return await response.json();
 		} catch (err) {
-			throw new Error(`Couldn't get products of category ${category}`);
+			throw json(
+				{ error: `Couldn't get products of category ${category}` },
+				{ status: 500 }
+			);
 		}
 	},
 };
