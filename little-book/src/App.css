@@ -1,0 +1,21 @@
+:root {
+  /* Font family */
+  --primary-font: 'IBM Plex Sans', sans-serif;
+  --secondary-font: 'Roboto Slab', serif;
+
+  /* Light Mode Colors */
+  /* Button Colors */
+  --primary-btn-color: #B355B7;
+  --secondary-btn-color: #69F8F8;
+
+  /* Text Colors */
+  --primary-color: #B355B7;
+  --primary-text: #111;
+
+  /* Background */
+  --primary-background: #FFF;
+  --secondary-background: #F5F6FA;
+  --primary-dark-background: #96E2F4;
+
+}
+
