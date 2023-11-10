@@ -1,0 +1,19 @@
+.primary, .secondary {
+    background: none;
+    font-family: var(--primary-font);
+    border-radius: 5rem;
+    text-transform: uppercase;
+    font-weight: 400;
+}
+
+.primary {
+    background-color: var(--primary-btn-color);
+    color: #fff;
+    padding: .75rem 3rem;
+    font-size: 1.1rem;
+}
+
+.secondary {
+    background-color: var(--secondary-btn-color);
+    padding: .5rem 1rem;
+}
