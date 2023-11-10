@@ -1,6 +1,5 @@
 import { ErrorResponse, useRouteError } from "react-router";
 import styles from "./styles.module.scss";
-import { ErrorResponseImpl } from "@remix-run/router/dist/utils";
 
 /*
 	@author Aravindhan A
@@ -12,7 +11,7 @@ const Error = () => {
 	console.log(error);
 	return (
 		<div className={styles.container}>
-			{error instanceof ErrorResponseImpl ? (
+			{"status" in error ? (
 				error.status !== 404 ? (
 					<>
 						<h1>Some error occurred</h1>
@@ -21,7 +20,7 @@ const Error = () => {
 						</h2>
 					</>
 				) : (
-					""
+					<h1>404 Not Found</h1>
 				)
 			) : (
 				<h1>Some unexpected error occurred!</h1>
