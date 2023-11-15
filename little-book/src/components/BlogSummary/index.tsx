@@ -5,13 +5,20 @@ type BlogSummaryProps = {
 	details: string;
 	type: string;
 	photo?: string;
+	selected?: boolean;
+	clickHandler: () => void;
 };
 
 const BlogSummary = (props: BlogSummaryProps) => {
-	const { title, details, type } = props;
+	const { title, details, type, clickHandler, selected = false } = props;
 
 	return (
-		<div className={`${styles.blogSummaryContainer} ${styles.selected}`}>
+		<div
+			onClick={clickHandler}
+			className={`${styles.blogSummaryContainer} ${
+				selected ? styles.selected : ""
+			}`}
+		>
 			<h3>{title}</h3>
 			<span>{type}</span>
 			<p>{details}</p>
