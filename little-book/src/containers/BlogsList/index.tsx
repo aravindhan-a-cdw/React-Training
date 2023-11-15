@@ -9,6 +9,7 @@ import {
 	selectSelectedBlog,
 	setSelectedBlog,
 } from "../../actions/blog";
+import { HOME_CONSTANTS } from "../../constants/pageConstants";
 
 type BlogType = {
 	title: string;
@@ -47,7 +48,7 @@ const BlogsList = () => {
 			<div className={styles.header}>
 				<SearchBar
 					className={styles.search}
-					placeholder="Search Blogs"
+					placeholder={HOME_CONSTANTS.SEARCH_PLACEHOLDER}
 				/>
 				<Button>New</Button>
 			</div>
