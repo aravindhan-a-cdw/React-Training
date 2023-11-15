@@ -36,4 +36,8 @@
     font-size: .9rem;
     font-weight: 500;
     font-family: var(--primary-font);
+
+    & span {
+        cursor: pointer;
+    }
 }

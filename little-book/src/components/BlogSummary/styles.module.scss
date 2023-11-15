@@ -1,10 +1,11 @@
 .blogSummaryContainer {
-    background-color: var(--primary-background);
+    background-color: var(--blog-summary-background);
     padding: 2rem 1.5rem;
     display: flex;
     flex-direction: column;
     gap: .5rem;
     border-radius: .5rem;
+    cursor: pointer;
 
     h3 {
         font-family: var(--secondary-font);

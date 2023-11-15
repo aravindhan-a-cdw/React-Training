@@ -17,5 +17,8 @@
   --secondary-background: #F5F6FA;
   --primary-dark-background: #96E2F4;
 
+  --search-bar-background: #EBECF4;
+  --blog-summary-background: var(--primary-background);
+
 }
 

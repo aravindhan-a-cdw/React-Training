@@ -2,9 +2,24 @@
 .container {
     display: flex;
     background-color: var(--primary-background);
-
+    color: var(--primary-text);
 }
 
 .blog {
     flex: 0 0 50%;
+}
+
+.dark{
+
+  /* Text Colors */
+  --primary-color: #B355B7;
+  --primary-text: #fff;
+
+  /* Background */
+  --primary-background: #041D2E;
+  --secondary-background: #000000;
+  --primary-dark-background: #021929;
+
+  --search-bar-background: #041D2E;
+  --blog-summary-background: #042B46;
 }

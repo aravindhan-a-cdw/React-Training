@@ -2,7 +2,7 @@
 .searchBar {
 
     padding: 1rem 1.5rem;
-    background-color: #EBECF4;
+    background-color: var(--search-bar-background);
     border-radius: 3rem;
     color: #95969A;
     font-family: var(--primary-font);

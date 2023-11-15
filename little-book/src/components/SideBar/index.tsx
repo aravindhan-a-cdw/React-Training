@@ -4,6 +4,7 @@ import { HOME_CONSTANTS } from "../../constants/pageConstants";
 import CheckBox from "../CheckBox";
 import Logo from "../Logo";
 import styles from "./styles.module.scss";
+import { toggleDarkMode } from "../../actions/darkMode";
 
 const SideBar = () => {
 	const filters = useSelector(selectTypes);
@@ -23,16 +24,22 @@ const SideBar = () => {
 		);
 	});
 
+	const darkModeClickHandler = () => {
+		dispatch(toggleDarkMode());
+	};
+
 	return (
 		<div className={styles.sidebar}>
 			<Logo />
 			<div className={styles.filters}>
-				<h5>Filter</h5>
+				<h5>{HOME_CONSTANTS.FILTER_TITLE}</h5>
 				{filterElements}
 			</div>
 			<div className={styles.otherOptions}>
-				<span>View Members</span>
-				<span>Switch to Dark Mode</span>
+				<span>{HOME_CONSTANTS.VIEW_MEMBERS}</span>
+				<span onClick={darkModeClickHandler}>
+					{HOME_CONSTANTS.DARK_MODE}
+				</span>
 			</div>
 		</div>
 	);
