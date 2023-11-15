@@ -8,11 +8,20 @@ import styles from "./styles.module.scss";
 type ButtonProps = {
 	children: React.ReactNode;
 	type?: "primary" | "secondary";
+	className?: string;
+	clickHandler?: () => void;
 };
 
 const Button = (props: ButtonProps) => {
-	const { children, type = "primary" } = props;
-	return <button className={styles[type]}>{children}</button>;
+	const { children, type = "primary", className = "", clickHandler } = props;
+	return (
+		<button
+			onClick={clickHandler}
+			className={`${styles[type]} ${className}`}
+		>
+			{children}
+		</button>
+	);
 };
 
 export default Button;

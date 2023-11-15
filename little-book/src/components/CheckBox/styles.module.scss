@@ -1,0 +1,13 @@
+.checkbox {
+    color: var(--primary-btn-color);
+    background-color: var(--primary-btn-color);
+    height: 1.3rem;
+    width: 1.3rem;
+
+}
+input[type=checkbox] {
+    accent-color: var(--primary-color);
+    line-height: normal;
+    // width: 20px;
+    // height: 20px;
+}

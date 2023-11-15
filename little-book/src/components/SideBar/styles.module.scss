@@ -1,0 +1,39 @@
+.sidebar {
+    flex: 0 0 16%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+    padding: 3rem 2rem;
+}
+
+.filters {
+    display: flex;
+    flex-direction: column;
+    gap: .75rem;
+
+    h5 {
+        text-transform: uppercase;
+        font-family: var(--primary-font);
+        font-weight: 400;
+        font-size: 1.25rem;
+        margin-bottom: .75rem;
+    }
+
+    .filter {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        font-family: var(--primary-font);
+        font-size: .9rem;
+    }
+}
+
+.otherOptions {
+    display: flex;
+    flex-direction: column;
+    gap: .75rem;
+    font-size: .9rem;
+    font-weight: 500;
+    font-family: var(--primary-font);
+}
