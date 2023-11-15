@@ -17,8 +17,11 @@
   --secondary-background: #F5F6FA;
   --primary-dark-background: #96E2F4;
 
+  /* Component Colors */
   --search-bar-background: #EBECF4;
   --blog-summary-background: var(--primary-background);
+  --modal-background: #4F4F4F;
+  --text-pink: #B355B7;
 
 }
 

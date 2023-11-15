@@ -8,9 +8,13 @@ import {
 } from "../../actions/modal";
 import MembersList from "../../containers/MembersList";
 import { SyntheticEvent, useRef } from "react";
+import NewBlog from "../NewBlog";
+import { selectDarkMode } from "../../actions/darkMode";
 
 const Modal = () => {
 	const dispatch = useDispatch();
+
+	const darkMode = useSelector(selectDarkMode);
 	const showModal = useSelector(selectShowModal);
 	const viewMembers = useSelector(selectViewMembers);
 	const addNewBlog = useSelector(selectAddNewBlog);
@@ -29,11 +33,13 @@ const Modal = () => {
 			<div
 				ref={outsideModalRef}
 				onClick={closeModalHandler}
-				className={styles.modalContainer}
+				className={`${styles.modalContainer} ${
+					darkMode ? styles.dark : ""
+				}`}
 			>
 				<div className={styles.modal}>
 					{viewMembers && <MembersList />}
-					{addNewBlog && <div>Add New Blog</div>}
+					{addNewBlog && <NewBlog />}
 				</div>
 			</div>
 		);

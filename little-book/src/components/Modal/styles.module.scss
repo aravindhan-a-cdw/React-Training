@@ -2,7 +2,7 @@
     position: absolute;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(#000, 0.7);
+    background-color: rgba(#1e1e1e, 0.7);
     display: flex;
     justify-content: end;
     
@@ -13,5 +13,13 @@
         position: relative;
         padding: 5rem 3.5rem;
         overflow: scroll;
+    }
+
+    &.dark {
+        background-color: rgba(#041D2E, 0.7);
+
+        .modal {
+            background-color: #00090E;
+        }
     }
 }
