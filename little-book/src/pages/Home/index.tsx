@@ -1,21 +1,31 @@
+import { useLoaderData } from "react-router-dom";
 import HomeLayout from "../../containers/HomeLayout";
+import apiService from "../../services/apiService";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { setBlogs } from "../../actions/blog";
+
+type BlogData = {
+	type: string;
+	title: string;
+	details: string;
+	photo?: string;
+};
 
 const Home = () => {
+	const data = useLoaderData() as Array<BlogData>;
+	const dispatch = useDispatch();
+
+	useEffect(() => {
+		dispatch(setBlogs(data));
+		console.log(data);
+	}, [data, dispatch]);
+
 	return <HomeLayout />;
-	// return (
-	// 	<div>
-	// 		<h1>Home</h1>
-	// 		<Button>New</Button>
-	// 		<CheckBox />
-	// 		<SearchBar placeholder="Search Blogs" />
-	// 		<BlogSummary
-	// 			details="fasdfkjasjkfkaskjf"
-	// 			photo=""
-	// 			title="How to Time Travel"
-	// 			type="International"
-	// 		/>
-	// 	</div>
-	// );
+};
+
+export const loader = async () => {
+	return await apiService.getBlogs();
 };
 
 export default Home;
