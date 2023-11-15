@@ -4,6 +4,7 @@ const HOME_CONSTANTS = {
 	SEARCH_PLACEHOLDER: "Search Blogs",
 	VIEW_MEMBERS: "View Members",
 	DARK_MODE: "Switch to Dark Mode",
+	NEW: "New",
 };
 
 export { HOME_CONSTANTS };

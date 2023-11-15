@@ -1,0 +1,22 @@
+.container {
+    h3 {
+        font-weight: 500;
+        font-size: 1.2rem;
+        font-family: var(--secondary-font);
+        margin-bottom: 2rem;
+    }
+
+    .membersContainer {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem 1.5rem;
+    }
+}
+
+.loadingContainer {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+}

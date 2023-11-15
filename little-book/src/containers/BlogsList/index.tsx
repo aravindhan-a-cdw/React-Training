@@ -10,6 +10,7 @@ import {
 	setSelectedBlog,
 } from "../../actions/blog";
 import { HOME_CONSTANTS } from "../../constants/pageConstants";
+import { toggleAddNewBlog } from "../../actions/modal";
 
 type BlogType = {
 	title: string;
@@ -43,6 +44,11 @@ const BlogsList = () => {
 			/>
 		);
 	});
+
+	const newBlogClickHandler = () => {
+		dispatch(toggleAddNewBlog());
+	};
+
 	return (
 		<div className={styles.container}>
 			<div className={styles.header}>
@@ -50,7 +56,9 @@ const BlogsList = () => {
 					className={styles.search}
 					placeholder={HOME_CONSTANTS.SEARCH_PLACEHOLDER}
 				/>
-				<Button>New</Button>
+				<Button clickHandler={newBlogClickHandler}>
+					{HOME_CONSTANTS.NEW}
+				</Button>
 			</div>
 			<div className={styles.blogs}>{blogElements}</div>
 		</div>

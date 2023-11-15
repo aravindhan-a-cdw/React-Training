@@ -5,6 +5,7 @@ import CheckBox from "../CheckBox";
 import Logo from "../Logo";
 import styles from "./styles.module.scss";
 import { toggleDarkMode } from "../../actions/darkMode";
+import { toggleViewMembers } from "../../actions/modal";
 
 const SideBar = () => {
 	const filters = useSelector(selectTypes);
@@ -28,6 +29,10 @@ const SideBar = () => {
 		dispatch(toggleDarkMode());
 	};
 
+	const viewMembersClickHandler = () => {
+		dispatch(toggleViewMembers());
+	};
+
 	return (
 		<div className={styles.sidebar}>
 			<Logo />
@@ -36,7 +41,9 @@ const SideBar = () => {
 				{filterElements}
 			</div>
 			<div className={styles.otherOptions}>
-				<span>{HOME_CONSTANTS.VIEW_MEMBERS}</span>
+				<span onClick={viewMembersClickHandler}>
+					{HOME_CONSTANTS.VIEW_MEMBERS}
+				</span>
 				<span onClick={darkModeClickHandler}>
 					{HOME_CONSTANTS.DARK_MODE}
 				</span>

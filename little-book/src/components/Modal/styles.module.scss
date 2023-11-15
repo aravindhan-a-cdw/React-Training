@@ -1,0 +1,17 @@
+.modalContainer {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(#000, 0.7);
+    display: flex;
+    justify-content: end;
+    
+    .modal {
+        background-color: #fff;
+        height: 100%;
+        width: 38rem;
+        position: relative;
+        padding: 5rem 3.5rem;
+        overflow: scroll;
+    }
+}

@@ -6,4 +6,4 @@ const USERS_URL = BASE_URL + "/api/users";
 
 const USER_IMAGE_URL = BASE_URL + "/images/users/";
 
-export { BLOG_URL, USERS_URL, USER_IMAGE_URL };
+export { BASE_URL, BLOG_URL, USERS_URL, USER_IMAGE_URL };
