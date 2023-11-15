@@ -30,7 +30,7 @@ const blogSlice = createSlice({
 				state.selectedBlog = action.payload;
 		},
 		editBlog: (state, action) => {
-			console.log(action);
+			state.blogs[action.payload.index] = action.payload.blogData;
 		},
 		addBlog: (state, action: { type: string; payload: BlogData }) => {
 			state.blogs = [...state.blogs, action.payload];
