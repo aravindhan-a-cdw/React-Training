@@ -56,6 +56,7 @@ const BlogsList = () => {
 
 	const blogElements = filteredBlogs.map((data, index) => {
 		const clickHandler = () => {
+			if (index === selectedBlog) return;
 			if (editMode) {
 				setChangeInSelectedBlog(index);
 				return setShowModal(true);
