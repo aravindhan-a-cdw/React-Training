@@ -5,9 +5,11 @@ import Button from "../../components/Button";
 import { useDispatch, useSelector } from "react-redux";
 import { selectFilter } from "../../actions/filter";
 import {
+	selectBlogEditMode,
 	selectBlogs,
 	selectSelectedBlog,
 	setSelectedBlog,
+	toggleEditMode,
 } from "../../actions/blog";
 import { HOME_CONSTANTS } from "../../constants/pageConstants";
 import { toggleAddNewBlog } from "../../actions/modal";
@@ -25,6 +27,7 @@ const BlogsList = () => {
 	const filters = useSelector(selectFilter);
 	const blogs: Array<BlogType> = useSelector(selectBlogs);
 	const selectedBlog = useSelector(selectSelectedBlog);
+	const editMode = useSelector(selectBlogEditMode);
 
 	const filteredBlogs = blogs.filter((blog) => {
 		return (
@@ -34,7 +37,18 @@ const BlogsList = () => {
 	});
 
 	const blogElements = filteredBlogs.map((data, index) => {
-		const clickHandler = () => dispatch(setSelectedBlog(index));
+		const clickHandler = () => {
+			if (editMode) {
+				const confirm = window.confirm(
+					"Do you want to discard the changes?"
+				);
+				if (!confirm) {
+					return;
+				}
+				dispatch(toggleEditMode());
+			}
+			dispatch(setSelectedBlog(index));
+		};
 		return (
 			<BlogSummary
 				clickHandler={clickHandler}

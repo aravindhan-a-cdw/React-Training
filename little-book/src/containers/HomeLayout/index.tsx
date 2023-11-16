@@ -4,7 +4,7 @@ import Blog from "../../components/Blog";
 import SideBar from "../../components/SideBar";
 import BlogsList from "../BlogsList";
 import styles from "./styles.module.scss";
-import Modal from "../../components/Modal";
+import SideModal from "../../components/SideModal";
 
 const HomeLayout = () => {
 	const darkMode = useSelector(selectDarkMode);
@@ -15,7 +15,7 @@ const HomeLayout = () => {
 			<BlogsList />
 			<Blog className={styles.blog} />
 
-			<Modal />
+			<SideModal />
 		</div>
 	);
 };

@@ -5,17 +5,19 @@ type BlogData = {
 	title: string;
 	details: string;
 	photo?: string;
-	type?: string;
+	type: string;
 };
 
 type StateType = {
 	blogs: Array<BlogData>;
 	selectedBlog: number;
+	editMode: boolean;
 };
 
 const initialState = {
 	blogs: [],
 	selectedBlog: 0,
+	editMode: false,
 };
 
 const blogSlice = createSlice({
@@ -35,13 +37,17 @@ const blogSlice = createSlice({
 		addBlog: (state, action: { type: string; payload: BlogData }) => {
 			state.blogs = [...state.blogs, action.payload];
 		},
+		toggleEditMode: (state) => {
+			state.editMode = !state.editMode;
+		},
 	},
 });
 
 const selectBlogs = (state: AppState) => state.blog.blogs;
 const selectSelectedBlog = (state: AppState) => state.blog.selectedBlog;
+const selectBlogEditMode = (state: AppState) => state.blog.editMode;
 
-export const { setBlogs, setSelectedBlog, addBlog, editBlog } =
+export const { setBlogs, setSelectedBlog, addBlog, editBlog, toggleEditMode } =
 	blogSlice.actions;
-export { selectBlogs, selectSelectedBlog };
+export { selectBlogs, selectSelectedBlog, selectBlogEditMode };
 export default blogSlice.reducer;

@@ -11,7 +11,7 @@ import { SyntheticEvent, useRef } from "react";
 import NewBlog from "../NewBlog";
 import { selectDarkMode } from "../../actions/darkMode";
 
-const Modal = () => {
+const SideModal = () => {
 	const dispatch = useDispatch();
 
 	const darkMode = useSelector(selectDarkMode);
@@ -48,4 +48,4 @@ const Modal = () => {
 	}
 };
 
-export default Modal;
+export default SideModal;

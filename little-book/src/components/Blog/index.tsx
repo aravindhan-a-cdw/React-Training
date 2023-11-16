@@ -1,9 +1,15 @@
 import styles from "./styles.module.scss";
 import Button from "../Button";
 import { useDispatch, useSelector } from "react-redux";
-import { editBlog, selectBlogs, selectSelectedBlog } from "../../actions/blog";
+import {
+	editBlog,
+	selectBlogEditMode,
+	selectBlogs,
+	selectSelectedBlog,
+	toggleEditMode,
+} from "../../actions/blog";
 import fallbackImage from "../../assets/default-fallback-image.png";
-import { useRef, useState } from "react";
+import { useRef } from "react";
 
 type BlogProps = {
 	className?: string;
@@ -21,7 +27,7 @@ const Blog = (props: BlogProps) => {
 	const titleRef = useRef<HTMLHeadingElement>(null);
 	const detailsRef = useRef<HTMLParagraphElement>(null);
 
-	const [editMode, setEditMode] = useState(false);
+	const editMode = useSelector(selectBlogEditMode);
 
 	const blogs: Array<BlogData> = useSelector(selectBlogs);
 	const selectedBlog = useSelector(selectSelectedBlog);
@@ -40,7 +46,7 @@ const Blog = (props: BlogProps) => {
 		};
 
 		dispatch(editBlog({ blogData, index: selectedBlog }));
-		setEditMode(false);
+		dispatch(toggleEditMode());
 	};
 
 	const { className = "" } = props;
@@ -62,7 +68,7 @@ const Blog = (props: BlogProps) => {
 			{editMode ? (
 				<div className={styles.userActions}>
 					<Button
-						clickHandler={() => setEditMode(false)}
+						clickHandler={() => dispatch(toggleEditMode())}
 						type="secondary"
 					>
 						Cancel
@@ -73,7 +79,7 @@ const Blog = (props: BlogProps) => {
 				</div>
 			) : (
 				<Button
-					clickHandler={() => setEditMode(true)}
+					clickHandler={() => dispatch(toggleEditMode())}
 					className={styles.button}
 					type="secondary"
 				>
