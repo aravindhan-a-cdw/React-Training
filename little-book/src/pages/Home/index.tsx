@@ -18,7 +18,6 @@ const Home = () => {
 
 	useEffect(() => {
 		dispatch(setBlogs(data));
-		console.log(data);
 	}, [data, dispatch]);
 
 	return <HomeLayout />;

@@ -1,5 +1,4 @@
 import styles from "./styles.module.scss";
-import store from "../../store";
 import { setQuery, selectQuery } from "../../actions/filter";
 import { useDispatch, useSelector } from "react-redux";
 import { useRef } from "react";
@@ -17,12 +16,7 @@ const SearchBar = (props: SearchBarProps) => {
 	const query = useSelector(selectQuery);
 	const dispatch = useDispatch();
 
-	store.subscribe(() => {
-		console.log(store.getState());
-	});
-
 	const changeHandler = (event: React.KeyboardEvent) => {
-		console.log(event.code);
 		if (event.key === "Enter") {
 			const trimmedValue = inputRef.current!.value.trimStart();
 			dispatch(setQuery(trimmedValue));

@@ -16,7 +16,6 @@ const SideBar = () => {
 			dispatch(toggleFilter(filter));
 		};
 		const checked = filters.indexOf(filter) !== -1;
-		console.log(filter, filters, checked);
 		return (
 			<div className={styles.filter} key={index}>
 				<CheckBox checked={checked} clickHandler={clickHandler} />{" "}

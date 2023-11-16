@@ -22,7 +22,6 @@ const SideModal = () => {
 	const outsideModalRef = useRef<HTMLDivElement>(null);
 
 	const closeModalHandler = (event: SyntheticEvent) => {
-		console.log(event.target);
 		if (event.target === outsideModalRef.current) {
 			dispatch(closeModal());
 		}

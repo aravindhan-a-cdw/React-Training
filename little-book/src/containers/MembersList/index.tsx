@@ -16,8 +16,6 @@ const MembersList = () => {
 	const [members, setMembers] = useState<Array<MemberData>>([]);
 	const [isLoading, setIsLoading] = useState(true);
 
-	console.log(members);
-
 	useEffect(() => {
 		apiService.getUsers().then((data) => {
 			setMembers(data);
