@@ -2,6 +2,7 @@ import styles from "./styles.module.scss";
 import store from "../../store";
 import { setQuery, selectQuery } from "../../actions/filter";
 import { useDispatch, useSelector } from "react-redux";
+import { useRef } from "react";
 
 type SearchBarProps = {
 	placeholder?: string;
@@ -12,6 +13,7 @@ type SearchBarProps = {
 
 const SearchBar = (props: SearchBarProps) => {
 	const { placeholder, className = "" } = props;
+	const inputRef = useRef<HTMLInputElement>(null);
 	const query = useSelector(selectQuery);
 	const dispatch = useDispatch();
 
@@ -19,17 +21,21 @@ const SearchBar = (props: SearchBarProps) => {
 		console.log(store.getState());
 	});
 
-	const changeHandler = (event: { target: { value: string } }) => {
-		const trimmedValue = event.target.value.trimStart();
-		dispatch(setQuery(trimmedValue));
+	const changeHandler = (event: React.KeyboardEvent) => {
+		console.log(event.code);
+		if (event.key === "Enter") {
+			const trimmedValue = inputRef.current!.value.trimStart();
+			dispatch(setQuery(trimmedValue));
+		}
 	};
 
 	return (
 		<input
+			ref={inputRef}
 			className={`${styles.searchBar} ${className}`}
 			placeholder={placeholder}
-			onChange={changeHandler}
-			value={query}
+			onKeyUp={changeHandler}
+			defaultValue={query}
 		></input>
 	);
 };
