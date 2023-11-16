@@ -38,7 +38,7 @@ const BlogsList = () => {
 
 	const filteredBlogs = blogs.filter((blog) => {
 		return (
-			blog.title.includes(filters.query) &&
+			blog.title.toLowerCase().includes(filters.query.toLowerCase()) &&
 			filters.types.includes(blog.type)
 		);
 	});
