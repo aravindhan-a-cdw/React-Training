@@ -4,6 +4,7 @@ import styles from "./styles.module.scss";
 import { addBlog } from "../../actions/blog";
 import { useDispatch } from "react-redux";
 import { closeModal } from "../../actions/modal";
+import { HOME_CONSTANTS } from "../../constants/pageConstants";
 
 const NewBlog = () => {
 	const dispatch = useDispatch();
@@ -20,7 +21,7 @@ const NewBlog = () => {
 		const blogData = {
 			title: titleValue,
 			details: detailValue,
-			type: "National",
+			type: "Local",
 		};
 		dispatch(addBlog(blogData));
 		dispatch(closeModal());
@@ -28,14 +29,18 @@ const NewBlog = () => {
 
 	return (
 		<div className={styles.newBlogContainer}>
-			<h3>Add New Blog</h3>
-			<input ref={inputRef} placeholder="Name your blog" type="text" />
+			<h3>{HOME_CONSTANTS.NEW_BLOG}</h3>
+			<input
+				ref={inputRef}
+				placeholder={HOME_CONSTANTS.NEW_BLOG_TITLE_PLACEHOLDER}
+				type="text"
+			/>
 			<textarea
 				ref={textareaRef}
-				placeholder="Write Content Here .."
+				placeholder={HOME_CONSTANTS.NEW_BLOG_CONTENT_PLACEHOLDER}
 			></textarea>
 			<Button clickHandler={addHandler} className={styles.addButton}>
-				Add
+				{HOME_CONSTANTS.ADD}
 			</Button>
 		</div>
 	);
