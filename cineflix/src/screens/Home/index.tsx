@@ -2,12 +2,13 @@ import { FormEvent, useContext, useRef, useState } from "react";
 import image from "../../assets/sindel-background.png";
 import styles from "./styles.module.scss";
 import { AuthContext } from "../../stores/AuthContext";
-import { NavLink, useLoaderData } from "react-router-dom";
+import { NavLink, Outlet, useLoaderData } from "react-router-dom";
 import Trailer from "../../components/Trailer";
 import { HOME_CONSTANTS } from "../../constants/pageConstants";
 import movieServices from "../../services/movieService";
 import Teaser from "../../components/Teaser";
 import Image from "../../components/Image";
+import TeaserList from "../../containers/TeaserList";
 
 /*
 	@author Aravindhan A
@@ -85,14 +86,7 @@ const Home = () => {
 					)}
 					<Trailer className={styles.trailer} />
 				</div>
-				<div className={styles.teasersSection}>
-					<h4>{HOME_CONSTANTS.TEASER_TITLE}</h4>
-					<div className={styles.teasersContainer}>
-						{data.map((data, index) => (
-							<Teaser key={index} data={data} />
-						))}
-					</div>
-				</div>
+				<Outlet />
 				<div className={styles.otherLanguageSection}>
 					<h4>{HOME_CONSTANTS.LANGUAGE.TITLE}</h4>
 					<ul>
@@ -110,6 +104,7 @@ const Home = () => {
 
 export const loader = () => {
 	return movieServices.teaserService();
+	// return [];
 };
 
 export default Home;

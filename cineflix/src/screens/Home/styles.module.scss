@@ -66,25 +66,6 @@
         }
     }
 
-    .teasersSection {
-
-        margin-bottom: 8rem;
-
-        h4 {
-            font-size: 2rem;
-            font-weight: 400;
-            margin-bottom: 2rem;
-        }
-
-        .teasersContainer {
-            display: flex;
-            gap: 1rem;
-             & > div {
-                flex-basis: 33%;
-             }
-        }
-    }
-
     .otherLanguageSection {
 
         h4 {

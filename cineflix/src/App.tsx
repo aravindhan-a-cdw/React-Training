@@ -5,8 +5,8 @@ import AllMovies, { loader as allMoviesLoader } from "./screens/AllMovies";
 import NowShowing from "./screens/NowShowing";
 import Login, { loginAction } from "./screens/Login";
 import AuthContextProvider from "./stores/AuthContext";
-import Logout from "./screens/Logout";
 import ErrorPage from "./screens/ErrorPage";
+import TeaserList from "./containers/TeaserList";
 
 /*
 	@author Aravindhan A
@@ -21,9 +21,14 @@ function App() {
 			errorElement: <ErrorPage />,
 			children: [
 				{
-					index: true,
 					element: <Home />,
-					loader: homeLoader,
+					children: [
+						{
+							path: "",
+							element: <TeaserList />,
+							loader: homeLoader,
+						},
+					],
 				},
 				{
 					path: "all-movies",
@@ -38,10 +43,6 @@ function App() {
 					path: "login",
 					element: <Login />,
 					action: loginAction,
-				},
-				{
-					path: "logout",
-					element: <Logout />,
 				},
 			],
 		},
