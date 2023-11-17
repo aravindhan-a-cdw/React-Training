@@ -14,4 +14,9 @@ const TRAILER_CONSTANTS = {
 		"Sintel tells the story of a friendship between a girl named Sintel, a baby dragon and the desparate lengths she will go to when that friendship is taken from her. Sintel is created by Blender in 2010 as a pet project to demonstrate Blender capabilities.",
 };
 
-export { NAVBAR_CONSTANTS, TRAILER_CONSTANTS };
+const MOVIE_CONSTANTS = {
+	LIKE: "Like",
+	LIKES: "Likes",
+};
+
+export { NAVBAR_CONSTANTS, TRAILER_CONSTANTS, MOVIE_CONSTANTS };
