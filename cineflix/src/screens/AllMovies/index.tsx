@@ -26,24 +26,41 @@ const AllMovies = () => {
 	const [movies, setMovies] = useState<Array<MovieData>>(
 		useLoaderData() as Array<MovieData>
 	);
+	console.log("All movies rendered");
 	const [selectedMovie, setSelectedMovie] = useState(0);
 
 	const [showLoadMore, setShowLoadMore] = useState(true);
 
-	const likeHandler = useCallback(function (index: number) {
+	const increaseLike = (index: number) => {
 		// This handler increases the likes of a movie
 		setMovies((state) => {
 			const newState = [...state];
+			newState[index] = { ...state[index] };
 			newState[index].likes = Number(newState[index].likes) + 1;
 			return newState;
 		});
-	}, []);
+	};
+
+	const clickHandler = (movieIndex: number) => {
+		setSelectedMovie(movieIndex);
+	};
+
+	const memoizedLikeHandler = useCallback(
+		(index: number) => increaseLike(index),
+		[]
+	);
+
+	const memoizedSelectHandler = useCallback(
+		(index: number) => clickHandler(index),
+		[]
+	);
 
 	const MoviesList = movies.map((data, index) => (
 		<Movie
 			key={data.id}
-			onClick={() => setSelectedMovie(index)}
-			onLike={() => likeHandler(index)}
+			arrayIndex={index}
+			onClick={memoizedSelectHandler}
+			onLike={memoizedLikeHandler}
 			{...data}
 		/>
 	));
@@ -76,7 +93,8 @@ const AllMovies = () => {
 				</div>
 				<div className={styles.movieDescription}>
 					<MovieDescription
-						onLikeHandler={() => likeHandler(selectedMovie)}
+						arrayIndex={selectedMovie}
+						onLikeHandler={memoizedLikeHandler}
 						data={movies[selectedMovie]}
 					/>
 				</div>

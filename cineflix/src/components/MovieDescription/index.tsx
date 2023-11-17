@@ -31,7 +31,8 @@ type MovieDescriptionProps = {
 		description: string;
 		actors: Array<string>;
 	};
-	onLikeHandler: () => void;
+	arrayIndex: number;
+	onLikeHandler: (arg: number) => void;
 	hocProps: HOCProps;
 };
 
@@ -39,6 +40,7 @@ const MovieDescription: FC<MovieDescriptionProps> = (props) => {
 	const {
 		data,
 		onLikeHandler,
+		arrayIndex,
 		hocProps: {
 			adImage,
 			isAdCountDown,
@@ -93,7 +95,7 @@ const MovieDescription: FC<MovieDescriptionProps> = (props) => {
 				<div className={styles.movieHeader}>
 					<h2>{data.movie}</h2>
 					<Image
-						onClick={onLikeHandler}
+						onClick={() => onLikeHandler(arrayIndex)}
 						src={thumbsUp}
 						alt="Thumbs up for like"
 					/>
