@@ -7,8 +7,16 @@
 
 :root{
   font-family: 'Roboto', sans-serif;
-  background-color: #151515;
-  color: #fff;
+
+  /* CSS Variables */
+  --background-color: #151515;
+  --background-color-rgb: 21, 21, 21;
+  --text-white: #fff;
+  --text-dark: #000;
+  --primary-text: #4B8FE2;
+
+  background-color: var(--background-color);
+  color: var(--text-white);
 }
 
 img {

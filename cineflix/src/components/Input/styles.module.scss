@@ -5,11 +5,11 @@
     border-bottom: 1px solid #423834;
     padding-bottom: .25rem;
     font-size: 1rem;
-    color: #fff;
+    color: var(--text-white);
 
     &:focus-visible {
         border: none;
         outline: none;
-        border-bottom: 1px solid #fff;
+        border-bottom: 1px solid var(--text-white);
     }
 }

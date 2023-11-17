@@ -1,4 +1,4 @@
-import styles from "./style.module.css";
+import styles from "./style.module.scss";
 import playBtn from "../../assets/play-button.svg";
 import { useEffect, useRef } from "react";
 import withAdvertisement from "../withAdvertisement";

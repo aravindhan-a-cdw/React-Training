@@ -4,11 +4,11 @@
     list-style: none;
     display: inline;
     a{
-        color: #fff;
+        color: var(--text-white);
         text-decoration: none;
     }
 
     .active {
-        color: #4B8FE2;
+        color: var(--primary-text);
     }
 }

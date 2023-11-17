@@ -31,7 +31,7 @@
             width: 5rem;
             object-fit: contain;
             height: 100%;
-            color: #fff;
+            color: var(--text-white);
             transform: translate(-50%, -50%);
         }
     }
@@ -52,6 +52,6 @@
     .adMessage {
         font-size: 1rem;
         font-weight: 600;
-        color: #4B8FE2;
+        color: var(--primary-text);
     }
 }
