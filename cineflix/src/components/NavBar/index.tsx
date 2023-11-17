@@ -1,5 +1,5 @@
 import styles from "./styles.module.scss";
-import logo from "./logo.png";
+import logo from "../../assets/logo.png";
 import { AuthContext } from "../../stores/AuthContext";
 import { useContext } from "react";
 import NavItem from "../NavItem";
