@@ -1,0 +1,39 @@
+.container {
+    margin-top: 1rem;
+    width: 40rem;
+
+    .adContainer {
+        display: none;
+    }
+
+    .movieDetails {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    h3 {
+        font-size: 1.35rem;
+        font-weight: 500;
+        text-transform: uppercase;
+        margin-bottom: 1.5rem;
+    }
+
+    ul {
+        list-style: none;
+
+        li {
+            font-size: 1rem;
+            font-weight: 300;
+            margin-bottom: .5rem;
+        }
+    }
+
+    .adMessage {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: var(--primary-text);
+        display: block;
+        margin-top: 1rem;
+    }
+}

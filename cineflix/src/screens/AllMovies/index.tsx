@@ -6,7 +6,7 @@ import { useCallback, useState } from "react";
 import MovieSummary from "../../components/MovieSummary";
 import Button from "../../components/Button";
 import movieServices from "../../services/movieService";
-import MovieDescription from "../../components/MovieDescription";
+import FullMovieWithAd from "../../containers/FullMovieWithAd";
 
 /*
 	@author Aravindhan A
@@ -92,7 +92,7 @@ const AllMovies = () => {
 					</Button>
 				</div>
 				<div className={styles.movieDescription}>
-					<MovieDescription
+					<FullMovieWithAd
 						arrayIndex={selectedMovie}
 						onLikeHandler={memoizedLikeHandler}
 						data={movies[selectedMovie]}

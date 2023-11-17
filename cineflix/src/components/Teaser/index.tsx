@@ -28,21 +28,18 @@ type TeaserProps = {
 		videoSrc: string;
 		title: string;
 	};
-	hocProps: HOCProps;
 };
 
-const Teaser: React.FC<TeaserProps> = (props: TeaserProps) => {
+const Teaser: React.FC<TeaserProps & HOCProps> = (props) => {
 	const {
 		data,
-		hocProps: {
-			adImage,
-			isAdCountDown,
-			counter,
-			showAd,
-			adCompleted,
-			startAd,
-			pauseHandler,
-		},
+		adImage,
+		isAdCountDown,
+		counter,
+		showAd,
+		adCompleted,
+		startAd,
+		pauseHandler,
 	} = props;
 
 	const videoRef = useRef<HTMLVideoElement>(null);

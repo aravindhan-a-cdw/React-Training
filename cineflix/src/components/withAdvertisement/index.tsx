@@ -10,14 +10,25 @@ type AdTimeProps = {
 	adTime: number;
 };
 
+type HOCProps = {
+	adImage: number;
+	isAdCountDown: boolean;
+	counter: number;
+	showAd: boolean;
+	adCompleted: boolean;
+	pauseHandler: (arg0: boolean) => void;
+	resetAd: () => void;
+	startAd: () => void;
+};
+
 const withAdvertisement =
 	(props: AdTimeProps) =>
 	<P extends {}>(
 		WrappedComponent: React.ComponentType<P>
-	): React.FC<Omit<P, "hocProps">> => {
+	): React.FC<Omit<P, keyof HOCProps>> => {
 		const { adWaitTime, adTime } = props;
 
-		return (props: Omit<P, "hocProps">) => {
+		return (props) => {
 			const [counter, setCounter] = useState(0);
 			const [adImage] = useState(Math.ceil(Math.random() * 2));
 			const [isAdCountDown, setIsAdCountDown] = useState(false);
@@ -80,7 +91,7 @@ const withAdvertisement =
 				}
 			}, [counter, adCompleted, showAd, isAdCountDown, pauseAd, started]);
 
-			return <WrappedComponent {...(props as P)} hocProps={hocProps} />;
+			return <WrappedComponent {...(props as P)} {...hocProps} />;
 		};
 	};
 
