@@ -15,6 +15,14 @@ import { NAVBAR_CONSTANTS } from "../../constants/componentConstants";
 const NavBar = () => {
 	const contextData = useContext(AuthContext);
 	const location = useLocation();
+	const { dispatch } = useContext(AuthContext);
+
+	const logoutHandler = () => {
+		dispatch({
+			type: "LOGOUT",
+			payload: { username: null, isAuthenticated: false },
+		});
+	};
 
 	return (
 		<div className={styles.navbar}>
@@ -51,12 +59,17 @@ const NavBar = () => {
 								<span className={styles.userAction}>
 									Hi {contextData.authData.username} |{" "}
 								</span>
-								<NavItem className={styles.logout} to="/logout">
-									Logout
-								</NavItem>
+								<span
+									onClick={logoutHandler}
+									className={styles.logout}
+								>
+									{NAVBAR_CONSTANTS.LOGOUT}
+								</span>
 							</>
 						) : (
-							<NavItem to="/login">Login</NavItem>
+							<NavItem to="/login">
+								{NAVBAR_CONSTANTS.LOGIN}
+							</NavItem>
 						)}
 					</div>
 				</>

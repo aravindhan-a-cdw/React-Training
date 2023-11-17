@@ -4,6 +4,8 @@ const NAVBAR_CONSTANTS = {
 		{ title: "All Movies", link: "all-movies", protected: false },
 		{ title: "Now Showing", link: "now-showing", protected: true },
 	],
+	LOGIN: "Login",
+	LOGOUT: "Logout",
 };
 
 const TRAILER_CONSTANTS = {
