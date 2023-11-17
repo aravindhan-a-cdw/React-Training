@@ -1,12 +1,12 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Layout from "./containers/Layout";
-import Home, { loader as homeLoader } from "./screens/Home";
+import Home from "./screens/Home";
 import AllMovies, { loader as allMoviesLoader } from "./screens/AllMovies";
 import NowShowing from "./screens/NowShowing";
 import Login, { loginAction } from "./screens/Login";
 import AuthContextProvider from "./stores/AuthContext";
 import ErrorPage from "./screens/ErrorPage";
-import TeaserList from "./containers/TeaserList";
+import TeaserList, { loader as teaserLoader } from "./containers/TeaserList";
 
 /*
 	@author Aravindhan A
@@ -21,12 +21,13 @@ function App() {
 			errorElement: <ErrorPage />,
 			children: [
 				{
+					path: "",
 					element: <Home />,
 					children: [
 						{
 							path: "",
 							element: <TeaserList />,
-							loader: homeLoader,
+							// loader: teaserLoader,
 						},
 					],
 				},
@@ -49,7 +50,10 @@ function App() {
 	]);
 	return (
 		<AuthContextProvider>
-			<RouterProvider router={router} />
+			<RouterProvider
+				router={router}
+				fallbackElement={<p>Loading...</p>}
+			/>
 		</AuthContextProvider>
 	);
 }
