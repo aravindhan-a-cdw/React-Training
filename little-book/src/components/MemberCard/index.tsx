@@ -1,8 +1,8 @@
 import styles from "./styles.module.scss";
 import { BASE_URL } from "../../constants/serviceConstants";
-import fallbackImage from "../../assets/default-fallback-image.png";
 import { useSelector } from "react-redux";
 import { selectDarkMode } from "../../actions/darkMode";
+import Image from "../Image";
 
 type MemberProps = {
 	name: string;
@@ -23,13 +23,7 @@ const MemberCard = (props: MemberProps) => {
 				darkMode ? styles.dark : ""
 			}`}
 		>
-			<img
-				src={BASE_URL + "/" + photo}
-				onError={(event) => {
-					event.currentTarget.src = fallbackImage;
-				}}
-				alt={name}
-			/>
+			<Image src={BASE_URL + "/" + photo} alt={name} />
 			<span className={styles.name}>{name}</span>
 			<span className={styles.location}>{company.location}</span>
 		</div>

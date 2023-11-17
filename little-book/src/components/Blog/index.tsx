@@ -8,7 +8,7 @@ import {
 	selectSelectedBlog,
 	toggleEditMode,
 } from "../../actions/blog";
-import fallbackImage from "../../assets/default-fallback-image.png";
+import Image from "../Image";
 import { useRef } from "react";
 
 type BlogProps = {
@@ -54,11 +54,7 @@ const Blog = (props: BlogProps) => {
 	const { photo = "", title, details } = blogDetails;
 	return (
 		<div className={`${styles.blogContainer} ${className}`}>
-			<img
-				onError={(event) => (event.currentTarget.src = fallbackImage)}
-				src={photo}
-				alt={title}
-			/>
+			<Image src={photo} alt={title} />
 			<h2 ref={titleRef} key={`${editMode}h2`} contentEditable={editMode}>
 				{title}
 			</h2>
