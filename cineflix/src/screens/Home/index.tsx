@@ -2,28 +2,24 @@ import { FormEvent, useContext, useRef, useState } from "react";
 import image from "../../assets/sindel-background.png";
 import styles from "./styles.module.scss";
 import { AuthContext } from "../../stores/AuthContext";
-import { NavLink, Outlet, useLoaderData } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 import Trailer from "../../components/Trailer";
 import { HOME_CONSTANTS } from "../../constants/pageConstants";
-import movieServices from "../../services/movieService";
-import Teaser from "../../components/Teaser";
 import Image from "../../components/Image";
-import TeaserList from "../../containers/TeaserList";
 
 /*
 	@author Aravindhan A
 	@description This component renders the Home page of the application
 */
 
-type TeaserData = {
-	id: number;
-	title: string;
-	videoSrc: string;
-};
+// type TeaserData = {
+// 	id: number;
+// 	title: string;
+// 	videoSrc: string;
+// };
 
 const Home = () => {
 	const { authData } = useContext(AuthContext);
-	const data = useLoaderData() as Array<TeaserData>;
 
 	const [message, setMessage] = useState("");
 	const inputRef = useRef<HTMLInputElement>(null);
@@ -100,11 +96,6 @@ const Home = () => {
 			</main>
 		</div>
 	);
-};
-
-export const loader = () => {
-	return movieServices.teaserService();
-	// return [];
 };
 
 export default Home;

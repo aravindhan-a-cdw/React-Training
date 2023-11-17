@@ -1,8 +1,9 @@
-import { Await, useLoaderData, useRouteLoaderData } from "react-router-dom";
+import { Await } from "react-router-dom";
 import Teaser from "../../components/Teaser";
 import { HOME_CONSTANTS } from "../../constants/pageConstants";
 import styles from "./styles.module.scss";
 import { Suspense } from "react";
+import movieServices from "../../services/movieService";
 
 type TeaserData = {
 	id: number;
@@ -15,11 +16,12 @@ type TeaserData = {
 // };
 
 const TeaserList = () => {
-	const teaserList = useLoaderData() as Array<TeaserData>;
+	// const teaserList = useLoaderData() as Array<TeaserData>;
+	// const [teaserData, setTeaserData] = useState([]);
 	// const { data: teaserList } = props;
 	return (
 		<Suspense fallback={<p>Loading...</p>}>
-			<Await resolve={teaserList}>
+			<Await resolve={loader()}>
 				{(teaserList) => (
 					<div className={styles.teasersSection}>
 						<h4>{HOME_CONSTANTS.TEASER_TITLE}</h4>
@@ -35,6 +37,10 @@ const TeaserList = () => {
 			</Await>
 		</Suspense>
 	);
+};
+
+export const loader = async () => {
+	return movieServices.teaserService();
 };
 
 export default TeaserList;
