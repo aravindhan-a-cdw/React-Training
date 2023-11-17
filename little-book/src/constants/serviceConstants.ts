@@ -1,3 +1,8 @@
+/*
+	@author Aravindhan A
+	@description This file contains the constants that are related to service and api.
+*/
+
 const BASE_URL = "https://jsonmockserver.vercel.app";
 
 const BLOG_URL = BASE_URL + "/api/blogs";
