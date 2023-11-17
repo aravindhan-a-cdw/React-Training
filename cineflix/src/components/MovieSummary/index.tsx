@@ -20,7 +20,7 @@ type MovieProps = {
 	onLike: (id: number) => void;
 };
 
-const Movie = (props: MovieProps) => {
+const MovieSummary = (props: MovieProps) => {
 	const { link, movie, likes, arrayIndex, onClick, onLike } = props;
 	return (
 		<div className={styles.movieContainer}>
@@ -46,4 +46,4 @@ const Movie = (props: MovieProps) => {
 	);
 };
 
-export default React.memo(Movie);
+export default React.memo(MovieSummary);

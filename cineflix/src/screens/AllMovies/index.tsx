@@ -3,7 +3,7 @@ import { ALL_MOVIES_CONSTANTS } from "../../constants/pageConstants";
 import services from "../../services/movieService";
 import styles from "./styles.module.scss";
 import { useCallback, useState } from "react";
-import Movie from "../../components/Movie";
+import MovieSummary from "../../components/MovieSummary";
 import Button from "../../components/Button";
 import movieServices from "../../services/movieService";
 import MovieDescription from "../../components/MovieDescription";
@@ -56,7 +56,7 @@ const AllMovies = () => {
 	);
 
 	const MoviesList = movies.map((data, index) => (
-		<Movie
+		<MovieSummary
 			key={data.id}
 			arrayIndex={index}
 			onClick={memoizedSelectHandler}
