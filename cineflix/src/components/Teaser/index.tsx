@@ -1,10 +1,10 @@
 import styles from "./style.module.css";
 import playBtn from "../../assets/play-button.svg";
-import fallback from "../../assets/fallbackImage.png";
 import { useEffect, useRef } from "react";
 import withAdvertisement from "../withAdvertisement";
 import { HOME_CONSTANTS } from "../../constants/pageConstants";
 import { counterFormater } from "../../utils/numberUtils";
+import Image from "../Image";
 
 /*
 	@author Aravindhan A
@@ -84,17 +84,14 @@ const Teaser: React.FC<TeaserProps> = (props: TeaserProps) => {
 	return (
 		<div className={styles.teaser}>
 			<div ref={adRef} className={styles.adContainer}>
-				<img
-					onError={(event) => {
-						event.currentTarget.src = fallback;
-					}}
+				<Image
 					className={styles.advertisement}
 					src={`/advertisements/small-promos/AdvertisementSmall${adImage}.png`}
 					alt="Ad Poster"
 				/>
 			</div>
 			<div ref={videoContainerRef} className={styles.videoContainer}>
-				<img
+				<Image
 					ref={playBtnRef}
 					onClick={playBtnClickHandler}
 					src={playBtn}

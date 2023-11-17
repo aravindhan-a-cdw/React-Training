@@ -7,6 +7,7 @@ import Trailer from "../../components/Trailer";
 import { HOME_CONSTANTS } from "../../constants/pageConstants";
 import movieServices from "../../services/movieService";
 import Teaser from "../../components/Teaser";
+import Image from "../../components/Image";
 
 /*
 	@author Aravindhan A
@@ -47,7 +48,7 @@ const Home = () => {
 	return (
 		<div className={styles.homeContainer}>
 			<div className={styles.imageContainer}>
-				<img
+				<Image
 					className={styles.bannerImage}
 					src={image}
 					alt="Sindel Movie poster"

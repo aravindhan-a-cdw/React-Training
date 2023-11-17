@@ -4,6 +4,7 @@ import playBtn from "../../assets/play-button.svg";
 import { useContext, useEffect, useRef } from "react";
 import { AuthContext } from "../../stores/AuthContext";
 import { Navigate } from "react-router-dom";
+import Image from "../../components/Image";
 
 /*
 	@author Aravindhan A
@@ -20,13 +21,17 @@ const NowShowing = () => {
 
 	useEffect(() => {
 		// This is used to set handlers on the video and playbutton
+		if (videoRef.current === undefined || playBtnRef.current === undefined)
+			return;
 		if (videoRef.current === null || playBtnRef.current === null) return;
 		videoRef.current!.onplay = () => {
-			playBtnRef.current!.style.display = "none";
+			if (playBtnRef.current === null) return;
+			playBtnRef.current.style.display = "none";
 		};
 
 		videoRef.current!.onpause = () => {
-			playBtnRef.current!.style.display = "block";
+			if (playBtnRef.current === null) return;
+			playBtnRef.current.style.display = "block";
 		};
 
 		videoRef.current!.onclick = () => {
@@ -47,7 +52,7 @@ const NowShowing = () => {
 			<h3>{NOW_SHOWING_CONSTANTS.PAGE_TITLE}</h3>
 			<h4>{NOW_SHOWING_CONSTANTS.MOVIE_TITLE}</h4>
 			<div className={styles.movieContainer}>
-				<img ref={playBtnRef} src={playBtn} alt="Play button" />
+				<Image ref={playBtnRef} src={playBtn} alt="Play button" />
 				<video
 					ref={videoRef}
 					src="https://tympanus.net/Development/SeatPreview/media/sintel.mp4#t=2.1"

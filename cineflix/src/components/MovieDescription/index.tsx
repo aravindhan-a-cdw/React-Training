@@ -1,10 +1,10 @@
 import styles from "./styles.module.scss";
 import thumbsUp from "../../assets/thumbs-up.png";
-import fallback from "../../assets/fallbackImage.png";
 import { useEffect, useRef, FC } from "react";
 import withAdvertisement from "../withAdvertisement";
 import { counterFormater } from "../../utils/numberUtils";
 import { ALL_MOVIES_CONSTANTS } from "../../constants/pageConstants";
+import Image from "../Image";
 
 /*
 	@author Aravindhan A
@@ -83,10 +83,7 @@ const MovieDescription: FC<MovieDescriptionProps> = (props) => {
 	return (
 		<div className={styles.container}>
 			<div ref={adRef} className={styles.adContainer}>
-				<img
-					onError={(event) => {
-						event.currentTarget.src = fallback;
-					}}
+				<Image
 					className={styles.advertisement}
 					src={`/advertisements/large-promos/adv${adImage}.png`}
 					alt="Ad Poster"
@@ -95,20 +92,14 @@ const MovieDescription: FC<MovieDescriptionProps> = (props) => {
 			<div ref={contentRef} className={styles.movieDetails}>
 				<div className={styles.movieHeader}>
 					<h2>{data.movie}</h2>
-					<img
+					<Image
 						onClick={onLikeHandler}
 						src={thumbsUp}
 						alt="Thumbs up for like"
 					/>
 				</div>
 				<span className={styles.likes}>{data.likes} Likes</span>
-				<img
-					onError={(event) => {
-						event.currentTarget.src = fallback;
-					}}
-					src={data.link}
-					alt={data.movie}
-				/>
+				<Image src={data.link} alt={data.movie} />
 				<p>{data.description}</p>
 				<div>
 					<h3>Actors</h3>

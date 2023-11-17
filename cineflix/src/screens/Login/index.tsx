@@ -7,6 +7,7 @@ import { Form, Navigate, json, useActionData } from "react-router-dom";
 import authServices from "../../services/authService";
 import { useContext, useEffect } from "react";
 import { AuthContext } from "../../stores/AuthContext";
+import Image from "../../components/Image";
 
 /*
 	@author Aravindhan A
@@ -41,7 +42,7 @@ const Login = () => {
 
 	return (
 		<div className={styles.pageContainer}>
-			<img src={image} alt="Sindel" />
+			<Image src={image} alt="Sindel movie poster" />
 			<div className={styles.loginFormContainer}>
 				<Form method="post">
 					<h3>{LOGIN_CONSTANTS.TITLE}</h3>

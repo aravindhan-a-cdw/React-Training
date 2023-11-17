@@ -3,6 +3,7 @@ import logo from "./logo.png";
 import { AuthContext } from "../../stores/AuthContext";
 import { useContext } from "react";
 import NavItem from "../NavItem";
+import Image from "../Image";
 import { Link, useLocation } from "react-router-dom";
 import { NAVBAR_CONSTANTS } from "../../constants/componentConstants";
 
@@ -18,7 +19,7 @@ const NavBar = () => {
 	return (
 		<div className={styles.navbar}>
 			<Link to="/">
-				<img src={logo} alt="Logo of CineFlix" />
+				<Image src={logo} alt="Logo of Cineflix" />
 			</Link>
 			{/* Only show nav links when not in login page */}
 			{location.pathname !== "/login" ? (
