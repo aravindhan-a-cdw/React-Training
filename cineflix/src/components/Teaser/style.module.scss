@@ -1,0 +1,57 @@
+
+.adContainer {
+    display: none;
+    height: 20rem;
+}
+
+.advertisement {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.teaser{
+    font-size: 1.5rem;
+
+
+    .videoContainer {
+        position: relative;
+
+        .hidden {
+            visibility: visible;
+        }
+
+
+        & .playBtn {
+            position: absolute;
+            z-index: 5;
+            top: 50%;
+            left: 50%;
+            width: 5rem;
+            object-fit: contain;
+            height: 100%;
+            color: var(--text-white);
+            transform: translate(-50%, -50%);
+        }
+    }
+
+    & video {
+        width: 28rem;
+        height: 20rem;
+        object-fit: cover;
+        position: relative;
+    }
+
+    .videoTitle {
+        font-size: 1.5rem;
+        font-weight: 400;
+        margin-top: .25rem;
+    }
+
+    .adMessage {
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--primary-text);
+    }
+}

@@ -1,0 +1,44 @@
+
+
+.navbar {
+    background-color: var(--background-color);
+    padding: 1.5rem 3rem;
+    color: var(--text-white);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    & img {
+        width: 13.25rem;
+    }
+
+    & .links {
+        min-width: 25vw;
+        & ul {
+            list-style: none;
+            display: flex;
+            font-size: 1.5rem;
+            gap: 3rem;
+        }
+    }
+
+    .userSection {
+        font-size: 1.5rem;
+        font-weight: 300;
+        
+        a{
+            font-weight: 300;
+        }
+
+        .logout{
+            text-transform: capitalize;
+            cursor: pointer;
+        }
+
+        .username {
+            width: 8rem;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+}

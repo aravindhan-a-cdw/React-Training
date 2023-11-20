@@ -1,0 +1,56 @@
+
+.pageContainer {
+    position: relative;
+    // height: 140vh;
+    width: 100%;
+    
+    .loginFormContainer {
+        background-color: rgba(var(--background-color-rgb), 0.85);
+        width: 29rem;
+        position: absolute;
+        right: 6.25rem;
+        top: 6rem;
+        padding: 8rem 3rem 4rem 3rem;
+        border-top: 5px solid #997512;
+
+        form {
+            h3 {
+                font-size: 2.5rem;
+                font-weight: 300;
+                margin-bottom: 2.25rem;
+            }
+
+            p {
+                color: #838485;
+                font-size: 1rem;
+                margin-bottom: 2.25rem;
+                line-height: 180%;
+            }
+
+            label {
+                color: #838485;
+            }
+
+            .formInput {
+                width: 100%;
+                margin: .75rem 0 1.75rem 0;
+            }
+
+            .loginBtn {
+                width: 100%;
+                font-size: 1.75rem;
+                font-weight: 300;
+                margin-top: 1rem;
+            }
+
+            .error {
+                border-bottom: 1px solid red;
+            }
+
+            .errorMessage {
+                color: red;
+            }
+
+        }
+    }
+}

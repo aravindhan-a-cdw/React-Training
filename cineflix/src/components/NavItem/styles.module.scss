@@ -1,0 +1,14 @@
+.navItem {
+    text-transform: uppercase;
+    font-weight: 500;
+    list-style: none;
+    display: inline;
+    a{
+        color: var(--text-white);
+        text-decoration: none;
+    }
+
+    .active {
+        color: var(--primary-text);
+    }
+}

@@ -1,0 +1,24 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root{
+  font-family: 'Roboto', sans-serif;
+
+  /* CSS Variables */
+  --background-color: #151515;
+  --background-color-rgb: 21, 21, 21;
+  --text-white: #fff;
+  --text-dark: #000;
+  --primary-text: #4B8FE2;
+
+  background-color: var(--background-color);
+  color: var(--text-white);
+}
+
+img {
+  width: 100%;
+}
