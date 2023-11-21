@@ -5,6 +5,7 @@ import { addBlog } from "../../actions/blog";
 import { useDispatch } from "react-redux";
 import { closeModal } from "../../actions/modal";
 import { HOME_CONSTANTS } from "../../constants/pageConstants";
+import uuidv4 from "../../utils/uuid";
 
 const NewBlog = () => {
 	const dispatch = useDispatch();
@@ -19,6 +20,7 @@ const NewBlog = () => {
 		if (titleValue === undefined || detailValue === undefined) return;
 
 		const blogData = {
+			id: uuidv4(),
 			title: titleValue,
 			details: detailValue,
 			type: "Local",

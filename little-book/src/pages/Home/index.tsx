@@ -3,9 +3,10 @@ import HomeLayout from "../../containers/HomeLayout";
 import apiService from "../../services/apiService";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
-import { setBlogs } from "../../actions/blog";
+import { setBlogs, setSelectedBlog } from "../../actions/blog";
 
 type BlogData = {
+	id: string;
 	type: string;
 	title: string;
 	details: string;
@@ -18,6 +19,7 @@ const Home = () => {
 
 	useEffect(() => {
 		dispatch(setBlogs(data));
+		dispatch(setSelectedBlog(data[0].id));
 	}, [data, dispatch]);
 
 	return <HomeLayout />;

@@ -22,6 +22,7 @@ import Modal from "../../components/Modal";
 import { useEffect, useState } from "react";
 
 type BlogType = {
+	id: string;
 	title: string;
 	details: string;
 	photo?: string;
@@ -71,17 +72,17 @@ const BlogsList = () => {
 
 	const blogElements = filteredBlogs.map((data, index) => {
 		const clickHandler = () => {
-			if (index === selectedBlog) return;
+			if (data.id === selectedBlog) return;
 			if (editMode) {
-				setChangeInSelectedBlog(index);
+				setChangeInSelectedBlog(data.id);
 				return setShowModal(true);
 			}
-			dispatch(setSelectedBlog(index));
+			dispatch(setSelectedBlog(data.id));
 		};
 		return (
 			<BlogSummary
 				clickHandler={clickHandler}
-				selected={index === selectedBlog}
+				selected={data.id === selectedBlog}
 				key={index}
 				{...data}
 			/>

@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { AppState } from "../store";
 
 type BlogData = {
+	id: string;
 	title: string;
 	details: string;
 	photo?: string;
@@ -10,13 +11,13 @@ type BlogData = {
 
 type StateType = {
 	blogs: Array<BlogData>;
-	selectedBlog: number;
+	selectedBlog: string | null;
 	editMode: boolean;
 };
 
 const initialState = {
 	blogs: [],
-	selectedBlog: 0,
+	selectedBlog: null,
 	editMode: false,
 };
 
@@ -28,8 +29,7 @@ const blogSlice = createSlice({
 			state.blogs = action.payload;
 		},
 		setSelectedBlog: (state, action) => {
-			if (action.payload < state.blogs.length)
-				state.selectedBlog = action.payload;
+			state.selectedBlog = action.payload;
 		},
 		editBlog: (state, action) => {
 			state.blogs[action.payload.index] = action.payload.blogData;

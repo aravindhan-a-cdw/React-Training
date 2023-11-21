@@ -16,6 +16,7 @@ type BlogProps = {
 };
 
 type BlogData = {
+	id: string;
 	title: string;
 	details: string;
 	photo?: string;
@@ -32,13 +33,18 @@ const Blog = (props: BlogProps) => {
 	const blogs: Array<BlogData> = useSelector(selectBlogs);
 	const selectedBlog = useSelector(selectSelectedBlog);
 
-	const blogDetails = blogs[selectedBlog] || {};
+	const blogDetails = blogs.find((data) => data.id === selectedBlog);
+
+	if (blogDetails === undefined) {
+		return <div>No blog to show</div>;
+	}
 
 	const saveContentHandler = () => {
 		const titleValue = titleRef.current?.value;
 		const detailsValue = detailsRef.current?.value;
 
 		const blogData = {
+			id: blogDetails.id,
 			title: titleValue,
 			details: detailsValue,
 			photo: blogDetails.photo,

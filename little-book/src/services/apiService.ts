@@ -5,6 +5,7 @@
 
 import { json } from "react-router-dom";
 import { BLOG_URL, USERS_URL } from "../constants/serviceConstants";
+import uuidv4 from "../utils/uuid";
 
 const apiService = {
 	getBlogs: async () => {
@@ -16,8 +17,15 @@ const apiService = {
 				{ status: response.status, statusText: "Couldn't fetch blogs!" }
 			);
 		}
-		const jsonData = response.json();
-		return jsonData;
+		const jsonData = (await response.json()) as Array<{
+			[key: string]: unknown;
+		}>;
+		const dataWithId = jsonData.map((blog) => {
+			blog.id = uuidv4();
+			return blog;
+		});
+		console.log(dataWithId);
+		return dataWithId;
 	},
 
 	getUsers: async () => {
