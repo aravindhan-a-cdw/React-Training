@@ -24,8 +24,8 @@ type BlogData = {
 
 const Blog = (props: BlogProps) => {
 	const dispatch = useDispatch();
-	const titleRef = useRef<HTMLHeadingElement>(null);
-	const detailsRef = useRef<HTMLParagraphElement>(null);
+	const titleRef = useRef<HTMLInputElement>(null);
+	const detailsRef = useRef<HTMLTextAreaElement>(null);
 
 	const editMode = useSelector(selectBlogEditMode);
 
@@ -35,8 +35,8 @@ const Blog = (props: BlogProps) => {
 	const blogDetails = blogs[selectedBlog] || {};
 
 	const saveContentHandler = () => {
-		const titleValue = titleRef.current?.innerText;
-		const detailsValue = detailsRef.current?.innerText;
+		const titleValue = titleRef.current?.value;
+		const detailsValue = detailsRef.current?.value;
 
 		const blogData = {
 			title: titleValue,
@@ -55,12 +55,25 @@ const Blog = (props: BlogProps) => {
 	return (
 		<div className={`${styles.blogContainer} ${className}`}>
 			<Image src={photo} alt={title} />
-			<h2 ref={titleRef} key={`${editMode}h2`} contentEditable={editMode}>
-				{title}
-			</h2>
-			<p ref={detailsRef} key={`${editMode}p`} contentEditable={editMode}>
-				{details}
-			</p>
+			{editMode ? (
+				<>
+					<input
+						type="text"
+						ref={titleRef}
+						placeholder="Name your blog"
+						defaultValue={title}
+					/>
+
+					<textarea ref={detailsRef} placeholder="Write Content Here">
+						{details}
+					</textarea>
+				</>
+			) : (
+				<>
+					<h2>{title}</h2>
+					<p>{details}</p>
+				</>
+			)}
 			{editMode ? (
 				<div className={styles.userActions}>
 					<Button
