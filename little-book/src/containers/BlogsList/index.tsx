@@ -3,7 +3,12 @@ import SearchBar from "../../components/SearchBar";
 import styles from "./styles.module.scss";
 import Button from "../../components/Button";
 import { useDispatch, useSelector } from "react-redux";
-import { selectFilter } from "../../actions/filter";
+import {
+	addNewFilter,
+	selectAvailableTypes,
+	selectFilter,
+	toggleFilter,
+} from "../../actions/filter";
 import {
 	selectBlogEditMode,
 	selectBlogs,
@@ -14,7 +19,7 @@ import {
 import { HOME_CONSTANTS } from "../../constants/pageConstants";
 import { toggleAddNewBlog } from "../../actions/modal";
 import Modal from "../../components/Modal";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 type BlogType = {
 	title: string;
@@ -27,6 +32,7 @@ const BlogsList = () => {
 	const dispatch = useDispatch();
 
 	const filters = useSelector(selectFilter);
+	const availableFilters = useSelector(selectAvailableTypes);
 	const blogs: Array<BlogType> = useSelector(selectBlogs);
 	const selectedBlog = useSelector(selectSelectedBlog);
 	const editMode = useSelector(selectBlogEditMode);
@@ -42,6 +48,15 @@ const BlogsList = () => {
 			filters.types.includes(blog.type)
 		);
 	});
+
+	useEffect(() => {
+		blogs.forEach((blog) => {
+			if (!availableFilters.includes(blog.type)) {
+				dispatch(addNewFilter(blog.type));
+				dispatch(toggleFilter(blog.type));
+			}
+		});
+	}, [blogs, availableFilters, dispatch]);
 
 	const discardChanges = () => {
 		dispatch(toggleEditMode());

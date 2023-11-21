@@ -1,5 +1,9 @@
 import { useDispatch, useSelector } from "react-redux";
-import { selectTypes, toggleFilter } from "../../actions/filter";
+import {
+	selectAvailableTypes,
+	selectTypes,
+	toggleFilter,
+} from "../../actions/filter";
 import { HOME_CONSTANTS } from "../../constants/pageConstants";
 import CheckBox from "../CheckBox";
 import Logo from "../Logo";
@@ -8,15 +12,16 @@ import { selectDarkMode, toggleDarkMode } from "../../actions/darkMode";
 import { toggleViewMembers } from "../../actions/modal";
 
 const SideBar = () => {
-	const filters = useSelector(selectTypes);
+	const availableFilters = useSelector(selectAvailableTypes);
+	const checkedFilters = useSelector(selectTypes);
 	const dispatch = useDispatch();
 	const darkMode = useSelector(selectDarkMode);
 
-	const filterElements = HOME_CONSTANTS.FILTERS.map((filter, index) => {
+	const filterElements = availableFilters.map((filter, index) => {
 		const clickHandler = () => {
 			dispatch(toggleFilter(filter));
 		};
-		const checked = filters.indexOf(filter) !== -1;
+		const checked = checkedFilters.indexOf(filter) !== -1;
 		return (
 			<div className={styles.filter} key={index}>
 				<CheckBox checked={checked} clickHandler={clickHandler} />{" "}
