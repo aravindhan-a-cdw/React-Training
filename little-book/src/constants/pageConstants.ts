@@ -20,6 +20,7 @@ const HOME_CONSTANTS = {
 	MODAL_CONFIRM_YES: "Yes",
 	MODAL_CONFIRM_NO: "No",
 	EDIT_CONTENT: "Edit Content",
+	MEMBERS_TITLE: "Members",
 };
 
 export { HOME_CONSTANTS };

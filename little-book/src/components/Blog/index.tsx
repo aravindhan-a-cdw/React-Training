@@ -12,6 +12,11 @@ import Image from "../Image";
 import { useRef } from "react";
 import { HOME_CONSTANTS } from "../../constants/pageConstants";
 
+/*
+	@author Aravindhan A
+	@description This component renders the detailed blog with Image and details with ability to edit the blog
+*/
+
 type BlogProps = {
 	className?: string;
 };
@@ -25,12 +30,16 @@ type BlogData = {
 };
 
 const Blog = (props: BlogProps) => {
+	// prop destructuring
+	const { className = "" } = props;
+
+	// hook initializations
 	const dispatch = useDispatch();
 	const titleRef = useRef<HTMLInputElement>(null);
 	const detailsRef = useRef<HTMLTextAreaElement>(null);
 
+	// get redux states
 	const editMode = useSelector(selectBlogEditMode);
-
 	const blogs: Array<BlogData> = useSelector(selectBlogs);
 	const selectedBlog = useSelector(selectSelectedBlog);
 
@@ -41,9 +50,11 @@ const Blog = (props: BlogProps) => {
 	}
 
 	const saveContentHandler = () => {
+		// Handler to save content of a edited blog
 		const titleValue = titleRef.current?.value;
 		const detailsValue = detailsRef.current?.value;
 
+		// prepare data
 		const blogData = {
 			id: blogDetails.id,
 			title: titleValue,
@@ -51,18 +62,18 @@ const Blog = (props: BlogProps) => {
 			photo: blogDetails.photo,
 			type: blogDetails.type,
 		};
-
+		// dispatch action to save edited blog with prepared data
 		dispatch(editBlog({ blogData, index: selectedBlog }));
+		// dispatch action to toggle edit mode
 		dispatch(toggleEditMode());
 	};
-
-	const { className = "" } = props;
 
 	const { photo = "", title, details } = blogDetails;
 	return (
 		<div className={`${styles.blogContainer} ${className}`}>
 			<Image src={photo} alt={title} />
 			{editMode ? (
+				// When edit mode is true change the tags to get input from user
 				<>
 					<input
 						type="text"
@@ -70,10 +81,11 @@ const Blog = (props: BlogProps) => {
 						placeholder="Name your blog"
 						defaultValue={title}
 					/>
-
-					<textarea ref={detailsRef} placeholder="Write Content Here">
-						{details}
-					</textarea>
+					<textarea
+						ref={detailsRef}
+						placeholder="Write Content Here"
+						defaultValue={details}
+					></textarea>
 				</>
 			) : (
 				<>
@@ -82,6 +94,7 @@ const Blog = (props: BlogProps) => {
 				</>
 			)}
 			{editMode ? (
+				// When edit mode is true show save and cancel button
 				<div className={styles.userActions}>
 					<Button
 						clickHandler={() => dispatch(toggleEditMode())}
@@ -94,6 +107,7 @@ const Blog = (props: BlogProps) => {
 					</Button>
 				</div>
 			) : (
+				// When the edit mode is false so edit button
 				<Button
 					clickHandler={() => dispatch(toggleEditMode())}
 					className={styles.button}

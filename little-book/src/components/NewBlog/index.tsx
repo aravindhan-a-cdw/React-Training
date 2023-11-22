@@ -12,17 +12,38 @@ import { HOME_CONSTANTS } from "../../constants/pageConstants";
 import uuidv4 from "../../utils/uuid";
 import Modal from "../Modal";
 
-const NewBlog = () => {
-	const dispatch = useDispatch();
-	const clickedOutsideModal = useSelector(selectClickOutsideModal);
-	const [showConfirmationModal, setShowConfirmationModal] = useState(false);
+/*
+	@author Aravindhan A
+	@description This component renders the fields when creating a new blog. This will be used in SideModal.
+*/
 
+const NewBlog = () => {
+	// initialize states and hooks
+	const dispatch = useDispatch();
 	const inputRef = useRef<HTMLInputElement>(null);
 	const textareaRef = useRef<HTMLTextAreaElement>(null);
+	const [showConfirmationModal, setShowConfirmationModal] = useState(false);
+
+	// get state from stores
+	const clickedOutsideModal = useSelector(selectClickOutsideModal);
+
+	// useEffect calls
+	useEffect(() => {
+		if (clickedOutsideModal) {
+			if (
+				inputRef.current?.value.trim() === "" &&
+				textareaRef.current?.value.trim() === ""
+			) {
+				dispatch(closeModal());
+			}
+			setShowConfirmationModal(true);
+		}
+	}, [clickedOutsideModal, dispatch]);
 
 	const addHandler = () => {
-		const titleValue = inputRef.current?.value.trim();
-		const detailValue = textareaRef.current?.value.trim();
+		// handler to add a new blog to the list of blogs
+		const titleValue = inputRef.current?.value?.trim();
+		const detailValue = textareaRef.current?.value?.trim();
 
 		if (titleValue === undefined || detailValue === undefined) return;
 
@@ -36,31 +57,22 @@ const NewBlog = () => {
 		dispatch(closeModal());
 	};
 
-	useEffect(() => {
-		if (clickedOutsideModal) {
-			if (
-				inputRef.current?.value.trim() === "" &&
-				textareaRef.current?.value.trim() === ""
-			) {
-				dispatch(closeModal());
-			}
-			setShowConfirmationModal(true);
-		}
-	}, [clickedOutsideModal, dispatch]);
-
 	const closeConfirmationModalHandler = () => {
+		// handler to close the confirmation modal
 		setShowConfirmationModal(false);
-		dispatch(setClickOutsideModal(false));
+		dispatch(setClickOutsideModal(false)); // Explicity setting false since the user wants to continue editing
 	};
 
 	const continueAddingHandler = () => {
+		// handler to prevent closing of the SideModal and continue editing
 		setShowConfirmationModal(false);
 		dispatch(setClickOutsideModal(false));
 	};
 
 	const discardAddingHandler = () => {
+		// handler to discard the changes and close the SideModal
 		setShowConfirmationModal(false);
-		dispatch(closeModal()); // It sets the clickOutsideModal to false
+		dispatch(closeModal()); // It sets the clickOutsideModal to false implicity - so doesn't trigger the confirmation modal
 	};
 
 	return (
@@ -79,6 +91,7 @@ const NewBlog = () => {
 				{HOME_CONSTANTS.ADD}
 			</Button>
 			{showConfirmationModal && (
+				// Show the Confirmation model based on state
 				<Modal closeModalHandler={closeConfirmationModalHandler}>
 					<div className={styles.modalHeader}>
 						<h6>{HOME_CONSTANTS.MODAL_TITLE_CONFIRM}</h6>

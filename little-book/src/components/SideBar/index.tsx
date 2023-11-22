@@ -11,13 +11,22 @@ import styles from "./styles.module.scss";
 import { selectDarkMode, toggleDarkMode } from "../../actions/darkMode";
 import { toggleViewMembers } from "../../actions/modal";
 
+/*
+	@author Aravindhan A
+	@description This component renders the side bar or the section with logo filters and theme selection options.
+*/
+
 const SideBar = () => {
+	// hook initialization
+	const dispatch = useDispatch();
+
+	// get states from stores
 	const availableFilters = useSelector(selectAvailableTypes);
 	const checkedFilters = useSelector(selectTypes);
-	const dispatch = useDispatch();
 	const darkMode = useSelector(selectDarkMode);
 
 	const filterElements = availableFilters.map((filter, index) => {
+		// list of filter elements to be rendered
 		const clickHandler = () => {
 			dispatch(toggleFilter(filter));
 		};
@@ -31,10 +40,12 @@ const SideBar = () => {
 	});
 
 	const darkModeClickHandler = () => {
+		// handler to toggle theme
 		dispatch(toggleDarkMode());
 	};
 
 	const viewMembersClickHandler = () => {
+		// handler to open SideBar with MembersList content
 		dispatch(toggleViewMembers());
 	};
 

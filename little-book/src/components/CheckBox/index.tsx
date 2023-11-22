@@ -5,6 +5,11 @@ type CheckBoxProps = {
 	checked?: boolean;
 };
 
+/*
+	@author Aravindhan A
+	@description This component renders a custom checkbox.
+*/
+
 const CheckBox = (props: CheckBoxProps) => {
 	const { clickHandler, checked = true } = props;
 

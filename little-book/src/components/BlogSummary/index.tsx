@@ -9,6 +9,11 @@ type BlogSummaryProps = {
 	clickHandler: () => void;
 };
 
+/*
+	@author Aravindhan A
+	@description This component renders the summary of a blog.
+*/
+
 const BlogSummary = (props: BlogSummaryProps) => {
 	const { title, details, type, clickHandler, selected = false } = props;
 

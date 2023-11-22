@@ -4,6 +4,11 @@ import { useSelector } from "react-redux";
 import { selectDarkMode } from "../../actions/darkMode";
 import Image from "../Image";
 
+/*
+	@author Aravindhan A
+	@description This component renders the member card of a person.
+*/
+
 type MemberProps = {
 	name: string;
 	photo: string;

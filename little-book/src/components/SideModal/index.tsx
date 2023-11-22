@@ -12,16 +12,19 @@ import NewBlog from "../NewBlog";
 import { selectDarkMode } from "../../actions/darkMode";
 
 const SideModal = () => {
+	// hooks initialization
 	const dispatch = useDispatch();
+	const outsideModalRef = useRef<HTMLDivElement>(null);
 
+	// get state from stores
 	const darkMode = useSelector(selectDarkMode);
 	const showModal = useSelector(selectShowModal);
 	const viewMembers = useSelector(selectViewMembers);
 	const addNewBlog = useSelector(selectAddNewBlog);
 
-	const outsideModalRef = useRef<HTMLDivElement>(null);
-
 	const closeModalHandler = (event: SyntheticEvent) => {
+		// handler to say the content element that the user have clicked outside of the SideModal
+		// the content will decide if a Confirmation modal needs to be shown or to close the SideModal
 		if (event.target === outsideModalRef.current) {
 			dispatch(setClickOutsideModal(true));
 		}

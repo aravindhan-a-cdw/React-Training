@@ -2,6 +2,11 @@ import { useSelector } from "react-redux";
 import styles from "./styles.module.scss";
 import { selectDarkMode } from "../../actions/darkMode";
 
+/*
+	@author Aravindhan A
+	@description This component renders the logo of the application
+*/
+
 type LogoProps = {
 	className?: string;
 };

@@ -3,20 +3,29 @@ import { setQuery, selectQuery } from "../../actions/filter";
 import { useDispatch, useSelector } from "react-redux";
 import { useRef } from "react";
 
+/*
+	@author Aravindhan A
+	@description This component renders a search bar for user to input search query.
+*/
+
 type SearchBarProps = {
 	placeholder?: string;
 	className?: string;
 };
 
-// const selectQuery = (state: AppState) => state.filter.query;
-
 const SearchBar = (props: SearchBarProps) => {
+	// prop destructuring
 	const { placeholder, className = "" } = props;
-	const inputRef = useRef<HTMLInputElement>(null);
-	const query = useSelector(selectQuery);
+
+	// hooks initialization
 	const dispatch = useDispatch();
+	const inputRef = useRef<HTMLInputElement>(null);
+
+	// get state from stores
+	const query = useSelector(selectQuery);
 
 	const changeHandler = (event: React.KeyboardEvent) => {
+		// handler to set query on press of "Enter" key
 		if (event.key === "Enter") {
 			const trimmedValue = inputRef.current!.value.trimStart();
 			dispatch(setQuery(trimmedValue));

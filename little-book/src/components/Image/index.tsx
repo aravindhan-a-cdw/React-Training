@@ -6,6 +6,11 @@ type ImageProps = {
 	fallbackSrc?: string;
 };
 
+/*
+	@author Aravindhan A
+	@description This component renders image with a fallback image.
+*/
+
 const Image = (props: ImageProps) => {
 	const { src, alt, fallbackSrc = fallbackImage } = props;
 
