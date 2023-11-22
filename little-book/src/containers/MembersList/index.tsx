@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import styles from "./styles.module.scss";
 import apiService from "../../services/apiService";
 import MemberCard from "../../components/MemberCard";
+import { useDispatch, useSelector } from "react-redux";
+import { closeModal, selectClickOutsideModal } from "../../actions/modal";
 
 type MemberData = {
 	name: string;
@@ -13,8 +15,10 @@ type MemberData = {
 };
 
 const MembersList = () => {
+	const dispatch = useDispatch();
 	const [members, setMembers] = useState<Array<MemberData>>([]);
 	const [isLoading, setIsLoading] = useState(true);
+	const clickedOutsideModal = useSelector(selectClickOutsideModal);
 
 	useEffect(() => {
 		apiService.getUsers().then((data) => {
@@ -22,6 +26,12 @@ const MembersList = () => {
 			setIsLoading(false);
 		});
 	}, []);
+
+	useEffect(() => {
+		if (clickedOutsideModal) {
+			dispatch(closeModal());
+		}
+	}, [clickedOutsideModal, dispatch]);
 
 	if (isLoading) {
 		return <div className={styles.loadingContainer}>Loading...</div>;

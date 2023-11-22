@@ -10,7 +10,6 @@
         background-color: #fff;
         height: 100%;
         width: 38rem;
-        position: relative;
         padding: 5rem 3.5rem;
         overflow: scroll;
     }
@@ -20,29 +19,6 @@
 
         .modal {
             background-color: #00090E;
-        }
-    }
-
-    .modalHeader {
-        font-size: 2rem;
-        margin-bottom: 1rem;
-        padding-bottom: .5rem;
-        border-bottom: 1px solid var(--primary-text);
-    }
-
-    .modalBody {
-        font-size: 1.2rem;
-
-        .buttons {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-top: 1rem;
-
-            & > button {
-                font-size: 1rem;
-                padding: 1rem 3rem;
-            }
         }
     }
 }

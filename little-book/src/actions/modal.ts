@@ -7,6 +7,7 @@ const userActionSlice = createSlice({
 		viewMembers: false,
 		addNewBlog: false,
 		showModal: false,
+		clickOutsideModal: false,
 	},
 	reducers: {
 		toggleViewMembers: (state) => {
@@ -21,6 +22,10 @@ const userActionSlice = createSlice({
 			state.showModal = false;
 			state.viewMembers = false;
 			state.addNewBlog = false;
+			state.clickOutsideModal = false;
+		},
+		setClickOutsideModal: (state, action) => {
+			state.clickOutsideModal = action.payload;
 		},
 	},
 });
@@ -28,9 +33,20 @@ const userActionSlice = createSlice({
 const selectViewMembers = (state: AppState) => state.modal.viewMembers;
 const selectAddNewBlog = (state: AppState) => state.modal.addNewBlog;
 const selectShowModal = (state: AppState) => state.modal.showModal;
+const selectClickOutsideModal = (state: AppState) =>
+	state.modal.clickOutsideModal;
 
-export const { toggleViewMembers, toggleAddNewBlog, closeModal } =
-	userActionSlice.actions;
-export { selectAddNewBlog, selectViewMembers, selectShowModal };
+export const {
+	toggleViewMembers,
+	toggleAddNewBlog,
+	closeModal,
+	setClickOutsideModal,
+} = userActionSlice.actions;
+export {
+	selectAddNewBlog,
+	selectViewMembers,
+	selectShowModal,
+	selectClickOutsideModal,
+};
 
 export default userActionSlice.reducer;
