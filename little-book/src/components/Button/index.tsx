@@ -1,3 +1,4 @@
+import React from "react";
 import styles from "./styles.module.scss";
 
 /*
@@ -12,7 +13,7 @@ type ButtonProps = {
 	clickHandler?: () => void;
 };
 
-const Button = (props: ButtonProps) => {
+const Button = React.memo((props: ButtonProps) => {
 	const { children, type = "primary", className = "", clickHandler } = props;
 	return (
 		<button
@@ -22,6 +23,6 @@ const Button = (props: ButtonProps) => {
 			{children}
 		</button>
 	);
-};
+});
 
 export default Button;

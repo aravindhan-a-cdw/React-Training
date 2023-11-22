@@ -9,7 +9,7 @@ import {
 	toggleEditMode,
 } from "../../actions/blog";
 import Image from "../Image";
-import { useRef } from "react";
+import { useCallback, useMemo, useRef } from "react";
 import { HOME_CONSTANTS } from "../../constants/pageConstants";
 
 /*
@@ -43,32 +43,46 @@ const Blog = (props: BlogProps) => {
 	const blogs: Array<BlogData> = useSelector(selectBlogs);
 	const selectedBlog = useSelector(selectSelectedBlog);
 
-	const blogDetails = blogs.find((data) => data.id === selectedBlog);
+	const blogDetails = useMemo(() => {
+		const blog = blogs.find((data) => data.id === selectedBlog);
+		if (blog === undefined)
+			return {
+				id: "",
+				photo: "",
+				type: "Local",
+				title: "",
+				details: "",
+			} as BlogData;
+		return blog;
+	}, [selectedBlog]);
 
-	if (blogDetails === undefined) {
-		return <div>No blog to show</div>;
-	}
-
-	const saveContentHandler = () => {
+	const saveContentHandler = useCallback(() => {
 		// Handler to save content of a edited blog
 		const titleValue = titleRef.current?.value;
 		const detailsValue = detailsRef.current?.value;
 
 		// prepare data
 		const blogData = {
-			id: blogDetails.id,
+			id: blogDetails?.id,
 			title: titleValue,
 			details: detailsValue,
-			photo: blogDetails.photo,
-			type: blogDetails.type,
+			photo: blogDetails?.photo,
+			type: blogDetails?.type,
 		};
 		// dispatch action to save edited blog with prepared data
 		dispatch(editBlog({ blogData, index: selectedBlog }));
 		// dispatch action to toggle edit mode
 		dispatch(toggleEditMode());
-	};
+	}, [blogDetails, dispatch, selectedBlog]);
+
+	const toggleEditModeHandler = useCallback(() => {
+		dispatch(toggleEditMode());
+	}, [dispatch]);
 
 	const { photo = "", title, details } = blogDetails;
+
+	if (selectedBlog === null) return <div>No blog to show</div>;
+
 	return (
 		<div className={`${styles.blogContainer} ${className}`}>
 			<Image src={photo} alt={title} />
@@ -97,7 +111,7 @@ const Blog = (props: BlogProps) => {
 				// When edit mode is true show save and cancel button
 				<div className={styles.userActions}>
 					<Button
-						clickHandler={() => dispatch(toggleEditMode())}
+						clickHandler={toggleEditModeHandler}
 						type="secondary"
 					>
 						Cancel
@@ -109,7 +123,7 @@ const Blog = (props: BlogProps) => {
 			) : (
 				// When the edit mode is false so edit button
 				<Button
-					clickHandler={() => dispatch(toggleEditMode())}
+					clickHandler={toggleEditModeHandler}
 					className={styles.button}
 					type="secondary"
 				>

@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux";
 import styles from "./styles.module.scss";
 import { selectDarkMode } from "../../actions/darkMode";
+import React from "react";
 
 /*
 	@author Aravindhan A
@@ -11,7 +12,7 @@ type LogoProps = {
 	className?: string;
 };
 
-const Logo = (props: LogoProps) => {
+const Logo = React.memo((props: LogoProps) => {
 	const darkMode = useSelector(selectDarkMode);
 
 	const { className = "" } = props;
@@ -24,6 +25,6 @@ const Logo = (props: LogoProps) => {
 			<span>Little</span> Book
 		</div>
 	);
-};
+});
 
 export default Logo;

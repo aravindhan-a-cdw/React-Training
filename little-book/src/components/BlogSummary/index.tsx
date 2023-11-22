@@ -1,12 +1,14 @@
+import React from "react";
 import styles from "./styles.module.scss";
 
 type BlogSummaryProps = {
+	id: string;
 	title: string;
 	details: string;
 	type: string;
 	photo?: string;
 	selected?: boolean;
-	clickHandler: () => void;
+	clickHandler: (arg1: string) => void;
 };
 
 /*
@@ -14,12 +16,19 @@ type BlogSummaryProps = {
 	@description This component renders the summary of a blog.
 */
 
-const BlogSummary = (props: BlogSummaryProps) => {
-	const { title, details, type, clickHandler, selected = false } = props;
+const BlogSummary = React.memo((props: BlogSummaryProps) => {
+	const { id, title, details, type, clickHandler, selected = false } = props;
+
+	const onClickHandler = () => {
+		// do nothing when user clicks on the selected blog
+		if (selected) return;
+
+		clickHandler(id);
+	};
 
 	return (
 		<div
-			onClick={clickHandler}
+			onClick={onClickHandler}
 			className={`${styles.blogSummaryContainer} ${
 				selected ? styles.selected : ""
 			}`}
@@ -29,6 +38,6 @@ const BlogSummary = (props: BlogSummaryProps) => {
 			<p>{details}</p>
 		</div>
 	);
-};
+});
 
 export default BlogSummary;

@@ -2,6 +2,7 @@ import styles from "./styles.module.scss";
 import { setQuery, selectQuery } from "../../actions/filter";
 import { useDispatch, useSelector } from "react-redux";
 import { useRef } from "react";
+import React from "react";
 
 /*
 	@author Aravindhan A
@@ -13,7 +14,7 @@ type SearchBarProps = {
 	className?: string;
 };
 
-const SearchBar = (props: SearchBarProps) => {
+const SearchBar = React.memo((props: SearchBarProps) => {
 	// prop destructuring
 	const { placeholder, className = "" } = props;
 
@@ -41,6 +42,6 @@ const SearchBar = (props: SearchBarProps) => {
 			defaultValue={query}
 		></input>
 	);
-};
+});
 
 export default SearchBar;

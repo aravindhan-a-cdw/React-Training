@@ -19,7 +19,7 @@ import {
 import { HOME_CONSTANTS } from "../../constants/pageConstants";
 import { toggleAddNewBlog } from "../../actions/modal";
 import Modal from "../../components/Modal";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 /*
 	@author Aravindhan A
@@ -72,10 +72,10 @@ const BlogsList = () => {
 		setShowModal(false);
 	};
 
-	const newBlogClickHandler = () => {
+	const newBlogClickHandler = useCallback(() => {
 		// handler to open SideModal to get input from user to create a new blog
 		dispatch(toggleAddNewBlog());
-	};
+	}, [dispatch]);
 
 	const filteredBlogs = blogs.filter((blog) => {
 		// filter blogs based on user search query
@@ -85,20 +85,23 @@ const BlogsList = () => {
 		);
 	});
 
-	const blogElements = filteredBlogs.map((data, index) => {
-		// this renders the blog summary elements
-
-		const clickHandler = () => {
+	const clickHandler = useCallback(
+		(blogId: string) => {
 			// handler to change to the blog if user clicks on it
-			if (data.id === selectedBlog) return; // if user clicks on selected blog then do nothing
 			if (editMode) {
 				// if user is in edit mode then get confirmation before changing;
-				setChangeInSelectedBlog(data.id);
+				setChangeInSelectedBlog(blogId);
 				setShowModal(true);
 				return;
 			}
-			dispatch(setSelectedBlog(data.id));
-		};
+			dispatch(setSelectedBlog(blogId));
+		},
+		[editMode, dispatch]
+	);
+
+	const blogElements = filteredBlogs.map((data, index) => {
+		// this renders the blog summary elements
+
 		return (
 			<BlogSummary
 				clickHandler={clickHandler}
