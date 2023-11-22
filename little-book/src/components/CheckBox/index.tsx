@@ -7,14 +7,11 @@ type CheckBoxProps = {
 
 const CheckBox = (props: CheckBoxProps) => {
 	const { clickHandler, checked = true } = props;
-	// const [checked, setChecked] = useState(checked);
-
-	// const clickHandler = () => setChecked(!checked);
 
 	return (
 		<input
 			onChange={clickHandler}
-			className={styles.checkbox}
+			className={`${styles.checkbox} ${styles.checked}`}
 			type="checkbox"
 			checked={checked}
 		/>
