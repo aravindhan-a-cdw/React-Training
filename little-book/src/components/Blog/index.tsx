@@ -10,6 +10,7 @@ import {
 } from "../../actions/blog";
 import Image from "../Image";
 import { useRef } from "react";
+import { HOME_CONSTANTS } from "../../constants/pageConstants";
 
 type BlogProps = {
 	className?: string;
@@ -98,7 +99,7 @@ const Blog = (props: BlogProps) => {
 					className={styles.button}
 					type="secondary"
 				>
-					Edit Content
+					{HOME_CONSTANTS.EDIT_CONTENT}
 				</Button>
 			)}
 		</div>

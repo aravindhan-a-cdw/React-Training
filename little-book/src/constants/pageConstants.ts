@@ -16,10 +16,10 @@ const HOME_CONSTANTS = {
 	NEW_BLOG_CONTENT_PLACEHOLDER: "Write Content Here ..",
 	NEW_BLOG: "Add New Blog",
 	MODAL_TITLE_CONFIRM: "Confirm",
-	MODAL_CONFIRM_MESSAGE:
-		"Do you want to discard the changes you made and switch to another blog?",
+	MODAL_CONFIRM_MESSAGE: "Do you want to discard the changes you made?",
 	MODAL_CONFIRM_YES: "Yes",
 	MODAL_CONFIRM_NO: "No",
+	EDIT_CONTENT: "Edit Content",
 };
 
 export { HOME_CONSTANTS };
