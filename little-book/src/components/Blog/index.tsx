@@ -54,7 +54,7 @@ const Blog = (props: BlogProps) => {
 				details: "",
 			} as BlogData;
 		return blog;
-	}, [selectedBlog]);
+	}, [selectedBlog, blogs]);
 
 	const saveContentHandler = useCallback(() => {
 		// Handler to save content of a edited blog

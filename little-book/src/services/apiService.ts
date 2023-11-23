@@ -24,7 +24,6 @@ const apiService = {
 			blog.id = uuidv4();
 			return blog;
 		});
-		console.log(dataWithId);
 		return dataWithId;
 	},
 

@@ -5,11 +5,12 @@ import {
 	toggleFilter,
 } from "../../actions/filter";
 import { HOME_CONSTANTS } from "../../constants/pageConstants";
-import CheckBox from "../CheckBox";
 import Logo from "../Logo";
 import styles from "./styles.module.scss";
 import { selectDarkMode, toggleDarkMode } from "../../actions/darkMode";
 import { toggleViewMembers } from "../../actions/modal";
+import { useCallback } from "react";
+import BlogType from "../BlogType";
 
 /*
 	@author Aravindhan A
@@ -25,17 +26,22 @@ const SideBar = () => {
 	const checkedFilters = useSelector(selectTypes);
 	const darkMode = useSelector(selectDarkMode);
 
-	const filterElements = availableFilters.map((filter, index) => {
-		// list of filter elements to be rendered
-		const clickHandler = () => {
+	const memoizedCheckboxClickHandler = useCallback(
+		(filter: string) => {
 			dispatch(toggleFilter(filter));
-		};
+		},
+		[dispatch]
+	);
+
+	const filterElements = availableFilters.map((filter, index) => {
 		const checked = checkedFilters.indexOf(filter) !== -1;
 		return (
-			<div className={styles.filter} key={index}>
-				<CheckBox checked={checked} clickHandler={clickHandler} />{" "}
-				{filter} {"Blogs"}
-			</div>
+			<BlogType
+				type={filter}
+				onSelect={memoizedCheckboxClickHandler}
+				selected={checked}
+				key={index}
+			/>
 		);
 	});
 
