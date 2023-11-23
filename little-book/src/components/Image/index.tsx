@@ -37,15 +37,12 @@ const Image = (props: ImageProps) => {
 			alt={alt}
 			onLoad={imageLoadedHandler}
 			onError={(event) => {
-				if (event.currentTarget.src === fallbackSrc) return;
-				event.currentTarget.src = fallbackSrc;
-				event.currentTarget.alt = "Fallback image";
+				if (!event.currentTarget.src.endsWith(fallbackSrc)) {
+					event.currentTarget.src = fallbackSrc;
+					event.currentTarget.alt = "Fallback image";
+				}
 			}}
 		/>
-		// <>
-		// 	<div className={styles.skeletonBox}>
-		// 	</div>
-		// </>
 	);
 };
 
