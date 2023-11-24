@@ -3,12 +3,7 @@ import SearchBar from "../../components/SearchBar";
 import styles from "./styles.module.scss";
 import Button from "../../components/Button";
 import { useDispatch, useSelector } from "react-redux";
-import {
-	addNewBlogType,
-	selectAvailableTypes,
-	selectFilter,
-	toggleFilter,
-} from "../../actions/filter";
+import { selectFilter } from "../../actions/filter";
 import {
 	selectBlogEditMode,
 	selectBlogs,
@@ -19,7 +14,7 @@ import {
 import { HOME_CONSTANTS } from "../../constants/pageConstants";
 import { toggleAddNewBlog } from "../../actions/modal";
 import Modal from "../../components/Modal";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useState } from "react";
 
 /*
 	@author Aravindhan A
@@ -44,20 +39,19 @@ const BlogsList = () => {
 
 	// get states from stores
 	const filters = useSelector(selectFilter);
-	const availableFilters = useSelector(selectAvailableTypes);
 	const blogs: Array<BlogType> = useSelector(selectBlogs);
 	const selectedBlog = useSelector(selectSelectedBlog);
 	const editMode = useSelector(selectBlogEditMode);
 
 	// useEffect calls
-	useEffect(() => {
-		blogs.forEach((blog) => {
-			if (!availableFilters.includes(blog.type)) {
-				dispatch(addNewBlogType(blog.type));
-				dispatch(toggleFilter(blog.type));
-			}
-		});
-	}, [blogs, availableFilters, dispatch]);
+	// useEffect(() => {
+	// 	blogs.forEach((blog) => {
+	// 		if (!availableFilters.includes(blog.type)) {
+	// 			dispatch(addNewBlogType(blog.type));
+	// 			dispatch(toggleFilter(blog.type));
+	// 		}
+	// 	});
+	// }, [blogs, availableFilters, dispatch]);
 
 	const discardChanges = () => {
 		// handler to discard user changes

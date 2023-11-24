@@ -19,7 +19,7 @@ const HomeLayout = () => {
 		<div className={`${styles.container} ${darkMode ? styles.dark : ""}`}>
 			<SideBar />
 			<BlogsList />
-			<Blog className={styles.blog} />
+			<Blog />
 
 			<SideModal />
 		</div>

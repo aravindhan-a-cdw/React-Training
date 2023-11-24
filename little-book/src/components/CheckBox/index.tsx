@@ -2,7 +2,7 @@ import styles from "./styles.module.scss";
 
 type CheckBoxProps = {
 	name: string;
-	clickHandler?: (arg: string) => void;
+	clickHandler?: (arg1: string, arg2: boolean) => void;
 	checked?: boolean;
 };
 
@@ -15,7 +15,8 @@ const CheckBox = (props: CheckBoxProps) => {
 	const { name, clickHandler, checked = true } = props;
 
 	const onClickHandler = () => {
-		if (clickHandler) clickHandler(name);
+		console.log("clicked", "Current Checked value", checked);
+		if (clickHandler) clickHandler(name, !checked);
 	};
 
 	return (

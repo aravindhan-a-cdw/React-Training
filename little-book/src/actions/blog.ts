@@ -18,12 +18,24 @@ type StateType = {
 	blogs: Array<BlogData>;
 	selectedBlog: string | null;
 	editMode: boolean;
+	availableTypes: Array<string>;
 };
 
 const initialState = {
 	blogs: [],
 	selectedBlog: null,
 	editMode: false,
+	availableTypes: [],
+};
+
+const getAvailableTypes = (blogs: Array<BlogData>) => {
+	const newTypes: Array<string> = [];
+	blogs.forEach((blog) => {
+		if (!newTypes.includes(blog.type)) {
+			newTypes.push(blog.type);
+		}
+	});
+	return newTypes;
 };
 
 const blogSlice = createSlice({
@@ -33,6 +45,8 @@ const blogSlice = createSlice({
 		setBlogs: (state, action) => {
 			// To set the blogs
 			state.blogs = action.payload;
+			const newTypes = getAvailableTypes(action.payload);
+			state.availableTypes = newTypes;
 		},
 		setSelectedBlog: (state, action) => {
 			// To select a blog
@@ -45,6 +59,9 @@ const blogSlice = createSlice({
 		addBlog: (state, action: { type: string; payload: BlogData }) => {
 			// To add a new blog in the blogs list
 			state.blogs = [action.payload, ...state.blogs];
+			if (!state.availableTypes.includes(action.payload.type)) {
+				state.availableTypes.push(action.payload.type);
+			}
 		},
 		toggleEditMode: (state) => {
 			// To toggle edit mode
@@ -56,8 +73,15 @@ const blogSlice = createSlice({
 const selectBlogs = (state: AppState) => state.blog.blogs;
 const selectSelectedBlog = (state: AppState) => state.blog.selectedBlog;
 const selectBlogEditMode = (state: AppState) => state.blog.editMode;
+const selectAvailableTypes = (state: AppState): Array<string> =>
+	state.blog.availableTypes;
 
 export const { setBlogs, setSelectedBlog, addBlog, editBlog, toggleEditMode } =
 	blogSlice.actions;
-export { selectBlogs, selectSelectedBlog, selectBlogEditMode };
+export {
+	selectBlogs,
+	selectSelectedBlog,
+	selectBlogEditMode,
+	selectAvailableTypes,
+};
 export default blogSlice.reducer;

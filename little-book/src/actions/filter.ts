@@ -12,26 +12,27 @@ const filterSlice = createSlice({
 	initialState: {
 		query: "",
 		types: HOME_CONSTANTS.FILTERS,
-		available_types: HOME_CONSTANTS.FILTERS,
 	},
 	reducers: {
 		toggleFilter: (state, action) => {
 			// To toggle a blog type from filter
-			const filter = action.payload;
+			const filter = action.payload.type;
 			const filterIndex = state.types.indexOf(filter);
-			if (filterIndex === -1) {
-				state.types.push(filter);
+			if (action.payload.include) {
+				if (filterIndex === -1) state.types.push(filter);
+				else console.debug("Filter already exists, so not adding it.");
 			} else {
-				state.types.splice(filterIndex, 1);
+				console.debug(`Removing ${filter} from index ${filterIndex}`);
+				if (filterIndex !== -1) {
+					state.types.splice(filterIndex, 1);
+				} else {
+					console.debug("Filter doesn't exist, so not removing it");
+				}
 			}
 		},
 		setQuery: (state, action) => {
 			// To set the search query
 			state.query = action.payload;
-		},
-		addNewBlogType: (state, action) => {
-			// To add a new blog type to available types
-			state.available_types = [...state.available_types, action.payload];
 		},
 	},
 });
@@ -39,9 +40,8 @@ const filterSlice = createSlice({
 const selectQuery = (state: AppState) => state.filter.query;
 const selectTypes = (state: AppState) => state.filter.types;
 const selectFilter = (state: AppState) => state.filter;
-const selectAvailableTypes = (state: AppState) => state.filter.available_types;
 
-export const { toggleFilter, setQuery, addNewBlogType } = filterSlice.actions;
-export { selectQuery, selectTypes, selectFilter, selectAvailableTypes };
+export const { toggleFilter, setQuery } = filterSlice.actions;
+export { selectQuery, selectTypes, selectFilter };
 
 export default filterSlice.reducer;

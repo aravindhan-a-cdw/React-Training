@@ -4,7 +4,7 @@ import styles from "./styles.module.scss";
 type BlogTypeProps = {
 	type: string;
 	selected: boolean;
-	onSelect: (type: string) => void;
+	onSelect: (type: string, include: boolean) => void;
 };
 
 const BlogType = (props: BlogTypeProps) => {

@@ -11,6 +11,7 @@ import {
 import { HOME_CONSTANTS } from "../../constants/pageConstants";
 import uuidv4 from "../../utils/uuid";
 import Modal from "../Modal";
+import { toggleFilter } from "../../actions/filter";
 
 /*
 	@author Aravindhan A
@@ -54,6 +55,7 @@ const NewBlog = () => {
 			type: "Local",
 		};
 		dispatch(addBlog(blogData));
+		dispatch(toggleFilter({ type: blogData.type, include: true }));
 		dispatch(closeModal());
 	};
 

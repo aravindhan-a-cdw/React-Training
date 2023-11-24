@@ -1,9 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import {
-	selectAvailableTypes,
-	selectTypes,
-	toggleFilter,
-} from "../../actions/filter";
+import { selectTypes, toggleFilter } from "../../actions/filter";
 import { HOME_CONSTANTS } from "../../constants/pageConstants";
 import Logo from "../Logo";
 import styles from "./styles.module.scss";
@@ -11,6 +7,7 @@ import { selectDarkMode, toggleDarkMode } from "../../actions/darkMode";
 import { toggleViewMembers } from "../../actions/modal";
 import { useCallback } from "react";
 import BlogType from "../BlogType";
+import { selectAvailableTypes } from "../../actions/blog";
 
 /*
 	@author Aravindhan A
@@ -27,8 +24,8 @@ const SideBar = () => {
 	const darkMode = useSelector(selectDarkMode);
 
 	const memoizedCheckboxClickHandler = useCallback(
-		(filter: string) => {
-			dispatch(toggleFilter(filter));
+		(type: string, include: boolean) => {
+			dispatch(toggleFilter({ type, include }));
 		},
 		[dispatch]
 	);
