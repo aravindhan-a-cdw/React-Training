@@ -1,54 +1,71 @@
 .blogContainer {
-    display: flex;
-    flex-direction: column;
-    width: 54rem;
-    height: 100vh;
-    overflow: scroll;
-    padding: 3rem 4rem;
+	display: flex;
+	flex-direction: column;
+	width: 54rem;
+	height: 100vh;
+	overflow: scroll;
+	padding: 3rem 3.5rem;
 
-    img {
-        height: 27rem;
-        object-fit: cover;
-        border-radius: 1rem;
-        margin-bottom: 1.5rem;
-    }
+	img {
+		min-height: 27rem;
+		max-height: 27rem;
+		object-fit: cover;
+		border-radius: 1rem;
+		margin-bottom: 1.5rem;
+	}
 
-    h2, input[type="text"] {
-        font-size: 2rem;
-        font-family: var(--secondary-font);
-        font-weight: 500;
-        margin-bottom: 1rem;
-    }
+	h2,
+	input[type="text"] {
+		font-size: 2rem;
+		font-family: var(--secondary-font);
+		font-weight: 500;
+	}
 
-    p, textarea{
-        font-size: 1.075rem;
-        font-family: var(--primary-font);
-        font-weight: 300;
-        line-height: 160%;
-        margin-bottom: 1rem;
-    }
+	span {
+		text-align: right;
+	}
 
-    .userActions {
-        display: flex;
-        align-self: flex-end;
-        gap: 1rem;
+	input,
+	textarea {
+		color: var(--primary-text);
+		padding: 0.25rem 0.5rem;
+		border: 1px solid var(--primary-text);
+		border-radius: 0.25rem;
+		background-color: var(--primary-background);
+	}
 
-        button {
-            font-size: .75rem;
-            font-weight: 500;
-            padding: 1rem 3rem;
-        }
-    }
+	textarea {
+		margin-top: 1rem;
+		resize: none;
+		min-height: 30vh;
+	}
 
-    .button {
-        height: 2.25rem;
-        font-size: .75rem;
-        font-weight: 500;
-        padding: 0.5rem 1.5rem;
-        align-self: flex-end;
-    }
-}
+	p,
+	textarea {
+		font-size: 1.075rem;
+		font-family: var(--primary-font);
+		font-weight: 300;
+		line-height: 160%;
+		margin-bottom: 1rem;
+	}
 
-.loadingAnimation {
-    background-color: aqua;
+	.userActions {
+		display: flex;
+		align-self: flex-end;
+		gap: 1rem;
+
+		button {
+			font-size: 0.75rem;
+			font-weight: 500;
+			padding: 1rem 3rem;
+		}
+	}
+
+	.button {
+		height: 2.25rem;
+		font-size: 0.75rem;
+		font-weight: 500;
+		padding: 0.5rem 1.5rem;
+		align-self: flex-end;
+	}
 }

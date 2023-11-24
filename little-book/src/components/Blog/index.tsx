@@ -9,7 +9,7 @@ import {
 	toggleEditMode,
 } from "../../actions/blog";
 import Image from "../Image";
-import { useCallback, useMemo, useRef } from "react";
+import { FormEvent, useCallback, useMemo, useState } from "react";
 import { HOME_CONSTANTS } from "../../constants/pageConstants";
 
 /*
@@ -35,8 +35,7 @@ const Blog = (props: BlogProps) => {
 
 	// hook initializations
 	const dispatch = useDispatch();
-	const titleRef = useRef<HTMLInputElement>(null);
-	const detailsRef = useRef<HTMLTextAreaElement>(null);
+	const [content, setContent] = useState({ title: "", details: "" });
 
 	// get redux states
 	const editMode = useSelector(selectBlogEditMode);
@@ -53,19 +52,17 @@ const Blog = (props: BlogProps) => {
 				title: "",
 				details: "",
 			} as BlogData;
+		setContent({ title: blog.title, details: blog.details });
 		return blog;
 	}, [selectedBlog, blogs]);
 
 	const saveContentHandler = useCallback(() => {
 		// Handler to save content of a edited blog
-		const titleValue = titleRef.current?.value;
-		const detailsValue = detailsRef.current?.value;
-
 		// prepare data
 		const blogData = {
 			id: blogDetails?.id,
-			title: titleValue,
-			details: detailsValue,
+			title: content.title,
+			details: content.details,
 			photo: blogDetails?.photo,
 			type: blogDetails?.type,
 		};
@@ -73,11 +70,23 @@ const Blog = (props: BlogProps) => {
 		dispatch(editBlog({ blogData, index: selectedBlog }));
 		// dispatch action to toggle edit mode
 		dispatch(toggleEditMode());
-	}, [blogDetails, dispatch, selectedBlog]);
+	}, [blogDetails, dispatch, selectedBlog, content]);
 
 	const toggleEditModeHandler = useCallback(() => {
 		dispatch(toggleEditMode());
 	}, [dispatch]);
+
+	const onChangeHandler = (
+		event: FormEvent<HTMLInputElement | HTMLTextAreaElement>
+	) => {
+		const name = event.currentTarget.name;
+		const value = event.currentTarget.value;
+		console.log("length", value.length);
+		if (name === "title" && value.length > 64) return;
+		setContent((state) => {
+			return { ...state, [name]: value };
+		});
+	};
 
 	const { photo = "", title, details } = blogDetails;
 
@@ -91,14 +100,19 @@ const Blog = (props: BlogProps) => {
 				<>
 					<input
 						type="text"
-						ref={titleRef}
+						name="title"
 						placeholder="Name your blog"
-						defaultValue={title}
+						value={content.title}
+						onChange={onChangeHandler}
 					/>
+					<span>
+						Remaining characters: {64 - content.title.length}
+					</span>
 					<textarea
-						ref={detailsRef}
+						name="details"
 						placeholder="Write Content Here"
-						defaultValue={details}
+						value={content.details}
+						onChange={onChangeHandler}
 					></textarea>
 				</>
 			) : (
