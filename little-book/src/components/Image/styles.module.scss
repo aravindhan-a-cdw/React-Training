@@ -30,6 +30,13 @@
 	}
 }
 
+img {
+	&.shimmerEffect {
+		opacity: 0.2;
+		background-color: #000;
+	}
+}
+
 .shimmerEffect {
 	color: grey;
 	display: inline-block;
