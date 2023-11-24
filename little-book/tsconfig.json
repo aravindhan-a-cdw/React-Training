@@ -22,10 +22,11 @@
 
     /* My configs */
     "esModuleInterop": true,
+    "allowJs": true
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }],
   "transform": {
     "^.+\\.(t|j)sx?$": "ts-jest",
-  }
+  },
 }
