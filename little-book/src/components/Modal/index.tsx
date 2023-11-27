@@ -2,6 +2,7 @@ import { useSelector } from "react-redux";
 import styles from "./styles.module.scss";
 import { selectDarkMode } from "../../actions/darkMode";
 import { SyntheticEvent, useRef } from "react";
+import Button from "../Button";
 
 /*
 	@author Aravindhan A
@@ -10,12 +11,27 @@ import { SyntheticEvent, useRef } from "react";
 
 type ModalProps = {
 	closeModalHandler: () => void;
-	children: React.ReactNode;
+	header: string;
+	body: string;
+	primaryButtonText: string;
+	secondaryButtonText: string;
+	primaryButtonHandler: () => void;
+	secondaryButtonHandler: () => void;
 };
 
 const Modal = (props: ModalProps) => {
 	// props destructuring
-	const { closeModalHandler, children } = props;
+	const {
+		closeModalHandler,
+		header,
+		body,
+		primaryButtonText,
+		secondaryButtonText,
+		primaryButtonHandler,
+		secondaryButtonHandler,
+	} = props;
+
+	console.log(primaryButtonText, secondaryButtonText);
 
 	// get states from stores
 	const darkMode = useSelector(selectDarkMode);
@@ -36,7 +52,31 @@ const Modal = (props: ModalProps) => {
 				darkMode ? styles.dark : ""
 			}`}
 		>
-			<div className={styles.modal}>{children}</div>
+			<div className={styles.modal}>
+				<div className={styles.modalHeader}>
+					<h6>{header}</h6>
+					<span onClick={closeModalHandler}>x</span>
+				</div>
+				<div className={styles.modalBody}>
+					<p>{body}</p>
+				</div>
+				<div className={styles.modalFooter}>
+					<div className={styles.buttons}>
+						<Button
+							clickHandler={primaryButtonHandler}
+							type="primary"
+						>
+							{primaryButtonText}
+						</Button>
+						<Button
+							clickHandler={secondaryButtonHandler}
+							type="secondary"
+						>
+							{secondaryButtonText}
+						</Button>
+					</div>
+				</div>
+			</div>
 		</div>
 	);
 };

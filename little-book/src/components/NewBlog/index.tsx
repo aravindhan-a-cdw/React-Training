@@ -94,28 +94,15 @@ const NewBlog = () => {
 			</Button>
 			{showConfirmationModal && (
 				// Show the Confirmation model based on state
-				<Modal closeModalHandler={closeConfirmationModalHandler}>
-					<div className={styles.modalHeader}>
-						<h6>{HOME_CONSTANTS.MODAL_TITLE_CONFIRM}</h6>
-					</div>
-					<div className={styles.modalBody}>
-						<h5>{HOME_CONSTANTS.MODAL_CONFIRM_MESSAGE}</h5>
-						<div className={styles.buttons}>
-							<Button
-								clickHandler={discardAddingHandler}
-								type="primary"
-							>
-								{HOME_CONSTANTS.MODAL_CONFIRM_YES}
-							</Button>
-							<Button
-								clickHandler={continueAddingHandler}
-								type="secondary"
-							>
-								{HOME_CONSTANTS.MODAL_CONFIRM_NO}
-							</Button>
-						</div>
-					</div>
-				</Modal>
+				<Modal
+					closeModalHandler={closeConfirmationModalHandler}
+					header={HOME_CONSTANTS.MODAL_TITLE_CONFIRM}
+					body={HOME_CONSTANTS.MODAL_CONFIRM_MESSAGE}
+					primaryButtonText={HOME_CONSTANTS.MODAL_CONFIRM_YES}
+					secondaryButtonText={HOME_CONSTANTS.MODAL_CONFIRM_NO}
+					primaryButtonHandler={continueAddingHandler}
+					secondaryButtonHandler={discardAddingHandler}
+				/>
 			)}
 		</div>
 	);

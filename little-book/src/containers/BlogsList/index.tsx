@@ -119,28 +119,15 @@ const BlogsList = () => {
 			</div>
 			<div className={styles.blogs}>{blogElements}</div>
 			{showModal && (
-				<Modal closeModalHandler={() => setShowModal(false)}>
-					<div className={styles.modalHeader}>
-						<h6>{HOME_CONSTANTS.MODAL_TITLE_CONFIRM}</h6>
-					</div>
-					<div className={styles.modalBody}>
-						<h5>{HOME_CONSTANTS.MODAL_CONFIRM_MESSAGE}</h5>
-						<div className={styles.buttons}>
-							<Button
-								clickHandler={discardChanges}
-								type="primary"
-							>
-								{HOME_CONSTANTS.MODAL_CONFIRM_YES}
-							</Button>
-							<Button
-								clickHandler={continueEditing}
-								type="secondary"
-							>
-								{HOME_CONSTANTS.MODAL_CONFIRM_NO}
-							</Button>
-						</div>
-					</div>
-				</Modal>
+				<Modal
+					closeModalHandler={() => setShowModal(false)}
+					header={HOME_CONSTANTS.MODAL_TITLE_CONFIRM}
+					body={HOME_CONSTANTS.MODAL_CONFIRM_MESSAGE}
+					primaryButtonText={HOME_CONSTANTS.MODAL_CONFIRM_YES}
+					secondaryButtonText={HOME_CONSTANTS.MODAL_CONFIRM_NO}
+					primaryButtonHandler={discardChanges}
+					secondaryButtonHandler={continueEditing}
+				/>
 			)}
 		</div>
 	);
