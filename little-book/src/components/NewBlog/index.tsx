@@ -24,6 +24,7 @@ const NewBlog = () => {
 	const inputRef = useRef<HTMLInputElement>(null);
 	const textareaRef = useRef<HTMLTextAreaElement>(null);
 	const [showConfirmationModal, setShowConfirmationModal] = useState(false);
+	const [addDisabled, setAddDisabled] = useState(true);
 
 	// get state from stores
 	const clickedOutsideModal = useSelector(selectClickOutsideModal);
@@ -77,6 +78,15 @@ const NewBlog = () => {
 		dispatch(closeModal()); // It sets the clickOutsideModal to false implicity - so doesn't trigger the confirmation modal
 	};
 
+	const keyUpHandler = () => {
+		if (
+			inputRef.current?.value.trim() !== "" &&
+			textareaRef.current?.value.trim() !== ""
+		) {
+			setAddDisabled(false);
+		}
+	};
+
 	return (
 		<div className={styles.newBlogContainer}>
 			<h3>{HOME_CONSTANTS.NEW_BLOG}</h3>
@@ -84,12 +94,18 @@ const NewBlog = () => {
 				ref={inputRef}
 				placeholder={HOME_CONSTANTS.NEW_BLOG_TITLE_PLACEHOLDER}
 				type="text"
+				onKeyUp={keyUpHandler}
 			/>
 			<textarea
 				ref={textareaRef}
 				placeholder={HOME_CONSTANTS.NEW_BLOG_CONTENT_PLACEHOLDER}
+				onKeyUp={keyUpHandler}
 			></textarea>
-			<Button clickHandler={addHandler} className={styles.addButton}>
+			<Button
+				clickHandler={addHandler}
+				disabled={addDisabled}
+				className={styles.addButton}
+			>
 				{HOME_CONSTANTS.ADD}
 			</Button>
 			{showConfirmationModal && (

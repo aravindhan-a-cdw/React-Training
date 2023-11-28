@@ -11,12 +11,20 @@ type ButtonProps = {
 	type?: "primary" | "secondary";
 	className?: string;
 	clickHandler?: () => void;
+	disabled?: boolean;
 };
 
 const Button = React.memo((props: ButtonProps) => {
-	const { children, type = "primary", className = "", clickHandler } = props;
+	const {
+		children,
+		type = "primary",
+		className = "",
+		clickHandler,
+		disabled,
+	} = props;
 	return (
 		<button
+			disabled={disabled}
 			onClick={clickHandler}
 			className={`${styles[type]} ${className}`}
 		>
