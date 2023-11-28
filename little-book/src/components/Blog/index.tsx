@@ -67,7 +67,7 @@ const Blog = (props: BlogProps) => {
 			type: blogDetails?.type,
 		};
 		// dispatch action to save edited blog with prepared data
-		dispatch(editBlog({ blogData, index: selectedBlog }));
+		dispatch(editBlog({ blogData, id: selectedBlog }));
 		// dispatch action to toggle edit mode
 		dispatch(toggleEditMode());
 	}, [blogDetails, dispatch, selectedBlog, content]);

@@ -100,8 +100,8 @@ const NewBlog = () => {
 					body={HOME_CONSTANTS.MODAL_CONFIRM_MESSAGE}
 					primaryButtonText={HOME_CONSTANTS.MODAL_CONFIRM_YES}
 					secondaryButtonText={HOME_CONSTANTS.MODAL_CONFIRM_NO}
-					primaryButtonHandler={continueAddingHandler}
-					secondaryButtonHandler={discardAddingHandler}
+					primaryButtonHandler={discardAddingHandler}
+					secondaryButtonHandler={continueAddingHandler}
 				/>
 			)}
 		</div>

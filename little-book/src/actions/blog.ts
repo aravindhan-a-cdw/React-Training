@@ -53,8 +53,14 @@ const blogSlice = createSlice({
 			state.selectedBlog = action.payload;
 		},
 		editBlog: (state, action) => {
+			console.log(action);
 			// To edit a blog
-			state.blogs[action.payload.index] = action.payload.blogData;
+			const index = state.blogs.findIndex(
+				(data) => data.id === action.payload.id
+			);
+			if (index !== -1) {
+				state.blogs[index] = action.payload.blogData;
+			}
 		},
 		addBlog: (state, action: { type: string; payload: BlogData }) => {
 			// To add a new blog in the blogs list
