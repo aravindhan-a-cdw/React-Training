@@ -15,7 +15,6 @@ const CheckBox = (props: CheckBoxProps) => {
 	const { name, clickHandler, checked = true } = props;
 
 	const onClickHandler = () => {
-		console.log("clicked", "Current Checked value", checked);
 		if (clickHandler) clickHandler(name, !checked);
 	};
 

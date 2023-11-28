@@ -81,7 +81,6 @@ const Blog = (props: BlogProps) => {
 	) => {
 		const name = event.currentTarget.name;
 		const value = event.currentTarget.value;
-		console.log("length", value.length);
 		if (name === "title" && value.length > 64) return;
 		setContent((state) => {
 			return { ...state, [name]: value };
