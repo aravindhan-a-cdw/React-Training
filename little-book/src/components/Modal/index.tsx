@@ -31,8 +31,6 @@ const Modal = (props: ModalProps) => {
 		secondaryButtonHandler,
 	} = props;
 
-	console.log(primaryButtonText, secondaryButtonText);
-
 	// get states from stores
 	const darkMode = useSelector(selectDarkMode);
 
