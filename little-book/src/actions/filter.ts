@@ -20,13 +20,9 @@ const filterSlice = createSlice({
 			const filterIndex = state.types.indexOf(filter);
 			if (action.payload.include) {
 				if (filterIndex === -1) state.types.push(filter);
-				else console.debug("Filter already exists, so not adding it.");
 			} else {
-				console.debug(`Removing ${filter} from index ${filterIndex}`);
 				if (filterIndex !== -1) {
 					state.types.splice(filterIndex, 1);
-				} else {
-					console.debug("Filter doesn't exist, so not removing it");
 				}
 			}
 		},

@@ -4,6 +4,8 @@
 */
 
 const HOME_CONSTANTS = {
+	LITTLE: "Little",
+	BOOK: "Book",
 	FILTER_TITLE: "Filter",
 	FILTERS: ["Regional", "National", "International"],
 	SEARCH_PLACEHOLDER: "Search Blogs",
@@ -12,6 +14,9 @@ const HOME_CONSTANTS = {
 	LIGHT_MODE: "Switch to Light Mode",
 	NEW: "New",
 	ADD: "Add",
+	NO_BLOG_MESSAGE: "No blog to show",
+	TITLE_LENGTH: 64,
+	TITLE_REMAINING_CHARACTERS: "Remaining characters:",
 	NEW_BLOG_TITLE_PLACEHOLDER: "Name your blog",
 	NEW_BLOG_CONTENT_PLACEHOLDER: "Write Content Here ..",
 	NEW_BLOG: "Add New Blog",
@@ -20,7 +25,12 @@ const HOME_CONSTANTS = {
 	MODAL_CONFIRM_YES: "Yes",
 	MODAL_CONFIRM_NO: "No",
 	EDIT_CONTENT: "Edit Content",
+	CANCEL: "Cancel",
+	SAVE_CONTENT: "Save Content",
 	MEMBERS_TITLE: "Members",
+	MODAL_CLOSE: "x",
+	BLOG_TYPE_LOCAL: "Local",
+	LOADING_TEXT: "Loading...",
 };
 
 export { HOME_CONSTANTS };

@@ -47,7 +47,11 @@ const MembersList = () => {
 
 	if (isLoading) {
 		// loading content
-		return <div className={styles.loadingContainer}>Loading...</div>;
+		return (
+			<div className={styles.loadingContainer}>
+				{HOME_CONSTANTS.LOADING_TEXT}
+			</div>
+		);
 	}
 
 	return (

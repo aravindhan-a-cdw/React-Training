@@ -19,7 +19,7 @@ type BlogSummaryProps = {
 const BlogSummary = React.memo((props: BlogSummaryProps) => {
 	const { id, title, details, type, clickHandler, selected = false } = props;
 
-	const onClickHandler = () => {
+	const blogSelectHandler = () => {
 		// do nothing when user clicks on the selected blog
 		if (selected) return;
 
@@ -28,7 +28,7 @@ const BlogSummary = React.memo((props: BlogSummaryProps) => {
 
 	return (
 		<div
-			onClick={onClickHandler}
+			onClick={blogSelectHandler}
 			className={`${styles.blogSummaryContainer} ${
 				selected ? styles.selected : ""
 			}`}

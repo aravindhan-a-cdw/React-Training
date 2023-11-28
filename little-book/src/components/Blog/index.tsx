@@ -72,16 +72,26 @@ const Blog = (props: BlogProps) => {
 		dispatch(toggleEditMode());
 	}, [blogDetails, dispatch, selectedBlog, content]);
 
+	/**
+	 * This is a handler to switch edit mode of blog.
+	 */
 	const toggleEditModeHandler = useCallback(() => {
 		dispatch(toggleEditMode());
 	}, [dispatch]);
 
-	const onChangeHandler = (
+	/**
+	 * Gets the event of HTMLInputElement and HTMLTextAreaElement and checks if the element has the name as "title" and
+	 * its length doesn't exceed 64 characters and sets the content to the state of the component.
+	 *
+	 * @param {FormEvent<HTMLInputElement | HTMLTextAreaElement>} event The number to raise.
+	 */
+	const blogDataChangeHandler = (
 		event: FormEvent<HTMLInputElement | HTMLTextAreaElement>
 	) => {
 		const name = event.currentTarget.name;
 		const value = event.currentTarget.value;
-		if (name === "title" && value.length > 64) return;
+		if (name === "title" && value.length > HOME_CONSTANTS.TITLE_LENGTH)
+			return;
 		setContent((state) => {
 			return { ...state, [name]: value };
 		});
@@ -89,7 +99,8 @@ const Blog = (props: BlogProps) => {
 
 	const { photo = "", title, details } = blogDetails;
 
-	if (selectedBlog === null) return <div>No blog to show</div>;
+	if (selectedBlog === null)
+		return <div>{HOME_CONSTANTS.NO_BLOG_MESSAGE}</div>;
 
 	return (
 		<div className={`${styles.blogContainer} ${className}`}>
@@ -102,16 +113,17 @@ const Blog = (props: BlogProps) => {
 						name="title"
 						placeholder="Name your blog"
 						value={content.title}
-						onChange={onChangeHandler}
+						onChange={blogDataChangeHandler}
 					/>
 					<span>
-						Remaining characters: {64 - content.title.length}
+						{HOME_CONSTANTS.TITLE_REMAINING_CHARACTERS}{" "}
+						{HOME_CONSTANTS.TITLE_LENGTH - content.title.length}
 					</span>
 					<textarea
 						name="details"
 						placeholder="Write Content Here"
 						value={content.details}
-						onChange={onChangeHandler}
+						onChange={blogDataChangeHandler}
 					></textarea>
 				</>
 			) : (
@@ -127,10 +139,10 @@ const Blog = (props: BlogProps) => {
 						clickHandler={toggleEditModeHandler}
 						type="secondary"
 					>
-						Cancel
+						{HOME_CONSTANTS.CANCEL}
 					</Button>
 					<Button clickHandler={saveContentHandler}>
-						Save Content
+						{HOME_CONSTANTS.SAVE_CONTENT}
 					</Button>
 				</div>
 			) : (

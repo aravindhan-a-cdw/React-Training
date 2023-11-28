@@ -2,6 +2,7 @@ import { useSelector } from "react-redux";
 import styles from "./styles.module.scss";
 import { selectDarkMode } from "../../actions/darkMode";
 import React from "react";
+import { HOME_CONSTANTS } from "../../constants/pageConstants";
 
 /*
 	@author Aravindhan A
@@ -22,7 +23,7 @@ const Logo = React.memo((props: LogoProps) => {
 				darkMode ? styles.dark : ""
 			}`}
 		>
-			<span>Little</span> Book
+			<span>{HOME_CONSTANTS.LITTLE}</span> {HOME_CONSTANTS.BOOK}
 		</div>
 	);
 });

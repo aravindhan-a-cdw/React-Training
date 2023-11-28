@@ -106,6 +106,17 @@ const BlogsList = () => {
 		);
 	});
 
+	const modalFooter = (
+		<div className={styles.buttons}>
+			<Button clickHandler={discardChanges} type="primary">
+				{HOME_CONSTANTS.MODAL_CONFIRM_YES}
+			</Button>
+			<Button clickHandler={continueEditing} type="secondary">
+				{HOME_CONSTANTS.MODAL_CONFIRM_NO}
+			</Button>
+		</div>
+	);
+
 	return (
 		<div className={styles.container}>
 			<div className={styles.header}>
@@ -123,10 +134,7 @@ const BlogsList = () => {
 					closeModalHandler={() => setShowModal(false)}
 					header={HOME_CONSTANTS.MODAL_TITLE_CONFIRM}
 					body={HOME_CONSTANTS.MODAL_CONFIRM_MESSAGE}
-					primaryButtonText={HOME_CONSTANTS.MODAL_CONFIRM_YES}
-					secondaryButtonText={HOME_CONSTANTS.MODAL_CONFIRM_NO}
-					primaryButtonHandler={discardChanges}
-					secondaryButtonHandler={continueEditing}
+					footer={modalFooter}
 				/>
 			)}
 		</div>

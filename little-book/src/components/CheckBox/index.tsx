@@ -14,14 +14,14 @@ type CheckBoxProps = {
 const CheckBox = (props: CheckBoxProps) => {
 	const { name, clickHandler, checked = true } = props;
 
-	const onClickHandler = () => {
+	const onChangeHandler = () => {
 		if (clickHandler) clickHandler(name, !checked);
 	};
 
 	return (
 		<input
 			name={name}
-			onChange={onClickHandler}
+			onChange={onChangeHandler}
 			className={`${styles.checkbox} ${styles.checked}`}
 			type="checkbox"
 			checked={checked}

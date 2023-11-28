@@ -53,7 +53,7 @@ const NewBlog = () => {
 			id: uuidv4(),
 			title: titleValue,
 			details: detailValue,
-			type: "Local",
+			type: HOME_CONSTANTS.BLOG_TYPE_LOCAL,
 		};
 		dispatch(addBlog(blogData));
 		dispatch(toggleFilter({ type: blogData.type, include: true }));
@@ -87,6 +87,17 @@ const NewBlog = () => {
 		}
 	};
 
+	const modalFooter = (
+		<div className={styles.buttons}>
+			<Button clickHandler={discardAddingHandler} type="primary">
+				{HOME_CONSTANTS.MODAL_CONFIRM_YES}
+			</Button>
+			<Button clickHandler={continueAddingHandler} type="secondary">
+				{HOME_CONSTANTS.MODAL_CONFIRM_NO}
+			</Button>
+		</div>
+	);
+
 	return (
 		<div className={styles.newBlogContainer}>
 			<h3>{HOME_CONSTANTS.NEW_BLOG}</h3>
@@ -114,10 +125,7 @@ const NewBlog = () => {
 					closeModalHandler={closeConfirmationModalHandler}
 					header={HOME_CONSTANTS.MODAL_TITLE_CONFIRM}
 					body={HOME_CONSTANTS.MODAL_CONFIRM_MESSAGE}
-					primaryButtonText={HOME_CONSTANTS.MODAL_CONFIRM_YES}
-					secondaryButtonText={HOME_CONSTANTS.MODAL_CONFIRM_NO}
-					primaryButtonHandler={discardAddingHandler}
-					secondaryButtonHandler={continueAddingHandler}
+					footer={modalFooter}
 				/>
 			)}
 		</div>

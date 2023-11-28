@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { AppState } from "../store";
+import { getAvailableTypes } from "../utils/filter_utils";
 
 /*
 	@author Aravindhan A
@@ -26,16 +27,6 @@ const initialState = {
 	selectedBlog: null,
 	editMode: false,
 	availableTypes: [],
-};
-
-const getAvailableTypes = (blogs: Array<BlogData>) => {
-	const newTypes: Array<string> = [];
-	blogs.forEach((blog) => {
-		if (!newTypes.includes(blog.type)) {
-			newTypes.push(blog.type);
-		}
-	});
-	return newTypes;
 };
 
 const blogSlice = createSlice({

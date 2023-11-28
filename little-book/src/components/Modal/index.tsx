@@ -2,7 +2,8 @@ import { useSelector } from "react-redux";
 import styles from "./styles.module.scss";
 import { selectDarkMode } from "../../actions/darkMode";
 import { SyntheticEvent, useRef } from "react";
-import Button from "../Button";
+import { HOME_CONSTANTS } from "../../constants/pageConstants";
+// import Button from "../Button";
 
 /*
 	@author Aravindhan A
@@ -11,25 +12,14 @@ import Button from "../Button";
 
 type ModalProps = {
 	closeModalHandler: () => void;
-	header: string;
-	body: string;
-	primaryButtonText: string;
-	secondaryButtonText: string;
-	primaryButtonHandler: () => void;
-	secondaryButtonHandler: () => void;
+	header: React.ReactNode;
+	body: React.ReactNode;
+	footer: React.ReactNode;
 };
 
 const Modal = (props: ModalProps) => {
 	// props destructuring
-	const {
-		closeModalHandler,
-		header,
-		body,
-		primaryButtonText,
-		secondaryButtonText,
-		primaryButtonHandler,
-		secondaryButtonHandler,
-	} = props;
+	const { closeModalHandler, header, body, footer } = props;
 
 	// get states from stores
 	const darkMode = useSelector(selectDarkMode);
@@ -53,27 +43,14 @@ const Modal = (props: ModalProps) => {
 			<div className={styles.modal}>
 				<div className={styles.modalHeader}>
 					<h6>{header}</h6>
-					<span onClick={closeModalHandler}>x</span>
+					<span onClick={closeModalHandler}>
+						{HOME_CONSTANTS.MODAL_CLOSE}
+					</span>
 				</div>
 				<div className={styles.modalBody}>
 					<p>{body}</p>
 				</div>
-				<div className={styles.modalFooter}>
-					<div className={styles.buttons}>
-						<Button
-							clickHandler={primaryButtonHandler}
-							type="primary"
-						>
-							{primaryButtonText}
-						</Button>
-						<Button
-							clickHandler={secondaryButtonHandler}
-							type="secondary"
-						>
-							{secondaryButtonText}
-						</Button>
-					</div>
-				</div>
+				<div className={styles.modalFooter}>{footer}</div>
 			</div>
 		</div>
 	);

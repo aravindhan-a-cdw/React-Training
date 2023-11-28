@@ -1,58 +1,47 @@
 .container {
-    flex: 0 0 33.5%;
+	flex: 0 0 33.5%;
 
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    background-color: var(--secondary-background);
-    padding: 2rem 2rem;
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+	background-color: var(--secondary-background);
+	padding: 2rem 2rem;
 
-    height: 100vh;
+	height: 100vh;
 
-    .header {
-        display: flex;
-        width: 100%;
-        justify-content: space-between;
+	.header {
+		display: flex;
+		width: 100%;
+		justify-content: space-between;
 
-        .search {
-            flex: 0 0 70%;
-        }
-    }
+		.search {
+			flex: 0 0 70%;
+		}
+	}
 
-    .blogs {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
+	.blogs {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
 
-        overflow: scroll;
+		overflow: scroll;
 
-        -ms-overflow-style: none;  /* IE and Edge */
-        scrollbar-width: none;  /* Firefox */
-        &::-webkit-scrollbar {
-            display: none;
-          }
-    }
+		-ms-overflow-style: none; /* IE and Edge */
+		scrollbar-width: none; /* Firefox */
+		&::-webkit-scrollbar {
+			display: none;
+		}
+	}
 
-    .modalHeader {
-        font-size: 2rem;
-        margin-bottom: 1rem;
-        padding-bottom: .5rem;
-        border-bottom: 1px solid var(--primary-text);
-    }
+	.buttons {
+		display: flex;
+		justify-content: end;
+		gap: 1rem;
+		margin-top: 1rem;
 
-    .modalBody {
-        font-size: 1.2rem;
-
-        .buttons {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-top: 1rem;
-
-            & > button {
-                font-size: 1rem;
-                padding: 1rem 3rem;
-            }
-        }
-    }
+		& > button {
+			font-size: 0.8rem;
+			padding: 0.5rem 2rem;
+		}
+	}
 }
