@@ -17,6 +17,11 @@ type ModalProps = {
 	footer: React.ReactNode;
 };
 
+/**
+ * This is a functional component which renders a modal in the middle of the page.
+ *
+ * @param {ModalProps} props The props to should contain closeModalHandler, header, body and footer.
+ */
 const Modal = (props: ModalProps) => {
 	// props destructuring
 	const { closeModalHandler, header, body, footer } = props;

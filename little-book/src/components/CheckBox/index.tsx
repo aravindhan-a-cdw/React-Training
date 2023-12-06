@@ -11,6 +11,11 @@ type CheckBoxProps = {
 	@description This component renders a custom checkbox.
 */
 
+/**
+ * This is a functional component which renders a custom checkbox.
+ *
+ * @param {CheckBoxProps} props The props to should contain name and clickHandler.
+ */
 const CheckBox = (props: CheckBoxProps) => {
 	const { name, clickHandler, checked = true } = props;
 

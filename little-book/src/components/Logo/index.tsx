@@ -13,6 +13,11 @@ type LogoProps = {
 	className?: string;
 };
 
+/**
+ * This is a memoized functional component which renders the logo of the application.
+ *
+ * @param {LogoProps} props The props that were defined by the caller of this component.
+ */
 const Logo = React.memo((props: LogoProps) => {
 	const darkMode = useSelector(selectDarkMode);
 

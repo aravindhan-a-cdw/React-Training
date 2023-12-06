@@ -18,6 +18,9 @@ type BlogData = {
 	photo?: string;
 };
 
+/**
+ * This is a functional component which renders the home page of the application.
+ */
 const Home = () => {
 	// load page data from router
 	const data = useLoaderData() as Array<BlogData>;

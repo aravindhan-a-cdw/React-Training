@@ -14,6 +14,11 @@ type SearchBarProps = {
 	className?: string;
 };
 
+/**
+ * This is a memoized functional component which renders a search bar for user to input search query.
+ *
+ * @param {SearchBarProps} props The props that were defined by the caller of this component.
+ */
 const SearchBar = React.memo((props: SearchBarProps) => {
 	// prop destructuring
 	const { placeholder, className = "" } = props;

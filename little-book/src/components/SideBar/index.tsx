@@ -14,6 +14,9 @@ import { selectAvailableTypes } from "../../actions/blog";
 	@description This component renders the side bar or the section with logo filters and theme selection options.
 */
 
+/**
+ * This is a functional component which renders the side bar or the section with logo filters and theme selection options.
+ */
 const SideBar = () => {
 	// hook initialization
 	const dispatch = useDispatch();
@@ -35,7 +38,7 @@ const SideBar = () => {
 		return (
 			<BlogType
 				type={filter}
-				onSelect={memoizedCheckboxClickHandler}
+				onBlogTypeSelect={memoizedCheckboxClickHandler}
 				selected={checked}
 				key={index}
 			/>

@@ -29,6 +29,11 @@ type BlogData = {
 	type?: string;
 };
 
+/**
+ * This is a functional component that renders the detailed blog with Image and details with ability to edit the blog.
+ *
+ * @param {BlogProps} props - The props that were defined by the caller of this component.
+ */
 const Blog = (props: BlogProps) => {
 	// prop destructuring
 	const { className = "" } = props;
@@ -83,7 +88,7 @@ const Blog = (props: BlogProps) => {
 	 * Gets the event of HTMLInputElement and HTMLTextAreaElement and checks if the element has the name as "title" and
 	 * its length doesn't exceed 64 characters and sets the content to the state of the component.
 	 *
-	 * @param {FormEvent<HTMLInputElement | HTMLTextAreaElement>} event The number to raise.
+	 * @param {FormEvent<HTMLInputElement | HTMLTextAreaElement>} event The event of HTMLInputElement and HTMLTextAreaElement
 	 */
 	const blogDataChangeHandler = (
 		event: FormEvent<HTMLInputElement | HTMLTextAreaElement>

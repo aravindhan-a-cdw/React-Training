@@ -14,6 +14,11 @@ type ImageProps = {
 	@description This component renders image with a fallback image.
 */
 
+/**
+ * This is a functional component which renders image with a fallback image.
+ *
+ * @param {ImageProps} props The properties of the image to be passed to the component.
+ */
 const Image = (props: ImageProps) => {
 	// props destructuring
 	const { src, alt, fallbackSrc = fallbackImage, onImageLoaded } = props;

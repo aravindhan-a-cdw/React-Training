@@ -18,6 +18,11 @@ type MemberProps = {
 	};
 };
 
+/**
+ * This is a functional component which renders the member card of a person.
+ *
+ * @param {MemberProps} props The props that were defined by the caller of this component.
+ */
 const MemberCard = (props: MemberProps) => {
 	const darkMode = useSelector(selectDarkMode);
 

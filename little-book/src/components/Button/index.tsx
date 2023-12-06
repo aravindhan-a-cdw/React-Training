@@ -14,6 +14,11 @@ type ButtonProps = {
 	disabled?: boolean;
 };
 
+/**
+ * This is a memoized functional component which renders the button with variants primary and secondary.
+ *
+ * @param {ButtonProps} props The properties of the button to be passed to the component.
+ */
 const Button = React.memo((props: ButtonProps) => {
 	const {
 		children,

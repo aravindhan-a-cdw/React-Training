@@ -11,6 +11,9 @@ import { SyntheticEvent, useRef } from "react";
 import NewBlog from "../NewBlog";
 import { selectDarkMode } from "../../actions/darkMode";
 
+/**
+ * This component renders the SideModal.
+ */
 const SideModal = () => {
 	// hooks initialization
 	const dispatch = useDispatch();

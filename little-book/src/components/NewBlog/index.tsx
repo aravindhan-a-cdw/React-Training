@@ -18,6 +18,9 @@ import { toggleFilter } from "../../actions/filter";
 	@description This component renders the fields when creating a new blog. This will be used in SideModal.
 */
 
+/**
+ * This is a functional component which renders the fields when creating a new blog. This will be used in SideModal.
+ */
 const NewBlog = () => {
 	// initialize states and hooks
 	const dispatch = useDispatch();
