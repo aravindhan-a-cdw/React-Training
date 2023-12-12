@@ -1,0 +1,24 @@
+
+.searchBar {
+
+    padding: 1rem 1.5rem;
+    background-color: var(--search-bar-background);
+    border-radius: 3rem;
+    color: #95969A;
+    font-family: var(--primary-font);
+    font-weight: 400;
+
+    &:focus-visible {
+        outline: none;
+    }
+
+    &::-webkit-input-placeholder {
+        font-weight: 300;
+    }
+    &::-moz-placeholder {
+        font-weight: 300;
+    }
+    &::-ms-input-placeholder {
+        font-weight: 300;
+    }
+}

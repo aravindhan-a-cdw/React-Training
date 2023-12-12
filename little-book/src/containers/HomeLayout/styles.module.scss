@@ -1,0 +1,21 @@
+.container {
+	display: flex;
+	background-color: var(--primary-background);
+	color: var(--primary-text);
+}
+
+.dark {
+	/* Text Colors */
+	--primary-color: #b355b7;
+	--primary-text: #fff;
+
+	/* Background */
+	--primary-background: #041d2e;
+	--secondary-background: #000000;
+	--primary-dark-background: #021929;
+
+	/* Component Colors */
+	--search-bar-background: #041d2e;
+	--blog-summary-background: #042b46;
+	--text-pink: #fff;
+}

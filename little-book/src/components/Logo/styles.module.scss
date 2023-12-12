@@ -1,0 +1,16 @@
+.logo {
+    color: #111;
+    font-size: 1.75rem;
+    font-family: var(--secondary-font);
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    span {
+        font-weight: 400;
+        color: var(--text-pink);
+    }
+
+    &.dark {
+        color: #fff;
+    }
+}

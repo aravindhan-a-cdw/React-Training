@@ -1,0 +1,30 @@
+.memberContainer {
+    flex: 0 0 30%;
+    display: flex;
+    flex-direction: column;
+    font-family: var(--primary-font);
+    font-size: .9rem;
+    font-weight: 400;
+    gap: .15rem;
+
+    .name {
+        color: var(--text-pink);
+    }
+
+    .location {
+        font-size: .8rem;
+        color: #111111;
+    }
+
+    img{
+        min-height: 9.5rem;
+        object-fit: cover;
+        border-radius: 1rem 1rem 1rem 0;
+    }
+
+    &.dark {
+        .location {
+            color: #B1B4B5;
+        }
+    }
+}

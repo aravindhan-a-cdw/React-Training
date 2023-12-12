@@ -1,0 +1,18 @@
+.checkbox {
+    color: var(--primary-btn-color);
+    height: 1.3rem;
+    width: 1.3rem;
+    appearance: none;
+    accent-color: var(--primary-color);
+    line-height: normal;
+    border: 1px solid var(--primary-btn-color);
+    border-radius: .25rem;
+}
+
+input[type=checkbox]:checked.checkbox {
+    content: "";
+    border-radius: 3px;
+    border: 1px solid var(--primary-btn-color);
+    background: var(--primary-btn-color) url("../../assets/tick.svg") no-repeat center;
+    background-size: 12px;
+  }
