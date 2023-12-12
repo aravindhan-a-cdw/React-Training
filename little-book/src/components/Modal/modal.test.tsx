@@ -18,10 +18,12 @@ describe("Button Renders text", () => {
 				<Modal
 					header="Title"
 					body="Content"
-					primaryButtonText="Ok"
-					secondaryButtonText="Cancel"
-					primaryButtonHandler={okMockHandler}
-					secondaryButtonHandler={noMockHandler}
+					footer={
+						<>
+							<button onClick={okMockHandler}>Ok</button>
+							<button onClick={noMockHandler}>No</button>
+						</>
+					}
 					closeModalHandler={closeMockHandler}
 				></Modal>
 			</Provider>
