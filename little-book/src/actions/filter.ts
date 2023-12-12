@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { HOME_CONSTANTS } from "../constants/pageConstants";
 import { AppState } from "../store";
 
 /*
@@ -7,12 +6,14 @@ import { AppState } from "../store";
 	@description This file contains the Redux state and reducers to handle the state of filter and blog types.
 */
 
+export const initialState = {
+	query: "",
+	types: [] as string[],
+};
+
 const filterSlice = createSlice({
 	name: "filter",
-	initialState: {
-		query: "",
-		types: HOME_CONSTANTS.FILTERS,
-	},
+	initialState,
 	reducers: {
 		toggleFilter: (state, action) => {
 			// To toggle a blog type from filter

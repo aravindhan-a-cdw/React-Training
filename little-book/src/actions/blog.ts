@@ -22,14 +22,14 @@ type StateType = {
 	availableTypes: Array<string>;
 };
 
-const initialState = {
+export const initialState = {
 	blogs: [],
 	selectedBlog: null,
 	editMode: false,
 	availableTypes: [],
 };
 
-const blogSlice = createSlice({
+export const blogSlice = createSlice({
 	name: "blog",
 	initialState: initialState as StateType,
 	reducers: {
@@ -50,6 +50,11 @@ const blogSlice = createSlice({
 			);
 			if (index !== -1) {
 				state.blogs[index] = action.payload.blogData;
+				if (
+					!state.availableTypes.includes(action.payload.blogData.type)
+				) {
+					state.availableTypes.push(action.payload.blogData.type);
+				}
 			}
 		},
 		addBlog: (state, action: { type: string; payload: BlogData }) => {

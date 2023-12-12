@@ -6,9 +6,11 @@ import { AppState } from "../store";
 	@description This file contains the Redux state and reducers to handle theme info of the application
 */
 
+export const initialState = false;
+
 const darkModeSlice = createSlice({
 	name: "darkMode",
-	initialState: false,
+	initialState,
 	reducers: {
 		toggleDarkMode: (state) => {
 			// To toggle the theme state

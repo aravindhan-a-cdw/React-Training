@@ -1,14 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { AppState } from "../store";
 
+export const initialState = {
+	viewMembers: false,
+	addNewBlog: false,
+	showModal: false,
+	clickOutsideModal: false,
+};
+
 const userActionSlice = createSlice({
 	name: "userActions",
-	initialState: {
-		viewMembers: false,
-		addNewBlog: false,
-		showModal: false,
-		clickOutsideModal: false,
-	},
+	initialState,
 	reducers: {
 		toggleViewMembers: (state) => {
 			state.viewMembers = !state.viewMembers;
